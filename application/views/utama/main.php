@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url(); ?><?= base_url(); ?>assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url(); ?>assets/images/favicon.png">
     <title>Monster Admin Template - The Most Complete & Trusted Bootstrap 4 Admin Template</title>
     <!-- Bootstrap Core CSS -->
     <link href="<?= base_url(); ?>assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -18,6 +18,8 @@
     <link href="<?= base_url(); ?>assets/plugins/chartist-js/dist/chartist-init.css" rel="stylesheet">
     <link href="<?= base_url(); ?>assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
     <link href="<?= base_url(); ?>assets/plugins/css-chart/css-chart.css" rel="stylesheet">
+    <!-- toast CSS -->
+    <link href="<?= base_url(); ?>assets/plugins/toast-master/css/jquery.toast.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="<?= base_url(); ?>assets/css/style.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->
@@ -43,7 +45,6 @@
         ga('send', 'pageview');
     </script>
 </head>
-
 
 <body class="fix-header fix-sidebar card-no-border">
     <!-- ============================================================== -->
@@ -71,17 +72,17 @@
                         <b>
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
-                            <img src="<?= base_url(); ?>/assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                            <img src="<?= base_url(); ?>assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
                             <!-- Light Logo icon -->
-                            <img src="<?= base_url(); ?>/assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
+                            <img src="<?= base_url(); ?>assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span>
                             <!-- dark Logo text -->
-                            <img src="<?= base_url(); ?>/assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                            <img src="<?= base_url(); ?>assets/images/logo-text.png" alt="homepage" class="dark-logo" />
                             <!-- Light Logo text -->
-                            <img src="<?= base_url(); ?>/assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span> </a>
+                            <img src="<?= base_url(); ?>assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span> </a>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Logo -->
@@ -163,28 +164,28 @@
                                         <div class="message-center">
                                             <!-- Message -->
                                             <a href="#">
-                                                <div class="user-img"> <img src="../assets/images/users/1.jpg" alt="user" class="img-circle"> <span class="profile-status online float-right"></span> </div>
+                                                <div class="user-img"> <img src="<?= base_url(); ?>assets/images/users/1.jpg" alt="user" class="img-circle"> <span class="profile-status online float-right"></span> </div>
                                                 <div class="mail-contnet">
                                                     <h5>Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:30 AM</span>
                                                 </div>
                                             </a>
                                             <!-- Message -->
                                             <a href="#">
-                                                <div class="user-img"> <img src="../assets/images/users/2.jpg" alt="user" class="img-circle"> <span class="profile-status busy float-right"></span> </div>
+                                                <div class="user-img"> <img src="<?= base_url(); ?>assets/images/users/2.jpg" alt="user" class="img-circle"> <span class="profile-status busy float-right"></span> </div>
                                                 <div class="mail-contnet">
                                                     <h5>Sonu Nigam</h5> <span class="mail-desc">I've sung a song! See you at</span> <span class="time">9:10 AM</span>
                                                 </div>
                                             </a>
                                             <!-- Message -->
                                             <a href="#">
-                                                <div class="user-img"> <img src="../assets/images/users/3.jpg" alt="user" class="img-circle"> <span class="profile-status away float-right"></span> </div>
+                                                <div class="user-img"> <img src="<?= base_url(); ?>assets/images/users/3.jpg" alt="user" class="img-circle"> <span class="profile-status away float-right"></span> </div>
                                                 <div class="mail-contnet">
                                                     <h5>Arijit Sinh</h5> <span class="mail-desc">I am a singer!</span> <span class="time">9:08 AM</span>
                                                 </div>
                                             </a>
                                             <!-- Message -->
                                             <a href="#">
-                                                <div class="user-img"> <img src="../assets/images/users/4.jpg" alt="user" class="img-circle"> <span class="profile-status offline float-right"></span> </div>
+                                                <div class="user-img"> <img src="<?= base_url(); ?>assets/images/users/4.jpg" alt="user" class="img-circle"> <span class="profile-status offline float-right"></span> </div>
                                                 <div class="mail-contnet">
                                                     <h5>Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:02 AM</span>
                                                 </div>
@@ -212,13 +213,13 @@
                                         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                                             <div class="carousel-inner" role="listbox">
                                                 <div class="carousel-item active">
-                                                    <div class="container"> <img class="d-block img-fluid" src="../assets/images/big/img1.jpg" alt="First slide"></div>
+                                                    <div class="container"> <img class="d-block img-fluid" src="<?= base_url(); ?>assets/images/big/img1.jpg" alt="First slide"></div>
                                                 </div>
                                                 <div class="carousel-item">
-                                                    <div class="container"><img class="d-block img-fluid" src="../assets/images/big/img2.jpg" alt="Second slide"></div>
+                                                    <div class="container"><img class="d-block img-fluid" src="<?= base_url(); ?>assets/images/big/img2.jpg" alt="Second slide"></div>
                                                 </div>
                                                 <div class="carousel-item">
-                                                    <div class="container"><img class="d-block img-fluid" src="../assets/images/big/img3.jpg" alt="Third slide"></div>
+                                                    <div class="container"><img class="d-block img-fluid" src="<?= base_url(); ?>assets/images/big/img3.jpg" alt="Third slide"></div>
                                                 </div>
                                             </div>
                                             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a>
@@ -309,12 +310,12 @@
                                 <input type="text" class="form-control" placeholder="Search for..."> <a class="srh-btn"><i class="ti-search"></i></a> </form>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/users/1.jpg" alt="user" class="profile-pic" /></a>
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?= base_url(); ?>assets/images/users/1.jpg" alt="user" class="profile-pic" /></a>
                             <div class="dropdown-menu dropdown-menu-right animated flipInY">
                                 <ul class="dropdown-user">
                                     <li>
                                         <div class="dw-user-box">
-                                            <div class="u-img"><img src="../assets/images/users/1.jpg" alt="user"></div>
+                                            <div class="u-img"><img src="<?= base_url(); ?>assets/images/users/1.jpg" alt="user"></div>
                                             <div class="u-text">
                                                 <h4>Steave Jobs</h4>
                                                 <p class="text-muted">varun@gmail.com</p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a>
@@ -604,94 +605,217 @@
                 <!-- Row -->
                 <div class="row">
                     <!-- Column -->
-                    <div class="col-lg-6">
+                    <div class="col-lg-3 col-md-6">
                         <div class="card">
                             <div class="card-body">
-                                <ul class="list-inline float-right">
-                                    <li>
-                                        <h6 class="text-muted"><i class="fa fa-circle mr-1 text-success"></i>2016</h6>
-                                    </li>
-                                    <li>
-                                        <h6 class="text-muted"><i class="fa fa-circle mr-1 text-info"></i>2019</h6>
-                                    </li>
-                                </ul>
-                                <h4 class="card-title">Total Revenue</h4>
-                                <div class="clear"></div>
-                                <div class="total-revenue" style="height: 240px;"></div>
+                                <h4 class="card-title">Daily Sales</h4>
+                                <div class="text-right">
+                                    <h2 class="font-light mb-0"><i class="ti-arrow-up text-success"></i> $120</h2>
+                                    <span class="text-muted">Todays Income</span>
+                                </div>
+                                <span class="text-success">80%</span>
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 80%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <!-- Column -->
-                    <div class="col-lg-6">
-                        <!-- Row -->
+                    <!-- Column -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Weekly Sales</h4>
+                                <div class="text-right">
+                                    <h2 class="font-light mb-0"><i class="ti-arrow-up text-info"></i> $5,000</h2>
+                                    <span class="text-muted">Todays Income</span>
+                                </div>
+                                <span class="text-info">30%</span>
+                                <div class="progress">
+                                    <div class="progress-bar bg-info" role="progressbar" style="width: 30%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Monthly Sales</h4>
+                                <div class="text-right">
+                                    <h2 class="font-light mb-0"><i class="ti-arrow-up text-purple"></i> $8,000</h2>
+                                    <span class="text-muted">Todays Income</span>
+                                </div>
+                                <span class="text-purple">60%</span>
+                                <div class="progress">
+                                    <div class="progress-bar bg-purple" role="progressbar" style="width: 60%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Yearly Sales</h4>
+                                <div class="text-right">
+                                    <h2 class="font-light mb-0"><i class="ti-arrow-down text-danger"></i> $12,000</h2>
+                                    <span class="text-muted">Todays Income</span>
+                                </div>
+                                <span class="text-danger">80%</span>
+                                <div class="progress">
+                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 80%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                </div>
+                <!-- Row -->
+                <!-- Row -->
+                <div class="row">
+                    <!-- Column -->
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="d-flex flex-wrap">
+                                            <div>
+                                                <h3>Revenue Statistics</h3>
+                                                <h6 class="card-subtitle">January 2019</h6>
+                                            </div>
+                                            <div class="ml-auto ">
+                                                <ul class="list-inline">
+                                                    <li>
+                                                        <h6 class="text-muted"><i class="fa fa-circle mr-1 text-success"></i>Product A</h6>
+                                                    </li>
+                                                    <li>
+                                                        <h6 class="text-muted"><i class="fa fa-circle mr-1 text-info"></i>Product B</h6>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="total-revenue4" style="height: 350px;"></div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 mb-4 mt-3 text-center">
+                                        <h1 class="mb-0 font-light">$54578</h1>
+                                        <h6 class="text-muted">Total Revenue</h6>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 mb-4 mt-3 text-center">
+                                        <h1 class="mb-0 font-light">$43451</h1>
+                                        <h6 class="text-muted">Online Revenue</h6>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 mb-4 mt-3 text-center">
+                                        <h1 class="mb-0 font-light">$44578</h1>
+                                        <h6 class="text-muted">Product A</h6>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 mb-4 mt-3 text-center">
+                                        <h1 class="mb-0 font-light">$12578</h1>
+                                        <h6 class="text-muted">Product B</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Row -->
+                <!-- Row -->
+                <div class="row">
+                    <div class="col-lg-4 col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Sales of the Month</h4>
+                                <div id="sales-donute" style="width:100%; height:300px;"></div>
+                                <div class="round-overlap mt-3"><i class="mdi mdi-cart"></i></div>
+                                <ul class="list-inline mt-4 text-center">
+                                    <li><i class="fa fa-circle text-purple"></i> Item A</li>
+                                    <li><i class="fa fa-circle text-success"></i> Item B</li>
+                                    <li><i class="fa fa-circle text-info"></i> Item C</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
                         <div class="row">
-                            <!-- Column -->
-                            <div class="col-sm-6">
-                                <div class="card card-body">
-                                    <!-- Row -->
-                                    <div class="row pt-2 pb-2">
-                                        <!-- Column -->
-                                        <div class="col pr-0">
-                                            <h1 class="font-light">86</h1>
-                                            <h6 class="text-muted">New Clients</h6>
-                                        </div>
-                                        <!-- Column -->
-                                        <div class="col text-right align-self-center">
-                                            <div data-label="20%" class="css-bar mb-0 css-bar-primary css-bar-20"><i class="mdi mdi-account-circle"></i></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Column -->
-                            <div class="col-sm-6">
-                                <div class="card card-body">
-                                    <!-- Row -->
-                                    <div class="row pt-2 pb-2">
-                                        <!-- Column -->
-                                        <div class="col pr-0">
-                                            <h1 class="font-light">248</h1>
-                                            <h6 class="text-muted">All Projects</h6>
-                                        </div>
-                                        <!-- Column -->
-                                        <div class="col text-right align-self-center">
-                                            <div data-label="30%" class="css-bar mb-0 css-bar-danger css-bar-20"><i class="mdi mdi-briefcase-check"></i></div>
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Sales Prediction</h4>
+                                        <div class="d-flex flex-row">
+                                            <div class="align-self-center">
+                                                <span class="display-6">$3528</span>
+                                                <h6 class="text-muted">(150-165 Sales)</h6>
+                                            </div>
+                                            <div class="ml-auto">
+                                                <div id="gauge-chart" style=" width:150px; height:150px;"></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Column -->
-                            <div class="col-sm-6">
-                                <div class="card card-body">
-                                    <!-- Row -->
-                                    <div class="row pt-2 pb-2">
-                                        <!-- Column -->
-                                        <div class="col pr-0">
-                                            <h1 class="font-light">352</h1>
-                                            <h6 class="text-muted">New Items</h6>
-                                        </div>
-                                        <!-- Column -->
-                                        <div class="col text-right align-self-center">
-                                            <div data-label="40%" class="css-bar mb-0 css-bar-warning css-bar-40"><i class="mdi mdi-star-circle"></i></div>
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Sales Difference</h4>
+                                        <div class="d-flex flex-row">
+                                            <div class="align-self-center">
+                                                <span class="display-6">$4316</span>
+                                                <h6 class="text-muted">(150-165 Sales)</h6>
+                                            </div>
+                                            <div class="ml-auto">
+                                                <div class="ct-chart" style="width:120px; height: 120px;"></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Column -->
-                            <div class="col-sm-6">
-                                <div class="card card-body">
-                                    <!-- Row -->
-                                    <div class="row pt-2 pb-2">
-                                        <!-- Column -->
-                                        <div class="col pr-0">
-                                            <h1 class="font-light">159</h1>
-                                            <h6 class="text-muted">Invoices</h6>
-                                        </div>
-                                        <!-- Column -->
-                                        <div class="col text-right align-self-center">
-                                            <div data-label="60%" class="css-bar mb-0 css-bar-info css-bar-60"><i class="mdi mdi-receipt"></i></div>
-                                        </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex flex-row">
+                                    <div class=""><img src="<?= base_url(); ?>assets/images/users/1.jpg" alt="user" class="img-circle" width="100"></div>
+                                    <div class="pl-3">
+                                        <h3 class="font-medium">Daniel Kristeen</h3>
+                                        <h6>UIUX Designer</h6>
+                                        <button class="btn btn-success"><i class="ti-plus"></i> Follow</button>
                                     </div>
                                 </div>
+                                <div class="row mt-5">
+                                    <div class="col border-right">
+                                        <h2 class="font-light">14</h2>
+                                        <h6>Photos</h6>
+                                    </div>
+                                    <div class="col border-right">
+                                        <h2 class="font-light">54</h2>
+                                        <h6>Videos</h6>
+                                    </div>
+                                    <div class="col">
+                                        <h2 class="font-light">145</h2>
+                                        <h6>Tasks</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr>
+                            </div>
+                            <div class="card-body">
+                                <p class="text-center aboutscroll">
+                                    Lorem ipsum dolor sit ametetur adipisicing elit, sed do eiusmod tempor incididunt adipisicing elit, sed do eiusmod tempor incididunLorem ipsum dolor sit ametetur adipisicing elit, sed do eiusmod tempor incididuntt
+                                </p>
+                                <ul class="list-icons d-flex flex-item text-center pt-2">
+                                    <li class="col"><a href="javascript:void(0)" data-toggle="tooltip" title="" data-original-title="Website"><i class="fa fa-globe font-20"></i></a></li>
+                                    <li class="col"><a href="javascript:void(0)" data-toggle="tooltip" title="" data-original-title="twitter"><i class="fab fa-twitter font-20"></i></a></li>
+                                    <li class="col"><a href="javascript:void(0)" data-toggle="tooltip" title="" data-original-title="Facebook"><i class="fab fa-facebook-square font-20"></i></a></li>
+                                    <li class="col"><a href="javascript:void(0)" data-toggle="tooltip" title="" data-original-title="Youtube"><i class="fab fa-youtube font-20"></i></a></li>
+                                    <li class="col"><a href="javascript:void(0)" data-toggle="tooltip" title="" data-original-title="Linkd-in"><i class="fab fa-linkedin font-20"></i></a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -702,50 +826,133 @@
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
-                                <div class="d-flex no-block">
-                                    <h4 class="card-title">Sales of the Month</h4>
-                                    <div class="ml-auto">
-                                        <select class="custom-select">
-                                            <option selected>January</option>
-                                            <option value="1">February</option>
-                                            <option value="2">March</option>
-                                            <option value="3">April</option>
-                                        </select>
+                                <h4 class="card-title">Recent Chats</h4>
+                                <div class="chat-box">
+                                    <!--chat Row -->
+                                    <ul class="chat-list">
+                                        <!--chat Row -->
+                                        <li>
+                                            <div class="chat-img"><img src="<?= base_url(); ?>assets/images/users/1.jpg" alt="user" /></div>
+                                            <div class="chat-content">
+                                                <h5>James Anderson</h5>
+                                                <div class="box bg-light-info">Lorem Ipsum is simply dummy text of the printing & type setting industry.</div>
+                                            </div>
+                                            <div class="chat-time">10:56 am</div>
+                                        </li>
+                                        <!--chat Row -->
+                                        <li>
+                                            <div class="chat-img"><img src="<?= base_url(); ?>assets/images/users/2.jpg" alt="user" /></div>
+                                            <div class="chat-content">
+                                                <h5>Bianca Doe</h5>
+                                                <div class="box bg-light-success">It’s Great opportunity to work.</div>
+                                            </div>
+                                            <div class="chat-time">10:57 am</div>
+                                        </li>
+                                        <!--chat Row -->
+                                        <li class="odd">
+                                            <div class="chat-content">
+                                                <div class="box bg-light-inverse">I would love to join the team.</div>
+                                                <br />
+                                            </div>
+                                            <div class="chat-time">10:58 am</div>
+                                        </li>
+                                        <!--chat Row -->
+                                        <li class="odd">
+                                            <div class="chat-content">
+                                                <div class="box bg-light-inverse">Whats budget of the new project.</div>
+                                                <br />
+                                            </div>
+                                            <div class="chat-time">10:59 am</div>
+                                        </li>
+                                        <!--chat Row -->
+                                        <li>
+                                            <div class="chat-img"><img src="<?= base_url(); ?>assets/images/users/3.jpg" alt="user" /></div>
+                                            <div class="chat-content">
+                                                <h5>Angelina Rhodes</h5>
+                                                <div class="box bg-light-primary">Well we have good budget for the project</div>
+                                            </div>
+                                            <div class="chat-time">11:00 am</div>
+                                        </li>
+                                        <!--chat Row -->
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body border-top">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <textarea placeholder="Type your message here" class="form-control b-0"></textarea>
+                                    </div>
+                                    <div class="col-4 text-right">
+                                        <button type="button" class="btn btn-info btn-circle btn-lg"><i class="fas fa-paper-plane"></i> </button>
                                     </div>
                                 </div>
-                                <!-- Row -->
-                                <div class="row mt-4">
-                                    <div class="col-md-7">
-                                        <div id="sales-donute" style="width:100%; height:300px;"></div>
-                                        <div class="round-overlap"><i class="mdi mdi-cart"></i></div>
-                                    </div>
-                                    <div class="col-md-5 align-self-center">
-                                        <h1 class="mb-0">65<small>%</small></h1>
-                                        <h6 class="text-muted">160 Sales January</h6>
-                                        <ul class="list-icons mt-4">
-                                            <li><i class="fa fa-circle text-purple"></i> Organic Sales</li>
-                                            <li><i class="fa fa-circle text-success"></i> Search Engine</li>
-                                            <li><i class="fa fa-circle text-info"></i> Marketing</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- Row -->
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
-                                <ul class="list-inline float-right">
-                                    <li>
-                                        <h6 class="text-muted"><i class="fa fa-circle mr-1 text-success"></i>Net</h6>
-                                    </li>
-                                    <li>
-                                        <h6 class="text-muted"><i class="fa fa-circle mr-1 text-info"></i>Growth</h6>
-                                    </li>
-                                </ul>
-                                <h4 class="card-title">Income of the Year</h4>
-                                <div class="income-year" style="height: 327px;"></div>
+                                <h4 class="card-title">Recent Messages</h4>
+                                <div class="message-box">
+                                    <div class="message-widget message-scroll">
+                                        <!-- Message -->
+                                        <a href="#">
+                                            <div class="user-img"> <img src="<?= base_url(); ?>assets/images/users/1.jpg" alt="user" class="img-circle"> <span class="profile-status online float-right"></span> </div>
+                                            <div class="mail-contnet">
+                                                <h5>Pavan kumar</h5> <span class="mail-desc">Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been.</span> <span class="time">9:30 AM</span>
+                                            </div>
+                                        </a>
+                                        <!-- Message -->
+                                        <a href="#">
+                                            <div class="user-img"> <img src="<?= base_url(); ?>assets/images/users/2.jpg" alt="user" class="img-circle"> <span class="profile-status busy float-right"></span> </div>
+                                            <div class="mail-contnet">
+                                                <h5>Sonu Nigam</h5> <span class="mail-desc">I've sung a song! See you at</span> <span class="time">9:10 AM</span>
+                                            </div>
+                                        </a>
+                                        <!-- Message -->
+                                        <a href="#">
+                                            <div class="user-img"> <span class="round">A</span> <span class="profile-status away float-right"></span> </div>
+                                            <div class="mail-contnet">
+                                                <h5>Arijit Sinh</h5> <span class="mail-desc">Simply dummy text of the printing and typesetting industry.</span> <span class="time">9:08 AM</span>
+                                            </div>
+                                        </a>
+                                        <!-- Message -->
+                                        <a href="#">
+                                            <div class="user-img"> <img src="<?= base_url(); ?>assets/images/users/4.jpg" alt="user" class="img-circle"> <span class="profile-status offline float-right"></span> </div>
+                                            <div class="mail-contnet">
+                                                <h5>Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:02 AM</span>
+                                            </div>
+                                        </a>
+                                        <!-- Message -->
+                                        <a href="#">
+                                            <div class="user-img"> <img src="<?= base_url(); ?>assets/images/users/1.jpg" alt="user" class="img-circle"> <span class="profile-status online float-right"></span> </div>
+                                            <div class="mail-contnet">
+                                                <h5>Pavan kumar</h5> <span class="mail-desc">Welcome to the Elite Admin</span> <span class="time">9:30 AM</span>
+                                            </div>
+                                        </a>
+                                        <!-- Message -->
+                                        <a href="#">
+                                            <div class="user-img"> <img src="<?= base_url(); ?>assets/images/users/2.jpg" alt="user" class="img-circle"> <span class="profile-status busy float-right"></span> </div>
+                                            <div class="mail-contnet">
+                                                <h5>Sonu Nigam</h5> <span class="mail-desc">I've sung a song! See you at</span> <span class="time">9:10 AM</span>
+                                            </div>
+                                        </a>
+                                        <!-- Message -->
+                                        <a href="#">
+                                            <div class="user-img"> <img src="<?= base_url(); ?>assets/images/users/3.jpg" alt="user" class="img-circle"> <span class="profile-status away float-right"></span> </div>
+                                            <div class="mail-contnet">
+                                                <h5>Arijit Sinh</h5> <span class="mail-desc">I am a singer!</span> <span class="time">9:08 AM</span>
+                                            </div>
+                                        </a>
+                                        <!-- Message -->
+                                        <a href="#">
+                                            <div class="user-img"> <img src="<?= base_url(); ?>assets/images/users/4.jpg" alt="user" class="img-circle"> <span class="profile-status offline float-right"></span> </div>
+                                            <div class="mail-contnet">
+                                                <h5>Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:02 AM</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -767,8 +974,8 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="table-responsive mt-4">
-                                    <table class="table stylish-table no-wrap">
+                                <div class="table-responsive mt-5">
+                                    <table class="table stylish-table">
                                         <thead>
                                             <tr>
                                                 <th colspan="2">Assigned</th>
@@ -788,7 +995,7 @@
                                                 <td>$3.9K</td>
                                             </tr>
                                             <tr class="active">
-                                                <td><span class="round"><img src="../assets/images/users/2.jpg" alt="user" width="50" /></span></td>
+                                                <td><span class="round"><img src="<?= base_url(); ?>assets/images/users/2.jpg" alt="user" width="50" /></span></td>
                                                 <td>
                                                     <h6>Andrew</h6><small class="text-muted">Project Manager</small>
                                                 </td>
@@ -900,6 +1107,52 @@
                 <!-- Row -->
                 <!-- Row -->
                 <div class="row">
+                    <!-- Column -->
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <img class="card-img-top img-responsive" src="<?= base_url(); ?>assets/images/big/img1.jpg" alt="Card">
+                            <div class="card-body">
+                                <ul class="list-inline font-14">
+                                    <li class="pl-0">20 May 2016</li>
+                                    <li><a href="javascript:void(0)" class="link">3 Comment</a></li>
+                                </ul>
+                                <h3 class="font-normal">Featured Hydroflora Pots Garden &amp; Outdoors</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <img class="card-img-top img-responsive" src="<?= base_url(); ?>assets/images/big/img2.jpg" alt="Card">
+                            <div class="card-body">
+                                <ul class="list-inline font-14">
+                                    <li class="pl-0">20 May 2016</li>
+                                    <li><a href="javascript:void(0)" class="link">3 Comment</a></li>
+                                </ul>
+                                <h3 class="font-normal">Featured Hydroflora Pots Garden &amp; Outdoors</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <img class="card-img-top img-responsive" src="<?= base_url(); ?>assets/images/big/img4.jpg" alt="Card">
+                            <div class="card-body">
+                                <ul class="list-inline font-14">
+                                    <li class="pl-0">20 May 2016</li>
+                                    <li><a href="javascript:void(0)" class="link">3 Comment</a></li>
+                                </ul>
+                                <h3 class="font-normal">Featured Hydroflora Pots Garden &amp; Outdoors</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                </div>
+                <!-- Row -->
+                <!-- Row -->
+                <div class="row">
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
@@ -911,7 +1164,7 @@
                             <div class="comment-widgets">
                                 <!-- Comment Row -->
                                 <div class="d-flex flex-row comment-row">
-                                    <div class="p-2"><span class="round"><img src="../assets/images/users/1.jpg" alt="user" width="50"></span></div>
+                                    <div class="p-2"><span class="round"><img src="<?= base_url(); ?>assets/images/users/1.jpg" alt="user" width="50"></span></div>
                                     <div class="comment-text w-100">
                                         <h5>James Anderson</h5>
                                         <p class="mb-1">Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has beenorem Ipsum is simply dummy text of the printing and type setting industry.</p>
@@ -928,7 +1181,7 @@
                                 </div>
                                 <!-- Comment Row -->
                                 <div class="d-flex flex-row comment-row active">
-                                    <div class="p-2"><span class="round"><img src="../assets/images/users/2.jpg" alt="user" width="50"></span></div>
+                                    <div class="p-2"><span class="round"><img src="<?= base_url(); ?>assets/images/users/2.jpg" alt="user" width="50"></span></div>
                                     <div class="comment-text active w-100">
                                         <h5>Michael Jorden</h5>
                                         <p class="mb-1">Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has beenorem Ipsum is simply dummy text of the printing and type setting industry..</p>
@@ -945,7 +1198,7 @@
                                 </div>
                                 <!-- Comment Row -->
                                 <div class="d-flex flex-row comment-row">
-                                    <div class="p-2"><span class="round"><img src="../assets/images/users/3.jpg" alt="user" width="50"></span></div>
+                                    <div class="p-2"><span class="round"><img src="<?= base_url(); ?>assets/images/users/3.jpg" alt="user" width="50"></span></div>
                                     <div class="comment-text w-100">
                                         <h5>Johnathan Doeting</h5>
                                         <p class="mb-1">Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has beenorem Ipsum is simply dummy text of the printing and type setting industry.</p>
@@ -962,7 +1215,7 @@
                                 </div>
                                 <!-- Comment Row -->
                                 <div class="d-flex flex-row comment-row">
-                                    <div class="p-2"><span class="round"><img src="../assets/images/users/4.jpg" alt="user" width="50"></span></div>
+                                    <div class="p-2"><span class="round"><img src="<?= base_url(); ?>assets/images/users/4.jpg" alt="user" width="50"></span></div>
                                     <div class="comment-text w-100">
                                         <h5>James Anderson</h5>
                                         <p class="mb-1">Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has beenorem Ipsum is simply dummy text of the printing and type setting industry..</p>
@@ -1002,18 +1255,12 @@
                                                 <div class="modal-body">
                                                     <form>
                                                         <div class="form-group">
-                                                            <label>Task name</label>
-                                                            <input type="text" class="form-control" placeholder="Enter Task Name">
+                                                            <label>Name</label>
+                                                            <input type="text" class="form-control" placeholder="Enter Your Name">
                                                         </div>
                                                         <div class="form-group">
-                                                            <label>Assign to</label>
-                                                            <select class="custom-select form-control float-right">
-                                                                <option selected="">Sachin</option>
-                                                                <option value="1">Sehwag</option>
-                                                                <option value="2">Pritam</option>
-                                                                <option value="3">Alia</option>
-                                                                <option value="4">Varun</option>
-                                                            </select>
+                                                            <label>Email address</label>
+                                                            <input type="email" class="form-control" placeholder="Enter email">
                                                         </div>
                                                     </form>
                                                 </div>
@@ -1034,10 +1281,10 @@
                                                 <label for="inputSchedule" class=""> <span>Schedule meeting with</span> </label>
                                             </div>
                                             <ul class="assignedto">
-                                                <li><img src="../assets/images/users/1.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Steave"></li>
-                                                <li><img src="../assets/images/users/2.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Jessica"></li>
-                                                <li><img src="../assets/images/users/3.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Priyanka"></li>
-                                                <li><img src="../assets/images/users/4.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Selina"></li>
+                                                <li><img src="<?= base_url(); ?>assets/images/users/1.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Steave"></li>
+                                                <li><img src="<?= base_url(); ?>assets/images/users/2.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Jessica"></li>
+                                                <li><img src="<?= base_url(); ?>assets/images/users/3.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Priyanka"></li>
+                                                <li><img src="<?= base_url(); ?>assets/images/users/4.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Selina"></li>
                                             </ul>
                                         </li>
                                         <li class="list-group-item" data-role="task">
@@ -1046,8 +1293,8 @@
                                                 <label for="inputCall" class=""> <span>Give Purchase report to</span> <span class="label label-light-danger">Today</span> </label>
                                             </div>
                                             <ul class="assignedto">
-                                                <li><img src="../assets/images/users/3.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Priyanka"></li>
-                                                <li><img src="../assets/images/users/4.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Selina"></li>
+                                                <li><img src="<?= base_url(); ?>assets/images/users/3.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Priyanka"></li>
+                                                <li><img src="<?= base_url(); ?>assets/images/users/4.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Selina"></li>
                                             </ul>
                                         </li>
                                         <li class="list-group-item" data-role="task">
@@ -1084,9 +1331,9 @@
                                                 <label for="inputForward2" class=""> <span>Important tasks</span> <span class="label label-light-success">2 weeks</span> </label>
                                             </div>
                                             <ul class="assignedto">
-                                                <li><img src="../assets/images/users/1.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Assign to Steave"></li>
-                                                <li><img src="../assets/images/users/2.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Assign to Jessica"></li>
-                                                <li><img src="../assets/images/users/4.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Assign to Selina"></li>
+                                                <li><img src="<?= base_url(); ?>assets/images/users/1.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Assign to Steave"></li>
+                                                <li><img src="<?= base_url(); ?>assets/images/users/2.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Assign to Jessica"></li>
+                                                <li><img src="<?= base_url(); ?>assets/images/users/4.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Assign to Selina"></li>
                                             </ul>
                                         </li>
                                     </ul>
@@ -1126,28 +1373,28 @@
                             <ul class="mt-3 chatonline">
                                 <li><b>Chat option</b></li>
                                 <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/1.jpg" alt="user-img" class="img-circle"> <span>Varun Dhavan <small class="text-success">online</small></span></a>
+                                    <a href="javascript:void(0)"><img src="<?= base_url(); ?>assets/images/users/1.jpg" alt="user-img" class="img-circle"> <span>Varun Dhavan <small class="text-success">online</small></span></a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/2.jpg" alt="user-img" class="img-circle"> <span>Genelia Deshmukh <small class="text-warning">Away</small></span></a>
+                                    <a href="javascript:void(0)"><img src="<?= base_url(); ?>assets/images/users/2.jpg" alt="user-img" class="img-circle"> <span>Genelia Deshmukh <small class="text-warning">Away</small></span></a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/3.jpg" alt="user-img" class="img-circle"> <span>Ritesh Deshmukh <small class="text-danger">Busy</small></span></a>
+                                    <a href="javascript:void(0)"><img src="<?= base_url(); ?>assets/images/users/3.jpg" alt="user-img" class="img-circle"> <span>Ritesh Deshmukh <small class="text-danger">Busy</small></span></a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/4.jpg" alt="user-img" class="img-circle"> <span>Arijit Sinh <small class="text-muted">Offline</small></span></a>
+                                    <a href="javascript:void(0)"><img src="<?= base_url(); ?>assets/images/users/4.jpg" alt="user-img" class="img-circle"> <span>Arijit Sinh <small class="text-muted">Offline</small></span></a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/5.jpg" alt="user-img" class="img-circle"> <span>Govinda Star <small class="text-success">online</small></span></a>
+                                    <a href="javascript:void(0)"><img src="<?= base_url(); ?>assets/images/users/5.jpg" alt="user-img" class="img-circle"> <span>Govinda Star <small class="text-success">online</small></span></a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/6.jpg" alt="user-img" class="img-circle"> <span>John Abraham<small class="text-success">online</small></span></a>
+                                    <a href="javascript:void(0)"><img src="<?= base_url(); ?>assets/images/users/6.jpg" alt="user-img" class="img-circle"> <span>John Abraham<small class="text-success">online</small></span></a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/7.jpg" alt="user-img" class="img-circle"> <span>Hritik Roshan<small class="text-success">online</small></span></a>
+                                    <a href="javascript:void(0)"><img src="<?= base_url(); ?>assets/images/users/7.jpg" alt="user-img" class="img-circle"> <span>Hritik Roshan<small class="text-success">online</small></span></a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)"><img src="../assets/images/users/8.jpg" alt="user-img" class="img-circle"> <span>Pwandeep rajan <small class="text-success">online</small></span></a>
+                                    <a href="javascript:void(0)"><img src="<?= base_url(); ?>assets/images/users/8.jpg" alt="user-img" class="img-circle"> <span>Pwandeep rajan <small class="text-success">online</small></span></a>
                                 </li>
                             </ul>
                         </div>
@@ -1174,6 +1421,12 @@
         <!-- End Page wrapper  -->
         <!-- ============================================================== -->
     </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
     <script src="<?= base_url(); ?>assets/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="<?= base_url(); ?>assets/plugins/bootstrap/js/popper.min.js"></script>
@@ -1196,7 +1449,21 @@
     <script src="<?= base_url(); ?>assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
     <!-- Chart JS -->
     <script src="<?= base_url(); ?>assets/plugins/echarts/echarts-all.js"></script>
-    <script src="<?= base_url(); ?>assets/js/dashboard5.js"></script>
+    <script src="<?= base_url(); ?>assets/plugins/toast-master/js/jquery.toast.js"></script>
+    <!-- Chart JS -->
+    <script src="<?= base_url(); ?>assets/js/dashboard1.js"></script>
+    <script src="<?= base_url(); ?>assets/js/toastr.js"></script>
+    <script>
+        $.toast({
+            heading: 'Welcome to Monster admin',
+            text: 'Use the predefined ones, or specify a custom position object.',
+            position: 'top-right',
+            loaderBg: '#ff6849',
+            icon: 'info',
+            hideAfter: 3000,
+            stack: 6
+        });
+    </script>
     <!-- ============================================================== -->
     <!-- Style switcher -->
     <!-- ============================================================== -->
