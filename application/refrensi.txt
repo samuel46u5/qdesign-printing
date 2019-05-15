@@ -1,0 +1,2 @@
+untuk mebuat enter seperti tab
+http://jsfiddle.net/TrueBlueAussie/5WkVW/11/
