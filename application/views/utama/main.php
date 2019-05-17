@@ -36,18 +36,42 @@
     <title>DashForge Responsive Bootstrap 4 Dashboard Template</title>
 
     <!-- vendor css -->
-    <link href="<?= base_url(); ?>lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
-    <link href="<?= base_url(); ?>lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-    <link href="<?= base_url(); ?>lib/jqvmap/jqvmap.min.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>assets/lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>assets/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>assets/lib/jqvmap/jqvmap.min.css" rel="stylesheet">
+
+    <!-- vendor css -->
+    <link href="<?= base_url(); ?>assets/lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="<?= base_url(); ?>assets/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+
 
     <!-- DashForge CSS -->
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/dashforge.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/dashforge.dashboard.css">
 
+    <!-- efek hover CSS lihat demo http://ianlunn.github.io/Hover/ -->
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/hover-min.css">
+
+
+
+    <style>
+        img {
+
+            cursor: pointer;
+
+        }
+
+        img:hover {
+            border-color: #66afe9;
+            outline: 0;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, 0.6);
+        }
+    </style>
 
 </head>
 
 <body class="page-profile">
+
 
     <header class="navbar navbar-header navbar-header-fixed">
 
@@ -121,6 +145,7 @@
                 <li class="nav-item"><a href="<?= base_url(); ?>collections/" class="nav-link"><i data-feather="archive"></i> Collections</a></li>
             </ul>
         </div><!-- navbar-menu-wrapper -->
+
         <div class="navbar-right">
             <a id="navbarSearch" href="" class="search-link"><i data-feather="search"></i></a>
             <div class="dropdown dropdown-message">
@@ -239,6 +264,7 @@
                 </div><!-- dropdown-menu -->
             </div><!-- dropdown -->
         </div><!-- navbar-right -->
+
         <div class="navbar-search">
             <div class="navbar-search-header">
                 <input type="search" class="form-control" placeholder="Type and hit enter to search...">
@@ -280,7 +306,7 @@
                             <li class="breadcrumb-item active" aria-current="page">Sales Monitoring</li>
                         </ol>
                     </nav>
-                    <h4 class="mg-b-0 tx-spacing--1">Mesin</h4>
+                    <!-- <h4 class="mg-b-0 tx-spacing--1">Mesin</h4> -->
                 </div>
                 <div class="d-none d-md-block">
                     <button class="btn btn-sm pd-x-15 btn-white btn-uppercase"><i data-feather="mail" class="wd-10 mg-r-5"></i> Email</button>
@@ -289,76 +315,158 @@
                 </div>
             </div>
 
-            <div class="row row-lg">
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card card-body">
-                        <img src="<?= base_url(); ?>assets/img/mesin/outdoor.png" alt="outdoor" width="100%">
-                        <h6 class="tx-uppercase tx-11 tx-spacing-1 tx-color-02 tx-semibold mg-b-8">Printer Outdoor</h6>
-                        <div class="chart-three">
-                        </div>Tampilkan Produk
+            <div id="carousel" hidden>
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="<?= base_url(); ?>assets/img/mesin/laser.png" class="d-block w-50" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="<?= base_url(); ?>assets/img/mesin/outdoor.png" class="d-block w-50" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="<?= base_url(); ?>assets/img/mesin/directtextile.png" class="d-block w-50" alt="...">
+                        </div>
                     </div>
-                </div><!-- col -->
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card card-body">
-                        <img src="<?= base_url(); ?>assets/img/mesin/indoor.png" alt="outdoor" width="100%">
-                        <h6 class="tx-uppercase tx-11 tx-spacing-1 tx-color-02 tx-semibold mg-b-8">Printer Indoor</h6>
-                        Tampilkan Produk
-                    </div>
-                </div><!-- col -->
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card card-body">
-                        <img src="<?= base_url(); ?>assets/img/mesin/directtextile.png" alt="outdoor" width="100%">
-                        <h6 class="tx-uppercase tx-11 tx-spacing-1 tx-color-02 tx-semibold mg-b-8">Direct Textile</h6>
-                        Tampilkan Produk
-                    </div>
-                </div><!-- col -->
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card card-body">
-                        <img src="<?= base_url(); ?>assets/img/mesin/laser.png" alt="outdoor" width="100%">
-                        <h6 class="tx-uppercase tx-11 tx-spacing-1 tx-color-02 tx-semibold mg-b-8">Laser A3+</h6>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+            <!-- container mesin -->
+            <div id="mesin">
+                <h4 class="mg-b-0 tx-spacing--1">Mesin</h4>
+                <div class="row row-lg">
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card card-body">
+                            <a href="grid.html" class="tx-medium hvr-grow">
+                                <img src="<?= base_url(); ?>assets/img/mesin/outdoor.png" alt="outdoor" width="100%">
+                                </i></a>
+                        </div>
+                    </div><!-- col -->
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card card-body">
+                            <a href="grid.html" class="tx-medium hvr-grow">
+                                <img src="<?= base_url(); ?>assets/img/mesin/indoor.png" alt="outdoor" width="100%">
+                                </i></a>
+                        </div>
 
-                        Tampilkan Produk
-                    </div>
-                </div><!-- col -->
+                    </div><!-- col -->
+                    <div class="col-sm-6 col-lg-3">
+
+                        <div class="card card-body">
+                            <a href="grid.html" class="tx-medium hvr-grow">
+                                <img src="<?= base_url(); ?>assets/img/mesin/directtextile.png" alt="outdoor" width="100%">
+                                </i></a>
+                        </div>
+
+                    </div><!-- col -->
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card card-body">
+                            <a href="grid.html" class="tx-medium hvr-grow">
+                                <img src="<?= base_url(); ?>assets/img/mesin/laser.png" alt="outdoor" width="100%">
+                                </i></a>
+                        </div>
+                    </div><!-- col -->
 
 
-            </div><!-- row -->
+                </div><!-- row -->
+                <br />
+                <div class="row row-lg">
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card card-body">
+                            <a href="grid.html" class="tx-medium hvr-grow">
+                                <img src="<?= base_url(); ?>assets/img/mesin/uvprinting.png" alt="outdoor" width="100%">
+                                </i></a>
+                        </div>
+
+                    </div><!-- col -->
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card card-body">
+                            <a href="grid.html" class="tx-medium hvr-grow">
+                                <img src="<?= base_url(); ?>assets/img/mesin/laser acrylic.png" alt="outdoor" width="100%">
+                                </i></a>
+                        </div>
+
+                    </div><!-- col -->
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card card-body">
+                            <a href="grid.html" class="tx-medium hvr-grow">
+                                <img src="<?= base_url(); ?>assets/img/mesin/sublimation.png" alt="outdoor" width="100%">
+                                </i></a>
+                        </div>
+                    </div><!-- col -->
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card card-body">
+                            <a href="grid.html" class="tx-medium hvr-grow">
+                                <img src="<?= base_url(); ?>assets/img/mesin/garment.png" alt="outdoor" width="100%">
+                                </i></a>
+                        </div>
+                    </div><!-- col -->
+
+
+                </div><!-- row -->
+            </div>
+            <!-- end of container mesin -->
             <br />
+            <div id="kategori-produk">
+                <h4 class="mg-b-0 tx-spacing--1">Kategori Produk</h4>
+                <div class="row row-lg">
+                    <div class="col-lg-3 hvr-grow">
+                        <div class="card">
+                            <img src="<?= base_url(); ?>assets/img/kategori/banner1.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h6 class="card-title">Aneka produk cetakan banner</h6>
+                                <p class="card-text">Flexy - Korean - Jerman</p>
+                                <a href="#" class="btn btn-primary">Lihat detail...</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 hvr-grow">
+                        <div class="card">
+                            <img src="<?= base_url(); ?>assets/img/kategori/Sticker.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h6 class="card-title">Aneka produk cetakan banner</h6>
+                                <p class="card-text">Some quick example text...</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 hvr-grow">
+                        <div class="card">
+                            <img src="<?= base_url(); ?>assets/img/kategori/kertas.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h6 class="card-title">Aneka produk cetakan banner</h6>
+                                <p class="card-text">Some quick example text...</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 hvr-grow">
+                        <div class="card">
+                            <img src="<?= base_url(); ?>assets/img/kategori/cetakkain.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h6 class="card-title">Aneka produk cetakan banner</h6>
+                                <p class="card-text">Some quick example text...</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
             <div class="row row-lg">
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card card-body">
-                        <img src="<?= base_url(); ?>assets/img/mesin/uvprinting.png" alt="outdoor" width="100%">
-                        <h6 class="tx-uppercase tx-11 tx-spacing-1 tx-color-02 tx-semibold mg-b-8">UV Printing</h6>
-                        Tampilkan Produk
-                    </div>
-                </div><!-- col -->
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card card-body">
-                        <img src="<?= base_url(); ?>assets/img/mesin/laser acrylic.png" alt="outdoor" width="100%">
-                        <h6 class="tx-uppercase tx-11 tx-spacing-1 tx-color-02 tx-semibold mg-b-8">Laser Acrylic</h6>
-                        Tampilkan Produk
-                    </div>
-                </div><!-- col -->
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card card-body">
-                        <img src="<?= base_url(); ?>assets/img/mesin/sublimation.png" alt="outdoor" width="100%">
-                        <h6 class="tx-uppercase tx-11 tx-spacing-1 tx-color-02 tx-semibold mg-b-8">Sublimation</h6>
-                        Tampilkan Produk
-                    </div>
-                </div><!-- col -->
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card card-body">
-                        <img src="<?= base_url(); ?>assets/img/mesin/garment.png" alt="outdoor" width="100%">
-                        <h6 class="tx-uppercase tx-11 tx-spacing-1 tx-color-02 tx-semibold mg-b-8">Garment</h6>
-                        Tampilkan Produk
-                    </div>
-                </div><!-- col -->
-
-
-            </div><!-- row -->
-
-            <div class="row row-lg">
-
                 <div class="col-lg-8 col-xl-7 mg-t-10">
                     <div class="card">
                         <div class="card-header pd-y-20 d-md-flex align-items-center justify-content-between">
