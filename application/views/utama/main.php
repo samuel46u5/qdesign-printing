@@ -7,33 +7,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Twitter -->
-    <meta name="twitter:site" content="@themepixels">
-    <meta name="twitter:creator" content="@themepixels">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="DashForge">
-    <meta name="twitter:description" content="Responsive Bootstrap 4 Dashboard Template">
-    <meta name="twitter:image" content="http://themepixels.me/dashforge/img/dashforge-social.png">
 
-    <!-- Facebook -->
-    <meta property="og:url" content="http://themepixels.me/dashforge">
-    <meta property="og:title" content="DashForge">
-    <meta property="og:description" content="Responsive Bootstrap 4 Dashboard Template">
-
-    <meta property="og:image" content="http://themepixels.me/dashforge/img/dashforge-social.png">
-    <meta property="og:image:secure_url" content="http://themepixels.me/dashforge/img/dashforge-social.png">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="600">
-
-    <!-- Meta -->
-    <meta name="description" content="Responsive Bootstrap 4 Dashboard Template">
-    <meta name="author" content="ThemePixels">
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="<?= base_url(); ?>assets/img/favicon.png">
 
-    <title>DashForge Responsive Bootstrap 4 Dashboard Template</title>
+    <title>Qdesign</title>
 
     <!-- vendor css -->
     <link href="<?= base_url(); ?>assets/lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
@@ -53,41 +32,33 @@
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/hover-min.css">
 
 
+    <!-- Menyisipkan library Google Maps -->
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
 
-    <style>
-        img {
 
-            cursor: pointer;
-
-        }
-
-        img:hover {
-            border-color: #66afe9;
-            outline: 0;
-            box-shadow: inset 0 0 5px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, 0.6);
-        }
-    </style>
 
 </head>
 
 <body class="page-profile">
 
+    <!-- Elemen yang akan menjadi kontainer peta -->
 
     <header class="navbar navbar-header navbar-header-fixed">
-
         <a href="" id="mainMenuOpen" class="burger-menu"><i data-feather="menu"></i></a>
         <div class="navbar-brand">
-            <a href="<?= base_url(); ?>index.html" class="df-logo">dash<span>forge</span></a>
-        </div><!-- navbar-brand -->
+            <a href="<?= base_url(); ?>index.html" class="df-logo">Qdesign<span>&nbsp; Digital Printing</span></a>
+        </div>
         <div id="navbarMenu" class="navbar-menu-wrapper">
             <div class="navbar-menu-header">
                 <a href="<?= base_url(); ?>index.html" class="df-logo">dash<span>forge</span></a>
                 <a id="mainMenuClose" href=""><i data-feather="x"></i></a>
             </div><!-- navbar-menu-header -->
             <ul class="nav navbar-menu">
+
+                <a href="dashboard-one.html" class="nav-sub-link"><i class="fa fa-home"></i> &nbsp; &nbsp; &nbsp;</a>
                 <li class="nav-label pd-l-20 pd-lg-l-25 d-lg-none">Main Navigation</li>
                 <li class="nav-item with-sub active">
-                    <a href="" class="nav-link"><i data-feather="pie-chart"></i> Produk</a>
+                    <a href="" class="nav-link"><i data-feather="pie-chart"></i>Kategori Produk</a>
                     <ul class="navbar-menu-sub">
                         <li class="nav-sub-item"><a href="dashboard-one.html" class="nav-sub-link"><i data-feather="bar-chart-2"></i>Spanduk/Banner</a></li>
                         <li class="nav-sub-item"><a href="dashboard-two.html" class="nav-sub-link"><i data-feather="bar-chart-2"></i>Sticker</a></li>
@@ -141,10 +112,13 @@
                         </div>
                     </div><!-- nav-sub -->
                 </li>
-                <li class="nav-item"><a href="<?= base_url(); ?>components/" class="nav-link"><i data-feather="box"></i> Components</a></li>
-                <li class="nav-item"><a href="<?= base_url(); ?>collections/" class="nav-link"><i data-feather="archive"></i> Collections</a></li>
+                <li class="nav-item"><a href="<?= base_url(); ?>components/" class="nav-link"><i data-feather="box"></i>
+                        Kontak</a></li>
+                <li class="nav-item"><a href="<?= base_url(); ?>collections/" class="nav-link"><i data-feather="archive"></i> Gallery</a></li>
+                <li class="nav-item"><a href="<?= base_url(); ?>admin" class="nav-link"><i data-feather="archive"></i> Admin</a></li>
             </ul>
         </div><!-- navbar-menu-wrapper -->
+
 
         <div class="navbar-right">
             <a id="navbarSearch" href="" class="search-link"><i data-feather="search"></i></a>
@@ -246,7 +220,8 @@
             </div><!-- dropdown -->
             <div class="dropdown dropdown-profile">
                 <a href="" class="dropdown-link" data-toggle="dropdown" data-display="static">
-                    <div class="avatar avatar-sm"><img src="https://via.placeholder.com/500" class="rounded-circle" alt=""></div>
+                    <div class="avatar avatar-sm"><img src="https://via.placeholder.com/500" class="rounded-circle" alt="">
+                    </div>
                 </a><!-- dropdown-link -->
                 <div class="dropdown-menu dropdown-menu-right tx-13">
                     <div class="avatar avatar-lg mg-b-15"><img src="https://via.placeholder.com/500" class="rounded-circle" alt=""></div>
@@ -272,7 +247,8 @@
                 <a id="navbarSearchClose" href="" class="link-03 mg-l-5 mg-lg-l-10"><i data-feather="x"></i></a>
             </div><!-- navbar-search-header -->
             <div class="navbar-search-body">
-                <label class="tx-10 tx-medium tx-uppercase tx-spacing-1 tx-color-03 mg-b-10 d-flex align-items-center">Recent Searches</label>
+                <label class="tx-10 tx-medium tx-uppercase tx-spacing-1 tx-color-03 mg-b-10 d-flex align-items-center">Recent
+                    Searches</label>
                 <ul class="list-unstyled">
                     <li><a href="dashboard-one.html">modern dashboard</a></li>
                     <li><a href="app-calendar.html">calendar app</a></li>
@@ -282,7 +258,8 @@
 
                 <hr class="mg-y-30 bd-0">
 
-                <label class="tx-10 tx-medium tx-uppercase tx-spacing-1 tx-color-03 mg-b-10 d-flex align-items-center">Search Suggestions</label>
+                <label class="tx-10 tx-medium tx-uppercase tx-spacing-1 tx-color-03 mg-b-10 d-flex align-items-center">Search
+                    Suggestions</label>
 
                 <ul class="list-unstyled">
                     <li><a href="dashboard-one.html">cryptocurrency</a></li>
@@ -292,7 +269,8 @@
                 </ul>
             </div><!-- navbar-search-body -->
         </div><!-- navbar-search -->
-    </header><!-- navbar -->
+    </header>
+    <!-- navbar -->
 
 
 
@@ -345,7 +323,7 @@
             </div>
             <!-- container mesin -->
             <div id="mesin">
-                <h4 class="mg-b-0 tx-spacing--1">Mesin</h4>
+                <div class="divider-text">Mesin</div>
                 <div class="row row-lg">
                     <div class="col-sm-6 col-lg-3">
                         <div class="card card-body">
@@ -418,16 +396,19 @@
                 </div><!-- row -->
             </div>
             <!-- end of container mesin -->
-            <br />
-            <div id="kategori-produk">
-                <h4 class="mg-b-0 tx-spacing--1">Kategori Produk</h4>
+
+            <!-- kategori produk -->
+            <div id="kategori-produk" class="content content-components">
+
+                <div class="divider-text">Kategori Produk</div>
+
                 <div class="row row-lg">
                     <div class="col-lg-3 hvr-grow">
                         <div class="card">
                             <img src="<?= base_url(); ?>assets/img/kategori/banner1.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h6 class="card-title">Aneka produk cetakan banner</h6>
-                                <p class="card-text">Flexy - Korean - Jerman</p>
+                                <p class="card-text">Flexy - Korean - Jerman </p>
                                 <a href="#" class="btn btn-primary">Lihat detail...</a>
                             </div>
                         </div>
@@ -436,9 +417,9 @@
                         <div class="card">
                             <img src="<?= base_url(); ?>assets/img/kategori/Sticker.png" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h6 class="card-title">Aneka produk cetakan banner</h6>
-                                <p class="card-text">Some quick example text...</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <h6 class="card-title">Aneka cetakan sticker</h6>
+                                <p class="card-text">Orajet - Ritrama - Camel - dll..</p>
+                                <a href="#" class="btn btn-primary">Lihat detail...</a>
                             </div>
                         </div>
                     </div>
@@ -446,9 +427,9 @@
                         <div class="card">
                             <img src="<?= base_url(); ?>assets/img/kategori/kertas.png" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h6 class="card-title">Aneka produk cetakan banner</h6>
-                                <p class="card-text">Some quick example text...</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <h6 class="card-title">Aneka produk cetakan kertas</h6>
+                                <p class="card-text">Art Paper - Linen - Bontak</p>
+                                <a href="#" class="btn btn-primary">Lihat detail...</a>
                             </div>
                         </div>
                     </div>
@@ -456,16 +437,58 @@
                         <div class="card">
                             <img src="<?= base_url(); ?>assets/img/kategori/cetakkain.png" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h6 class="card-title">Aneka produk cetakan banner</h6>
-                                <p class="card-text">Some quick example text...</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <h6 class="card-title">Aneka produk cetakan kain</h6>
+                                <p class="card-text">Scuba - Drifit - Satin</p>
+                                <a href="#" class="btn btn-primary">Lihat detail...</a>
                             </div>
                         </div>
                     </div>
-
-
+                </div>
+                <hr>
+                <div class="row row-lg">
+                    <div class="col-lg-3 hvr-grow">
+                        <div class="card">
+                            <img src="<?= base_url(); ?>assets/img/kategori/acrilic.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h6 class="card-title">Aneka produk cetakan acrylic</h6>
+                                <p class="card-text">Gantungan Kunci - Plakat - dll..</p>
+                                <a href="#" class="btn btn-primary">Lihat detail...</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 hvr-grow">
+                        <div class="card">
+                            <img src="<?= base_url(); ?>assets/img/kategori/jersey.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h6 class="card-title">Aneka produk kaos jersey</h6>
+                                <p class="card-text">bola - mancing - games - dll..</p>
+                                <a href="#" class="btn btn-primary">Lihat detail...</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 hvr-grow">
+                        <div class="card">
+                            <img src="<?= base_url(); ?>assets/img/kategori/creative.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h6 class="card-title">Aneka produk creative</h6>
+                                <p class="card-text">mug - ganci - kipas - id-card</p>
+                                <a href="#" class="btn btn-primary">Lihat detail...</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 hvr-grow">
+                        <div class="card">
+                            <img src="<?= base_url(); ?>assets/img/kategori/promosi.png" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h6 class="card-title">Aneka produk media promosi</h6>
+                                <p class="card-text">Y-banner - roll banner - dll..</p>
+                                <a href="#" class="btn btn-primary">Lihat detail...</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+
             <div class="row row-lg">
                 <div class="col-lg-8 col-xl-7 mg-t-10">
                     <div class="card">
@@ -891,7 +914,15 @@
         </div><!-- container -->
     </div><!-- content -->
 
+    <div id="pete">
+        <div class="divider-text">Lokasi</div>
+        <center>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d987.3397247744305!2d113.68749601532296!3d-8.166549342102172!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd6941441bf83b5%3A0xf10bbdef58dff179!2sQDesign+Digital+Printing!5e0!3m2!1sid!2sid!4v1558168114797!5m2!1sid!2sid" width="1000" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </center>
+    </div>
+
     <footer class="footer">
+
         <div>
             <span>&copy; 2019 DashForge v1.0.0. </span>
             <span>Created by <a href="http://themepixels.me">ThemePixels</a></span>
