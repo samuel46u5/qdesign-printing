@@ -51,46 +51,53 @@
         <div class="sidebar-body">
             <ul class="sidebar-nav">
                 <li class="nav-label mg-b-15">Admin Area</li>
-                <!-- kita akan melakukan query menu -->
-                <!-- sementara diisi 1 = admin developemnt mode -->
-                <?php
-                $role_id = '1';
-                // $this->session->userdata('adm_role_id');
-                $queryMenu = "SELECT `adm_menu`.`id`,`menu`
+
+
+                <li class="nav-item show">
+                    <a href="" class="nav-link with-sub"><i data-feather="map-pin"></i> Master</a>
+                    <nav class="nav">
+                        <a href="map-google.html">Google Maps</a>
+                        <a href="map-leaflet.html">Leaflet Maps</a>
+                        <a href="map-vector.html">Vector Maps</a>
+                    </nav>
+                </li>
+
+                <li class="nav-item">
+                    <?php
+                    $role_id = '1';
+                    // $this->session->userdata('adm_role_id');
+                    $queryMenu = "SELECT `adm_menu`.`id`,`menu`,`icon`
                     FROM `adm_menu` JOIN `adm_access_menu`
                      ON `adm_menu`.`id` = `adm_access_menu`.`menu_id`
-                      WHERE `adm_access_menu`.`role_id` = $role_id
+                      WHERE `adm_access_menu`.`role_id` = 1
                       ORDER BY `adm_access_menu`.`menu_id` ASC";
-                $menu = $this->db->query($queryMenu)->result_array(); ?>
-                <li class="nav-item">
+                    $menu = $this->db->query($queryMenu)->result_array(); ?>
+
                     <?php foreach ($menu as $m) : ?>
-                        <a href="" class="nav-link with-sub"><i data-feather="layers"></i><?= $m['menu']; ?></a>
+                        <!-- menampilkan isi menu -->
+                        <a href="" class="nav-link with-sub"><i data-feather="map-pin"></i><?= $m['menu']; ?></a>
+                        <nav class="nav show">
+                            <!-- query submenu -->
+                            <?php
+                            $menuId = $m['id'];
 
-                        <?php
-                        $menuId = $m['id'];
-                        $querySubMenu = "SELECT * FROM `adm_sub_menu` JOIN `adm_menu`
-                                                        ON `adm_sub_menu`.`menu_id` = `adm_menu`.`id`
-                                                        WHERE `adm_sub_menu`.`menu_id` = $menuId
-                                                        AND `adm_sub_menu`.`is_active` = 1";
-                        $subMenu = $this->db->query($querySubMenu)->result_array(); ?>
+                            $querySubMenu = "SELECT * FROM `adm_sub_menu` JOIN `adm_menu`
+                                         ON `adm_sub_menu`.`menu_id` = `adm_menu`.`id`
+                                         WHERE `adm_sub_menu`.`menu_id` = $menuId
+                                         AND `adm_sub_menu`.`is_active` = 1";
+                            $subMenu = $this->db->query($querySubMenu)->result_array();
+                            ?>
+                            <?php foreach ($subMenu as $sm) : ?>
+                                <a href="<?= base_url($sm['url']); ?>"><?= $sm['title']; ?></a>
+                            <?php endforeach; ?>
 
-                        <?php foreach ($subMenu as $sm) : ?>
-                            <nav class="nav">
-                                <?php if ($title == $sm['title']) : ?>
-                                    <a href="<?= $sm['title']; ?>">Accordion</a>
-                                </nav>
-
-                                <?php endforeach; ?>
-
-                            <!-- <nav class="nav">
-                                                                                                                        <a href="el-accordion.html">Accordion</a>
-                                                                                                                        <a href="el-alerts.html">Alerts</a>
-
-                                                                                                                    </nav> -->
-                        </li>
+                        </nav>
                     <?php endforeach; ?>
-                </ul>
-            </div><!-- sidebar-body -->
+
+                    <!-- end perulangan sub menu -->
+                </li>
+            </ul>
+
         </div><!-- sidebar -->
 
 
@@ -101,77 +108,28 @@
 
             </div><!-- container -->
         </div><!-- content -->
+    </div>
+
+    <script src="<?= base_url(); ?>assets/lib/jquery/jquery.min.js"></script>
+    <script src="<?= base_url(); ?>assets/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= base_url(); ?>assets/lib/feather-icons/feather.min.js"></script>
+    <script src="<?= base_url(); ?>assets/lib/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="<?= base_url(); ?>assets/lib/jquery.flot/jquery.flot.js"></script>
+    <script src="<?= base_url(); ?>assets/lib/jquery.flot/jquery.flot.stack.js"></script>
+    <script src="<?= base_url(); ?>assets/lib/jquery.flot/jquery.flot.resize.js"></script>
+    <script src="<?= base_url(); ?>assets/lib/chart.js/Chart.bundle.min.js"></script>
+    <script src="<?= base_url(); ?>assets/lib/jqvmap/jquery.vmap.min.js"></script>
+    <script src="<?= base_url(); ?>assets/lib/jqvmap/maps/jquery.vmap.usa.js"></script>
+
+    <script src="<?= base_url(); ?>assets/js/dashforge.js"></script>
+    <script src="<?= base_url(); ?>assets/js/dashforge.sampledata.js"></script>
+
+    <!-- append theme customizer -->
+    <script src="<?= base_url(); ?>assets/lib/js-cookie/js.cookie.js"></script>
+    <script src="<?= base_url(); ?>assets/js/dashforge.settings.js"></script>
 
 
-        <script src="<?= base_url(); ?>assets/lib/jquery/jquery.min.js"></script>
-        <script src="<?= base_url(); ?>assets/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="<?= base_url(); ?>assets/lib/feather-icons/feather.min.js"></script>
-        <script src="<?= base_url(); ?>assets/lib/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-        <script src="<?= base_url(); ?>assets/lib/jquery.flot/jquery.flot.js"></script>
-        <script src="<?= base_url(); ?>assets/lib/jquery.flot/jquery.flot.stack.js"></script>
-        <script src="<?= base_url(); ?>assets/lib/jquery.flot/jquery.flot.resize.js"></script>
-        <script src="<?= base_url(); ?>assets/lib/chart.js/Chart.bundle.min.js"></script>
-        <script src="<?= base_url(); ?>assets/lib/jqvmap/jquery.vmap.min.js"></script>
-        <script src="<?= base_url(); ?>assets/lib/jqvmap/maps/jquery.vmap.usa.js"></script>
 
-        <script src="<?= base_url(); ?>assets/js/dashforge.js"></script>
-        <script src="<?= base_url(); ?>assets/js/dashforge.sampledata.js"></script>
+</body>
 
-        <!-- append theme customizer -->
-        <script src="<?= base_url(); ?>assets/lib/js-cookie/js.cookie.js"></script>
-        <script src="<?= base_url(); ?>assets/js/dashforge.settings.js"></script>
-        <script>
-            $(function() {
-                'use strict';
-
-                // Leftlet Maps
-                var mymap = L.map('leaflet1').setView([51.505, -0.09], 13);
-
-                L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-                    maxZoom: 18,
-                    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-                        '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-                        'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-                    id: 'mapbox.streets'
-                }).addTo(mymap);
-
-
-                // Adding a Popup
-                var mymap2 = L.map('leaflet2').setView([51.505, -0.09], 13);
-
-                L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-                    maxZoom: 18,
-                    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-                        '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-                        'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-                    id: 'mapbox.streets'
-                }).addTo(mymap2);
-
-                L.marker([51.5, -0.09]).addTo(mymap2)
-                    .bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
-
-
-                // Adding a Circle
-                var mymap3 = L.map('leaflet3').setView([51.505, -0.09], 13);
-
-                L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-                    maxZoom: 18,
-                    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-                        '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-                        'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-                    id: 'mapbox.streets'
-                }).addTo(mymap3);
-
-                L.circle([51.508, -0.11], {
-                    color: 'red',
-                    fillColor: '#f03',
-                    fillOpacity: 0.5,
-                    radius: 500
-                }).addTo(mymap3);
-
-            });
-        </script>
-
-    </body>
-
-    </html>
+</html>
