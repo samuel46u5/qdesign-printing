@@ -25,6 +25,7 @@ class Auth extends CI_Controller
             $this->load->view('templates/auth_footer');
         } else {
             //validasi sukses
+
             $this->_login();
         }
     }
@@ -36,16 +37,25 @@ class Auth extends CI_Controller
 
         $user = $this->db->get_where('user', ['email' => $email])->row_array();
         //jika usernya ada
+
+
         if ($user) {
             //jika usernya aktif
             if ($user['is_active'] == 1) {
                 //cek pasword
+                // var_dump($password);
+                // var_dump($user['password']);
+
+                // die;
                 if (password_verify($password, $user['password'])) {
                     //jika password benar
+
                     $data = [
                         'email' => $user['email'],
                         'role_id' => $user['role_id']
                     ];
+
+
                     $this->session->set_userdata($data);
                     if ($user['role_id'] == 1) {
                         redirect('admin');
@@ -73,7 +83,7 @@ class Auth extends CI_Controller
         $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
         $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]', ['is_unique' => 'Email sudah digunakan']);
         $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[3]|matches[password2]', ['matches' => 'password tidak sama!', 'min_length' => 'password minimal 3 karakter']);
-        $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password3]');
+        $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
 
         if ($this->form_validation->run() == false) {
             $data['title']  = 'Qdesign - Registrasi';
@@ -81,16 +91,18 @@ class Auth extends CI_Controller
             $this->load->view('auth/registration');
             $this->load->view('templates/auth_footer');
         } else {
+
             $email = htmlspecialchars($this->input->post('email', true));
             $data = [
                 'nama' => htmlspecialchars($this->input->post('nama', true)),
                 'email' => $email,
                 'image' => 'default.jpg',
-                'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+                'password' => password_hash($this->input->post('password2'), PASSWORD_DEFAULT),
                 'role_id' => 2,
                 'is_active' => 1,
                 'date_created' => time()
             ];
+
 
             //siapkan token
             // $token = base64_encode(random_bytes(32));
