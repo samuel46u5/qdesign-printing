@@ -46,6 +46,11 @@
         </div><!-- navbar-right -->
     </header><!-- navbar -->
 
+
+
+
+
+
     <div id="sidebarMenu" class="sidebar sidebar-fixed sidebar-components">
 
         <div class="sidebar-body">
@@ -76,7 +81,7 @@
                     <?php foreach ($menu as $m) : ?>
                         <!-- menampilkan isi menu -->
                         <a href="" class="nav-link with-sub"><i data-feather="map-pin"></i><?= $m['menu']; ?></a>
-                        <nav class="nav show">
+                        <nav class="nav">
                             <!-- query submenu -->
                             <?php
                             $menuId = $m['id'];
@@ -109,6 +114,8 @@
             </div><!-- container -->
         </div><!-- content -->
     </div>
+
+
 
     <script src="<?= base_url(); ?>assets/lib/jquery/jquery.min.js"></script>
     <script src="<?= base_url(); ?>assets/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
