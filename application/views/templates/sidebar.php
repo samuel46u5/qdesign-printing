@@ -9,7 +9,7 @@
     <div class="aside-body">
         <div class="aside-loggedin">
             <div class="d-flex align-items-center justify-content-start">
-                <a href="" class="avatar"><img src="https://via.placeholder.com/500" class="rounded-circle" alt=""></a>
+                <a href="" class="avatar"><img src="<?= base_url('assets/img/profile-pic/') . $user['image'] ?> " class="rounded-circle" alt=""></a>
                 <div class="aside-alert-link">
                     <a href="" class="new" data-toggle="tooltip" title="You have 2 unread messages"><i data-feather="message-square"></i></a>
                     <a href="" class="new" data-toggle="tooltip" title="You have 4 new notifications"><i data-feather="bell"></i></a>
@@ -63,10 +63,6 @@
                     <li><a href="page-events.html">Events</a></li>
                 </ul>
             </li> -->
-
-
-
-
             <?php
             $this->session->userdata('adm_role_id');
             $queryMenu = "SELECT `adm_menu`.`id`,`menu`,`icon`
@@ -74,10 +70,22 @@
                      ON `adm_menu`.`id` = `adm_access_menu`.`menu_id`
                       WHERE `adm_access_menu`.`role_id` = 1
                       ORDER BY `adm_access_menu`.`menu_id` ASC";
-            $menu = $this->db->query($queryMenu)->result_array(); ?>
+            $menu = $this->db->query($queryMenu)->result_array();
+            // var_dump($menu);
+            // die;
+            ?>
             <?php foreach ($menu as $m) : ?>
-                <li class="nav-item with-sub">
-                    <a href="" class="nav-link"><i data-feather="user"></i> <span> <?= $m['menu']; ?></span></a>
+
+                <?php if ($title == $m['menu']) : ?>
+                    <li class=" nav-item with-sub active show">
+                    <?php else : ?>
+                    <li class="nav-item with-sub">
+                    <?php endif; ?>
+
+
+
+
+                    <a href="#" class="nav-link"><i data-feather="user"></i> <span> <?= $m['menu']; ?></span></a>
                     <ul>
                         <!-- query submenu -->
                         <?php
@@ -88,9 +96,22 @@
                                          WHERE `adm_sub_menu`.`menu_id` = $menuId
                                          AND `adm_sub_menu`.`is_active` = 1";
                         $subMenu = $this->db->query($querySubMenu)->result_array();
+                        // var_dump($subMenu);
+                        // die;
                         ?>
+
                         <?php foreach ($subMenu as $sm) : ?>
-                            <a href="<?= base_url($sm['url']); ?>"><?= $sm['title']; ?></a>
+                            <!-- <li class="active">
+                                                                                                                                                                                                                                                                                                        <a href="<?= base_url($sm['url']); ?>"><?= $sm['title']; ?></a>
+                                                                                                                                                                                                                                                                                                    </li> -->
+
+                            <?php if ($subtitle == $sm['title']) : ?>
+                                <li class="active">
+                                <?php else : ?>
+                                <li>
+                                <?php endif; ?>
+                                <a href="<?= base_url($sm['url']); ?>"><?= $sm['title']; ?></a>
+                            </li>
                         <?php endforeach; ?>
 
                     </ul>
@@ -98,6 +119,9 @@
                 </li>
 
             <?php endforeach; ?>
+
+
+
         </ul>
     </div>
 </aside>

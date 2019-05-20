@@ -14,8 +14,12 @@ class Admin extends CI_Controller
 
     public function index()
     {
+        // ini harus diisi sesuai didatabase
         $data['title'] = 'Admin';
         $data['subtitle'] = 'Dashboard';
+        // agak menyala di menu
+
+
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         $this->load->view('templates/header', $data);
