@@ -1,133 +1,131 @@
-            <div class="col-md-3 left_col">
-                <div class="left_col scroll-view">
-
-
-                    <div class="navbar nav_title" style="border: 0;">
-                        <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Qdesign</span></a>
-                    </div>
-
-                    <div class="clearfix"></div>
-
-                    <!-- menu profile quick info -->
-                    <div class="profile clearfix">
-                        <div class="profile_pic">
-                            <img src="<?= base_url('assets'); ?>/img/profile/<?= $user['image'] ?>" alt="..." class="img-circle profile_img">
-
-
-
-
-                        </div>
-                        <div class="profile_info">
-                            <span>Welcome,</span>
-                            <h2><?= $user['nama']; ?> </h2>
-                        </div>
-                    </div>
-                    <!-- /menu profile quick info --> <br />
-
-
-
-                    <!-- kita akan melakukan query menu -->
-                    <?php
-                    $role_id = $this->session->userdata('role_id');
-                    $queryMenu = "SELECT `user_menu`.`id`,`menu`
-                    FROM `user_menu` JOIN `user_access_menu`
-                     ON `user_menu`.`id` = `user_access_menu`.`menu_id`
-                      WHERE `user_access_menu`.`role_id` = $role_id
-                      ORDER BY `user_access_menu`.`menu_id` ASC
-                      ";
-                    $menu = $this->db->query($queryMenu)->result_array(); ?>
-
-                    <!-- sidebar menu -->
-                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-                        <div class="menu_section">
-                            <h3>General</h3>
-                            <ul class="nav side-menu">
-                                <?php foreach ($menu as $m) : ?>
-                                    <li><a><i class="fa fa-home"></i> <?= $m['menu']; ?><span class="fa fa-chevron-down"></span></a>
-                                        <ul class="nav child_menu open">
-
-                                            <!-- siapkan submenu dari menu ybs -->
-                                            <?php
-                                            $menuId = $m['id'];
-                                            $querySubMenu = "SELECT * 
-                                                        FROM `user_sub_menu` JOIN `user_menu`
-                                                        ON `user_sub_menu`.`menu_id` = `user_menu`.`id`
-                                                        WHERE `user_sub_menu`.`menu_id` = $menuId
-                                                        AND `user_sub_menu`.`is_active` = 1";
-                                            $subMenu = $this->db->query($querySubMenu)->result_array();
-                                            ?>
-
-                                            <?php foreach ($subMenu as $sm) : ?>
-                                                <?php if ($title == $sm['title']) : ?>
-                                                    <li class="nav-item active">
-                                                    <?php else : ?>
-                                                    <li class="nav-item">
-                                                    <?php endif; ?>
-                                                    <a class="nav-link pb-0" href="<?= base_url($sm['url']); ?> ">
-                                                        <i class="<?= $sm['icon']; ?>"></i>
-                                                        <span><?= $sm['title']; ?></span></a>
-                                                </li>
-                                            <?php endforeach; ?>
-
-
-                                            <!-- <li><a href="index.html">Dashboard</a></li>
-                                                                                                    <li><a href="index2.html">Dashboard2</a></li>
-                                                                                                    <li><a href="index3.html">Dashboard3</a></li> -->
-                                        </ul>
-                                    </li>
-                                <?php endforeach; ?>
-                            </ul>
-                        </div>
-
-
-                    </div>
-                    <!-- /sidebar menu -->
-
-                    <!-- sidebar menu -->
-                    <!-- <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-                                                        <div class="menu_section">
-                                                            <h3>General</h3>
-                                                            <ul class="nav side-menu">
-                                                                <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
-                                                                    <ul class="nav child_menu">
-                                                                        <li><a href="index.html">Dashboard</a></li>
-                                                                        <li><a href="index2.html">Dashboard2</a></li>
-                                                                        <li><a href="index3.html">Dashboard3</a></li>
-                                                                    </ul>
-                                                                </li>
-                                                                <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
-                                                                    <ul class="nav child_menu">
-                                                                        <li><a href="form.html">General Form</a></li>
-                                                                        <li><a href="form_advanced.html">Advanced Components</a></li>
-                                                                        <li><a href="form_validation.html">Form Validation</a></li>
-                                                                        <li><a href="form_wizards.html">Form Wizard</a></li>
-                                                                        <li><a href="form_upload.html">Form Upload</a></li>
-                                                                        <li><a href="form_buttons.html">Form Buttons</a></li>
-                                                                    </ul>
-                                                                </li>
-
-                                                            </ul>
-                                                        </div>
-
-
-                                                    </div> -->
-                    <!-- /sidebar menu -->
-
-                    <!-- /menu footer buttons -->
-                    <div class="sidebar-footer hidden-small">
-                        <a data-toggle="tooltip" data-placement="top" title="Settings">
-                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-                        </a>
-                        <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-                            <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-                        </a>
-                        <a data-toggle="tooltip" data-placement="top" title="Lock">
-                            <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-                        </a>
-                        <a data-toggle="tooltip" data-placement="top" title="Logout" href="<?= base_url('auth/logout'); ?>">
-                            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-                        </a>
-                    </div>
-                    <!-- /menu footer buttons -->
+<aside class="aside aside-fixed">
+    <div class="aside-header">
+        <a href="../../index.html" class="aside-logo">dash<span>forge</span></a>
+        <a href="" class="aside-menu-link">
+            <i data-feather="menu"></i>
+            <i data-feather="x"></i>
+        </a>
+    </div>
+    <div class="aside-body">
+        <div class="aside-loggedin">
+            <div class="d-flex align-items-center justify-content-start">
+                <a href="" class="avatar"><img src="https://via.placeholder.com/500" class="rounded-circle" alt=""></a>
+                <div class="aside-alert-link">
+                    <a href="" class="new" data-toggle="tooltip" title="You have 2 unread messages"><i data-feather="message-square"></i></a>
+                    <a href="" class="new" data-toggle="tooltip" title="You have 4 new notifications"><i data-feather="bell"></i></a>
+                    <a href="<?= base_url('auth/logout'); ?>" data-toggle="tooltip" title="Log out"><i data-feather="log-out"></i></a>
                 </div>
+            </div>
+            <div class="aside-loggedin-user">
+                <a href="#loggedinMenu" class="d-flex align-items-center justify-content-between mg-b-2" data-toggle="collapse">
+                    <h6 class="tx-semibold mg-b-0"><?= $user['nama']; ?> </h6>
+                    <i data-feather="chevron-down"></i>
+                </a>
+                <p class="tx-color-03 tx-12 mg-b-0">Administrator</p>
+            </div>
+            <div class="collapse" id="loggedinMenu">
+                <ul class="nav nav-aside mg-b-0">
+                    <li class="nav-item"><a href="" class="nav-link"><i data-feather="edit"></i> <span>Edit Profile</span></a></li>
+                    <li class="nav-item"><a href="" class="nav-link"><i data-feather="user"></i> <span>View Profile</span></a></li>
+                    <li class="nav-item"><a href="" class="nav-link"><i data-feather="settings"></i> <span>Account Settings</span></a></li>
+                    <li class="nav-item"><a href="" class="nav-link"><i data-feather="help-circle"></i> <span>Help Center</span></a></li>
+                    <li class="nav-item"><a href="<?= base_url('auth/logout'); ?>" class="nav-link"><i data-feather="log-out"></i> <span>Log Out</span></a></li>
+                </ul>
+            </div>
+        </div><!-- aside-loggedin -->
+        <ul class="nav nav-aside">
+
+            <!-- <li class="nav-label mg-t-25">Pages</li>
+                <li class="nav-item with-sub">
+                    <a href="" class="nav-link"><i data-feather="user"></i> <span>User Pages</span></a>
+                    <ul>
+                        <li><a href="page-profile-view.html">View Profile</a></li>
+                        <li><a href="page-connections.html">Connections</a></li>
+                        <li><a href="page-groups.html">Groups</a></li>
+                        <li><a href="page-events.html">Events</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item with-sub">
+                    <a href="" class="nav-link"><i data-feather="file"></i> <span>Other Pages</span></a>
+                    <ul>
+                        <li><a href="page-timeline.html">Timeline</a></li>
+                    </ul>
+                </li> -->
+
+
+            <!-- 
+            <li class="nav-item with-sub active show">
+                <a href="" class="nav-link"><i data-feather="user"></i> <span>User Pages</span></a>
+                <ul>
+                    <li class="active"><a href="page-profile-view.html">View Profile</a></li>
+                    <li><a href="page-connections.html">Connections</a></li>
+                    <li><a href="page-groups.html">Groups</a></li>
+                    <li><a href="page-events.html">Events</a></li>
+                </ul>
+            </li> -->
+
+
+
+
+            <?php
+            $this->session->userdata('adm_role_id');
+            $queryMenu = "SELECT `adm_menu`.`id`,`menu`,`icon`
+                    FROM `adm_menu` JOIN `adm_access_menu`
+                     ON `adm_menu`.`id` = `adm_access_menu`.`menu_id`
+                      WHERE `adm_access_menu`.`role_id` = 1
+                      ORDER BY `adm_access_menu`.`menu_id` ASC";
+            $menu = $this->db->query($queryMenu)->result_array(); ?>
+            <?php foreach ($menu as $m) : ?>
+                <li class="nav-item with-sub">
+                    <a href="" class="nav-link"><i data-feather="user"></i> <span> <?= $m['menu']; ?></span></a>
+                    <ul>
+                        <!-- query submenu -->
+                        <?php
+                        $menuId = $m['id'];
+
+                        $querySubMenu = "SELECT * FROM `adm_sub_menu` JOIN `adm_menu`
+                                         ON `adm_sub_menu`.`menu_id` = `adm_menu`.`id`
+                                         WHERE `adm_sub_menu`.`menu_id` = $menuId
+                                         AND `adm_sub_menu`.`is_active` = 1";
+                        $subMenu = $this->db->query($querySubMenu)->result_array();
+                        ?>
+                        <?php foreach ($subMenu as $sm) : ?>
+                            <a href="<?= base_url($sm['url']); ?>"><?= $sm['title']; ?></a>
+                        <?php endforeach; ?>
+
+                    </ul>
+
+                </li>
+
+            <?php endforeach; ?>
+        </ul>
+    </div>
+</aside>
+
+<div class="content ht-100v pd-0">
+    <div class="content-header">
+        <div class="content-search">
+            <i data-feather="search"></i>
+            <input type="search" class="form-control" placeholder="Search...">
+        </div>
+        <nav class="nav">
+            <a href="" class="nav-link"><i data-feather="help-circle"></i></a>
+            <a href="" class="nav-link"><i data-feather="grid"></i></a>
+            <a href="" class="nav-link"><i data-feather="align-left"></i></a>
+        </nav>
+    </div><!-- content-header -->
+
+    <div class="content-body">
+        <div class="container pd-x-0">
+            <div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30">
+                <div>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb breadcrumb-style1 mg-b-10">
+                            <li class="breadcrumb-item"><a href="#"><?= $title; ?></a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><?= $subtitle; ?></li>
+                        </ol>
+                    </nav>
+                    <h4 class="mg-b-0 tx-spacing--1">Welcome to Dashboard</h4>
+                </div>
+
             </div>

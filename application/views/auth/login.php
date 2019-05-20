@@ -26,6 +26,7 @@
                         <button class="btn btn-brand-02 btn-block">Sign In</button>
                         <div class="divider-text">or</div>
                         <div class="tx-13 mg-t-20 tx-center">Don't have an account? <a href="<?= base_url('auth/registration'); ?>"> Create an Account</a></div>
+                        <div class="tx-13 mg-t-20 tx-center">Go to <a href="<?= base_url(''); ?>"> <i data-feather="home"></i></a></div>
                     </form>
                 </div>
             </div><!-- sign-wrapper -->
