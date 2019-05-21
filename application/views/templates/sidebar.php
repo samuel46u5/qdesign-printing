@@ -102,8 +102,8 @@
 
                         <?php foreach ($subMenu as $sm) : ?>
                             <!-- <li class="active">
-                                                                                                                                                                                                                                                                                                        <a href="<?= base_url($sm['url']); ?>"><?= $sm['title']; ?></a>
-                                                                                                                                                                                                                                                                                                    </li> -->
+                                                                                                                                                                                                                                                                                                                <a href="<?= base_url($sm['url']); ?>"><?= $sm['title']; ?></a>
+                                                                                                                                                                                                                                                                                                            </li> -->
 
                             <?php if ($subtitle == $sm['title']) : ?>
                                 <li class="active">
@@ -149,7 +149,7 @@
                             <li class="breadcrumb-item active" aria-current="page"><?= $subtitle; ?></li>
                         </ol>
                     </nav>
-                    <h4 class="mg-b-0 tx-spacing--1">Welcome to Dashboard</h4>
+                    <!-- <h4 class="mg-b-0 tx-spacing--1">Welcome to Dashboard</h4> -->
                 </div>
 
             </div>

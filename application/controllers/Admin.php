@@ -50,6 +50,7 @@ class Admin extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
         // echo 'selamat datang ' . $data['user']['nama'];
+        // die;
 
         $data['menu'] = $this->db->get('adm_menu')->result_array();
 
@@ -61,7 +62,7 @@ class Admin extends CI_Controller
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
-            $this->load->view('menu/index', $data);
+            $this->load->view('admin/menu', $data);
             $this->load->view('templates/footer');
         } else {
             //tambah data menu
