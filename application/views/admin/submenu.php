@@ -7,28 +7,44 @@
         <thead>
             <tr>
                 <th class="wd-5p">#</th>
-                <th class="wd-25p">Menu</th>
+                <th class="wd-10p">Title</th>
+                <th class="wd-10p">Menu</th>
+                <th class="wd-10p">Url</th>
                 <th class="wd-5p">Icon</th>
-                <th class="wd-25p">Kode Icon</th>
+                <th class="wd-10p">Icon Name</th>
+                <th class="wd-5p">Active</th>
                 <th class="wd-5p">Action</th>
 
 
             </tr>
         </thead>
         <tbody>
-            <?php $no = 0;
-            foreach ($menu as $m) { ?>
+            <?php $i = 1; ?>
+            <?php foreach ($subMenu as $sm) : ?>
                 <tr>
-                    <td><?php echo ++$no; ?></td>
-                    <td><?php echo $m['menu']; ?></td>
-                    <td><i class="<?= $m['icon']; ?>"></i> </td>
-                    <td><?php echo $m['icon']; ?></td>
+                    <th><?= $i ?></th>
+                    <td><?= $sm['title']; ?> </td>
+                    <td><?= $sm['menu']; ?> </td>
+                    <td><?= $sm['url']; ?> </td>
+                    <td><span class='<?= $sm['icon']; ?>'> </span> </td>
+                    <td><?= $sm['icon']; ?> </td>
                     <td>
-                        <a id="edit" href='#' data-id='<?= $m['id']; ?>' data-icon='<?= $m['icon']; ?>' data-menu='<?php echo $m['menu']; ?>' data-toggle='modal' data-target='#ubah-data'><span class="fa fa-edit"></span>&nbsp;</a>
+                        <?php
+                        $t = $sm['is_active'];
+
+                        if ($t == "1") {
+                            echo "&nbsp; &nbsp;<span class ='fa fa-check'> </span>";
+                        } else echo "&nbsp; &nbsp;<span class ='fa fa-ban'> </span>";
+                        ?>
+                    <td>
+                        <a id="edit" href='#' data-id='<?= $sm['id']; ?>' data-menu='<?= $sm['menu']; ?>' data-menu_id='<?= $sm['menu_id']; ?>' data-title='<?= $sm['title']; ?>' data-url='<?= $sm['url']; ?>' data-icon='<?= $sm['icon']; ?>' data-is_active='<?= $sm['is_active']; ?>' data-toggle='modal' data-target='#ubah-data'><span class="fa fa-edit"></span>&nbsp;</a>
+                        <!-- <a href="<?= base_url('menu/delete_subMenu/?id=') . $sm['id'];  ?>"> <span class=" fa fa-trash-o"></span>&nbsp;</a> -->
                         <a id="hapus" href='<?= base_url('admin/delete_menu/?id=') . $m['id'] . '&menu=' . $m['menu'] ?>' data-id='<?= $m['id']; ?>' data-menu='<?php echo $m['menu']; ?>' id="link-delete" class="tombol-hapus"><span class="fa fa-trash" style="color:red;"></span>&nbsp;</a>
                     </td>
                 </tr>
-            <?php } ?>
+                <?php $i++; ?>
+            <?php endforeach; ?>
+
 
         </tbody>
     </table>
@@ -45,6 +61,7 @@
 </script>
 
 
+
 <!-- modal tambah data baru -->
 <div class="modal fade" id="tambah-data" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered wd-sm-650" role="document">
@@ -56,21 +73,45 @@
                 <div class="media align-items-center">
                     <span class="tx-color-03 d-none d-sm-block"><i data-feather="plus-circle" class="wd-30 ht-30"></i></span>
                     <div class="media-body mg-sm-l-20">
-                        <h4 class="tx-18 tx-sm-20 mg-b-2">Tambah data sub menu</h4>
+                        <h4 class="tx-18 tx-sm-20 mg-b-2">Tambah data menu</h4>
 
                     </div>
                 </div><!-- media -->
             </div><!-- modal-header -->
             <div class="modal-body pd-sm-t-30 pd-sm-b-40 pd-sm-x-30">
-                <form action="<?= base_url('admin/menu'); ?>" method="post" class="form-horizontal form-label-left input_mask">
+                <form action="<?= base_url('admin/submenu'); ?>" method="post" class="form-horizontal form-label-left input_mask">
+                    <div class="form-group">
+                        <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Submenu title</label>
+                        <input type="text" class="form-control" id="title" name="title" placeholder="Submenu title">
+                    </div>
+
+
                     <div class="form-group">
                         <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Menu</label>
-                        <input type="text" id="menu" name="menu" class="form-control" placeholder="Masukan menu">
+                        <select name='menu_id' id="menu_id" class="form-control">
+                            <option value="" disabled>Select menu</option>
+                            <?php foreach ($menu as $m) : ?>
+                                <option value="<?= $m['id'];  ?> "> <?= $m['menu'];  ?> </option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
 
                     <div class="form-group">
-                        <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Icon menu</label>
-                        <input type="text" id="icon" name="icon" class="form-control" placeholder="Masukan icon untuk menu">
+                        <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Submenu URL</label>
+                        <input type="text" class="form-control" id="url" name="url" placeholder="Submenu URL">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Submenu icon</label>
+                        <input type="text" class="form-control" id="icon" name="icon" placeholder="Submenu icon">
+                    </div>
+
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+
+                            <input type="checkbox" value="1" name="is_active" class="custom-control-input" id="is_active" checked>
+                            <label class="custom-control-label" for="is_active">Active?</label>
+                        </div>
                     </div>
 
             </div><!-- modal-body -->
@@ -102,16 +143,33 @@
                 </div><!-- media -->
             </div><!-- modal-header -->
             <div id='qq' class="modal-body pd-sm-t-30 pd-sm-b-40 pd-sm-x-30">
-                <form action="<?= base_url('admin/update_menu'); ?>" method="post" class="form-horizontal form-label-left input_mask">
+                <form action="<?= base_url('admin/update_submenu'); ?>" method="post" class="form-horizontal form-label-left input_mask">
                     <div class="form-group">
-                        <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Menu</label>
-                        <input type="hidden" id="id2" name="id2">
-                        <input type="text" id="menu2" name="menu2" class="form-control" placeholder="Masukan menu">
+                        <input type="text" class="form-control" id="title" name="title" placeholder="Submenu title">
                     </div>
 
                     <div class="form-group">
-                        <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Icon menu</label>
-                        <input type="text" id="icon2" name="icon2" class="form-control" placeholder="Masukan icon untuk menu">
+                        <select name='menu_id2' id="menu_id2" class="form-control">
+                            <option value="" disabled>Select menu</option>
+                            <?php foreach ($menu as $m) : ?>
+                                <option id="<?= $m['id']; ?>" value="<?= $m['id']; ?>"> <?= $m['menu']; ?> </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="url" name="url" placeholder="Submenu URL">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="icon" name="icon" placeholder="Submenu icon">
+                    </div>
+
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" value="1" name="is_active" class="custom-control-input" id="is_active" checked>
+                            <label class="custom-control-label" for="is_active">Active?</label>
+                        </div>
                     </div>
 
 
@@ -128,17 +186,40 @@
 
 <script>
     $(document).on("click", "#edit", function() {
+        var a = $(this).data('id');
+        var b = $(this).data('title');
+        var c = $(this).data('url');
+        var d = $(this).data('icon');
+        var e = $(this).data('is_active');
+        var f = $(this).data('menu_id');
+        var g = $(this).data('menu');
 
-        var a = $(this).data('menu');
-        var b = $(this).data('icon');
-        var c = $(this).data('id');
 
-        $("#qq #menu2").val(a);
-        $("#qq #icon2").val(b);
-        $("#qq #id2").val(c);
-        $("#qq #icon_view").val('<i class=' + b + '></i>');
 
+        $("#qq #id").val(a);
+        $("#qq #title").val(b);
+        $("#qq #url").val(c);
+        $("#qq #icon").val(d);
+        $("#qq #is_active2").val(e);
+        $("#qq #menu_id2").val(f);
+        $("#qq #menu").val(g);
+
+
+
+        const x = document.getElementById(f);
+        x.setAttribute("selected", "selected");
+
+        //asign value ke chekbox
+        if (e == '1') {
+            document.getElementById("is_active2").checked = true;
+            document.getElementById("is_active2").value = "1";
+        } else {
+            document.getElementById("is_active2").checked = false;
+            document.getElementById("is_active2").value = "0";
+        };
     })
+
+
 
     $(document).on("click", ".tombol-hapus", function(e) {
         e.preventDefault();

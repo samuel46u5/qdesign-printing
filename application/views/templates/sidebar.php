@@ -85,7 +85,7 @@
 
 
 
-                    <a href="#" class="nav-link"><i class="<?= $m['icon']; ?>"></i> <span> &nbsp; <?= $m['menu']; ?></span></a>
+                    <a href="#" class="nav-link"><i class="<?= $m['icon'] . ' fa-lg'; ?>"></i> <span> &nbsp; <?= $m['menu']; ?></span></a>
                     <ul>
                         <!-- query submenu -->
                         <?php
@@ -103,8 +103,8 @@
 
                         <?php foreach ($subMenu as $sm) : ?>
                             <!-- <li class="active">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <a href="<?= base_url($sm['url']); ?>"><?= $sm['title']; ?></a>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </li> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <a href="<?= base_url($sm['url']); ?>"><?= $sm['title']; ?></a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </li> -->
 
                             <?php if ($subtitle == $sm['title']) : ?>
                                 <li class="active">
@@ -113,7 +113,7 @@
                                 <li>
 
                                 <?php endif; ?>
-                                <a href="<?= base_url($sm['url']); ?>"> <i class="fa fa-fw fa-circle"></i><?= $sm['title']; ?> </a>
+                                <a href="<?= base_url($sm['url']); ?>"> <i class="fa fa-fw fa-circle fa-xs"></i><?= $sm['title']; ?> </a>
                             </li>
 
                         <?php endforeach; ?>
