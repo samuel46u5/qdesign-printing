@@ -8,7 +8,7 @@ class Menu_Model extends CI_Model
     {
         $hasil = $this->db->where('id', $id)
             ->limit(1)
-            ->get('user_menu');
+            ->get('adm_menu');
         if ($hasil->num_rows() > 0) {
             return $hasil->row();
         } else {
@@ -17,9 +17,9 @@ class Menu_Model extends CI_Model
     }
     public function getSubMenu()
     {
-        $query = "SELECT `user_sub_menu`.* , `user_menu`.`menu` 
-                    FROM `user_sub_menu` JOIN `user_menu`
-                    ON `user_sub_menu`.`menu_id` = `user_menu`.`id`";
+        $query = "SELECT `adm_sub_menu`.* , `adm_menu`.`menu` 
+                    FROM `adm_sub_menu` JOIN `adm_menu`
+                    ON `adm_sub_menu`.`menu_id` = `adm_menu`.`id`";
 
         return $this->db->query($query)->result_array();
     }
@@ -28,7 +28,7 @@ class Menu_Model extends CI_Model
     {  //query delete from ... where id= ...
         $this->load->database();
         $this->db->where('id', $id);
-        $this->db->delete('user_sub_menu');
+        $this->db->delete('adm_sub_menu');
         return true;
     }
 
@@ -41,7 +41,7 @@ class Menu_Model extends CI_Model
     {  //query delete from ... where id= ...
         $this->load->database();
         $this->db->where('id', $id);
-        $this->db->delete('user_menu');
+        $this->db->delete('adm_menu');
         return true;
     }
 

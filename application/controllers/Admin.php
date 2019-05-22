@@ -3,15 +3,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Admin extends CI_Controller
 {
-    //untuk proteksi agar user tidak bisa masuk sembaranagan sebelum login
     // public function __construct()
     // {
     //     parent::__construct();
+    //     //ini cukup dipangil sekali Master_Model
+    //     // $this->load->model('Menu_Model');
     //     is_logged_in();
     // }
-    //untuk proteksi agar user tidak bisa masuk sembaranagan sebelum login
-
-
     public function index()
     {
         // ini harus diisi sesuai didatabase
@@ -80,10 +78,10 @@ class Admin extends CI_Controller
     public function delete_menu()
     {
 
-        $id = $this->input->post('id');
-        $menu = $this->input->post('menu');
-        var_dump($id);
-        die;
+        $id = $this->input->get('id');
+        $menu = $this->input->get('menu');
+        // var_dump($id);
+        // die;
         $where = array('id' => $id);
         $dihapus = $this->Menu_Model->delete_data('adm_menu', $where);
         if ($dihapus >= 1) {

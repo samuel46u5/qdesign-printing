@@ -25,8 +25,6 @@
                     <td><?php echo $m['icon']; ?></td>
                     <td>
                         <a id="edit" href='#' data-id='<?= $m['id']; ?>' data-icon='<?= $m['icon']; ?>' data-menu='<?php echo $m['menu']; ?>' data-toggle='modal' data-target='#ubah-data'><span class="fa fa-edit"></span>&nbsp;</a>
-                        <!-- <a href="" id="link-delete" class="tombol-hapus"> <span class="fa fa-trash-o"></span>&nbsp;</a> -->
-                        <!-- <a href="<?= base_url('master/delete_menu/?id=') . $m['id'] . '&menu=' . $m['menu'] ?>" id="link-delete" class="tombol-hapus"> <span class=" fa fa-trash-o"></span>&nbsp;</a> -->
                         <a id="hapus" href='<?= base_url('admin/delete_menu/?id=') . $m['id'] . '&menu=' . $m['menu'] ?>' data-id='<?= $m['id']; ?>' data-menu='<?php echo $m['menu']; ?>' id="link-delete" class="tombol-hapus"><span class="fa fa-trash"></span>&nbsp;</a>
                     </td>
                 </tr>
