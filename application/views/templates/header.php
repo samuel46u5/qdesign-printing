@@ -30,10 +30,11 @@
     <meta name="description" content="Responsive Bootstrap 4 Dashboard Template">
     <meta name="author" content="ThemePixels">
 
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="<?= base_url(); ?>assets/assets/img/favicon.png">
+    <!-- icon qdesign -->
+    <link rel="icon" type="image/png" href="<?= base_url('assets'); ?>/img/logo_q.png">
+    <link rel="shortcut icon" href="<?= base_url('assets'); ?>/img/logo_q.ico">
 
-    <title>DashForge Responsive Bootstrap 4 Dashboard Template</title>
+
 
     <!-- vendor css -->
     <link href="<?= base_url(); ?>assets/lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
@@ -47,6 +48,10 @@
     <!-- DashForge CSS -->
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/dashforge.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/dashforge.demo.css">
+
+    <!-- sweetalert2 -->
+    <script src="<?= base_url(); ?>assets/lib/sweetalert2/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/lib/sweetalert2/sweetalert2.min.css">
 
 
     <!-- ini harusnya diletakkan di footer -->

@@ -56,7 +56,6 @@ class Admin extends CI_Controller
 
         // menganti error message , custome error message
         $this->form_validation->set_message('required', 'Menu harus diisi');
-
         $this->form_validation->set_rules('menu', 'Menu', 'required');
 
         if ($this->form_validation->run() == false) {
@@ -66,9 +65,33 @@ class Admin extends CI_Controller
             $this->load->view('templates/footer');
         } else {
             //tambah data menu
-            $this->db->insert('adm_menu', ['menu' => $this->input->post('menu')]);
+            $data = [
+                'menu' => $this->input->post('menu'),
+                'icon' => $this->input->post('icon')
+            ];
+
+            $this->db->insert('adm_menu', $data);
             $this->session->set_flashdata('message', 'Menu berhasil ditambah');
+
             redirect('admin/menu');
+        }
+    }
+
+    public function delete_menu()
+    {
+
+        $id = $this->input->post('id');
+        $menu = $this->input->post('menu');
+        var_dump($id);
+        die;
+        $where = array('id' => $id);
+        $dihapus = $this->Menu_Model->delete_data('adm_menu', $where);
+        if ($dihapus >= 1) {
+            // helper_log('Data supplier dengan ID "' . $id_supplier . '" telah dihapus');
+            $this->session->set_flashdata('message', 'Menu ' . $menu . ' berhasil dihapus');
+            redirect(base_url('admin/menu'));
+        } else {
+            $this->session->set_flashdata('message', 'Menu ' . $menu . ' gagal dihapus');
         }
     }
 }
