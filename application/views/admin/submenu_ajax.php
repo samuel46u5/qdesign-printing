@@ -1,43 +1,10 @@
-<?php if ($this->session->flashdata('sukses')) : ?>
-    <script>
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000
-        });
-        Toast.fire({
-            type: 'success',
-            title: '<?= $this->session->flashdata('sukses') ?>'
-        })
-    </script>
-<?php endif; ?>
-<?php if ($this->session->flashdata('gagal')) : ?>
-    <script>
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000
-        });
-        Toast.fire({
-            type: 'error',
-            title: '<?= $this->session->flashdata('gagal') ?>'
-        })
-    </script>
-<?php endif; ?>
-
-
-
-
-
-
 <div data-label="Daftar Menu" class="df-example demo-table">
     <button type="button" class="btn btn-outline-primary btn-xs" data-toggle="modal" data-target="#tambah-data" data-backdrop="static">
         <span class="fa fa-plus-circle"></span> Tambah Data
     </button>
     <hr>
-    <table id="example1" class="table">
+
+    <table class="table table-striped table-data">
         <thead>
             <tr>
                 <th class="wd-5p">#</th>
@@ -47,52 +14,41 @@
                 <th class="wd-5p">Icon</th>
                 <th class="wd-10p">Icon Name</th>
                 <th class="wd-5p">Active</th>
-                <th class="wd-5p">Action</th>
-
-
+                <th class="wd-5p">action</th>
             </tr>
         </thead>
-        <tbody>
-            <?php $i = 1; ?>
-            <?php foreach ($subMenu as $sm) : ?>
-                <tr>
-                    <th><?= $i ?></th>
-                    <td><?= $sm['title']; ?> </td>
-                    <td><?= $sm['menu']; ?> </td>
-                    <td><?= $sm['url']; ?> </td>
-                    <td><span class='<?= $sm['icon']; ?>'> </span> </td>
-                    <td><?= $sm['icon']; ?> </td>
-                    <td>
-                        <?php
-                        $t = $sm['is_active'];
 
-                        if ($t == "1") {
-                            echo "&nbsp; &nbsp;<span class ='fa fa-check'> </span>";
-                        } else echo "&nbsp; &nbsp;<span class ='fa fa-ban'> </span>";
-                        ?>
-                    <td>
-                        <a id="edit" href='#' data-id='<?= $sm['id']; ?>' data-menu='<?= $sm['menu']; ?>' data-menu_id='<?= $sm['menu_id']; ?>' data-title='<?= $sm['title']; ?>' data-url='<?= $sm['url']; ?>' data-icon='<?= $sm['icon']; ?>' data-is_active='<?= $sm['is_active']; ?>' data-toggle='modal' data-target='#ubah-data'><span class="fa fa-edit"></span>&nbsp;</a>
-                        <a id="hapus" href='<?= base_url('admin/delete_submenu/?id=') . $sm['id'] . '&title=' . $sm['title'] ?>' data-id='<?= $sm['id']; ?>' data-title='<?php echo $sm['title']; ?>' id="link-delete" class="tombol-hapus"><span class="fa fa-trash" style="color:red;"></span>&nbsp;</a>
-                    </td>
-                </tr>
-                <?php $i++; ?>
-            <?php endforeach; ?>
-
-
-        </tbody>
     </table>
+
 </div><!-- df-example -->
 
-
-<script>
-    $('#example1').DataTable({
-        language: {
-            searchPlaceholder: 'cari data',
-            sSearch: '',
-            lengthMenu: '_MENU_ items/page',
+<script type="text/javascript">
+    $(".table-data").DataTable({
+        ordering: false,
+        processing: true,
+        serverSide: true,
+        ajax: {
+            url: "<?php echo base_url('admin/submenu_ajax') ?>",
+            type: 'POST',
         }
     });
+
+
+
+
+    // $('.table-data').DataTable({
+    //     ordering: false,
+    //     processing: true,
+    //     serverSide: true,
+    //     "ajax": {
+    //         url: "<?php echo site_url("admin/submenu_ajax") ?>",
+    //         type: 'GET'
+
+    //     }
+    // });
 </script>
+
+
 
 <!-- modal tambah data baru -->
 <div class="modal fade" id="tambah-data" tabindex="-1" role="dialog" aria-hidden="true">
@@ -177,7 +133,6 @@
             <div id='qq' class="modal-body pd-sm-t-30 pd-sm-b-40 pd-sm-x-30">
                 <form action="<?= base_url('admin/update_submenu'); ?>" method="post" class="form-horizontal form-label-left input_mask">
                     <div class="form-group">
-                        <input type="hidden" class="form-control" id="id" name="id">
                         <input type="text" class="form-control" id="title" name="title" placeholder="Submenu title">
                     </div>
 
@@ -200,7 +155,7 @@
 
                     <div class="form-group">
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" value="1" name="is_active2" class="custom-control-input" id="is_active2" checked>
+                            <input type="checkbox" value="1" name="is_active" class="custom-control-input" id="is_active" checked>
                             <label class="custom-control-label" for="is_active">Active?</label>
                         </div>
                     </div>
@@ -257,9 +212,25 @@
     $(document).on("click", ".tombol-hapus", function(e) {
         e.preventDefault();
         const href = $(this).attr('href');
-        const menu = $(this).attr('data-title');
+        const menu = $(this).attr('data-menu');
 
 
+
+        // Swal.fire({
+        //         title: "Hapus data?",
+        //         text: "Data produk : " + nama + " akan dihapus",
+        //         icon: "warning",
+        //         buttons: true,
+        //         dangerMode: true,
+        //     })
+        //     .then((willDelete) => {
+        //         if (willDelete) {
+        //             document.location.href = href;
+        //             // swal("Data berhasil dihapus", {
+        //             //     icon: "success",
+        //             // });
+        //         }
+        //     });
 
         Swal.fire({
             title: 'Hapus data?',
@@ -268,8 +239,7 @@
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             confirmButtonText: 'hapus',
-            cancelButtonColor: '#d33',
-            reverseButtons: true
+            cancelButtonColor: '#d33'
 
         }).then((result) => {
             if (result.value) {

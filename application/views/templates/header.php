@@ -70,3 +70,32 @@
 </head>
 
 <body>
+
+    <?php if ($this->session->flashdata('sukses')) : ?>
+        <script>
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000
+            });
+            Toast.fire({
+                type: 'success',
+                title: '<?= $this->session->flashdata('sukses') ?>'
+            })
+        </script>
+    <?php endif; ?>
+    <?php if ($this->session->flashdata('gagal')) : ?>
+        <script>
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000
+            });
+            Toast.fire({
+                type: 'error',
+                title: '<?= $this->session->flashdata('gagal') ?>'
+            })
+        </script>
+    <?php endif; ?>
