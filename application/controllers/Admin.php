@@ -48,7 +48,7 @@ class Admin extends CI_Controller
         if ($this->form_validation->run() == false) {
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
-            $this->load->view('admin/submenu', $data);
+            $this->load->view('admin/submenu', $data, array());
             $this->load->view('templates/footer');
         } else {
             $data = [
@@ -63,14 +63,138 @@ class Admin extends CI_Controller
             redirect('admin/submenu');
         }
     }
+    function submenu_ajax()
+    {
+
+        // $list = $this->Admin_Model->get_datatables();
+        $list = $this->Admin_Model->get_datatables();
+
+        $data = array();
+        $no = $_POST['start'];
+        foreach ($list as $field) {
+            $no++;
+            $row = array();
+            $row[] = $no;
+            $row[] = $field->menu_id;
+            $row[] = $field->title;
+            $row[] = $field->url;
+            $row[] = $field->icon;
+            $row[] = $field->is_active;
+
+
+
+
+            if ($field->is_active == "1") {
+                $row[] = "&nbsp; &nbsp;<span class ='fa fa-check'> </span>";
+            } else {
+                $row[] = "&nbsp; &nbsp;<span class ='fa fa-ban'> </span>";
+            }
+
+            $row[] = "<a id='edit' href='#' data-id=' $field->id' data-toggle='modal' data-target='#ubah-data'><span class='fa fa-edit'></span>&nbsp;</a>";
+
+            // $row[] = "<a id='edit'  data-toggle='modal' data-target='#ubah-data'> <span class='fa fa-edit'></span>&nbsp;</a>" . "<a id='edit'  data-toggle='modal' data-target='#ubah-data'> <span class='fa fa-edit'></span>&nbsp;</a>";
+
+
+
+            $data[] = $row;
+        }
+
+        $output = array(
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->Admin_Model->count_all(),
+            "recordsFiltered" => $this->Admin_Model->count_filtered(),
+            "data" => $data,
+        );
+        //output dalam format JSON
+        echo json_encode($output);
+    }
+
+    function submenu_ajax1()
+    {
+        /*Menagkap semua data yang dikirimkan oleh client*/
+
+        /*Sebagai token yang yang dikrimkan oleh client, dan nantinya akan
+        server kirimkan balik. Gunanya untuk memastikan bahwa user mengklik paging
+        sesuai dengan urutan yang sebenarnya */
+        $draw = $_REQUEST['draw'];
+
+        /*Jumlah baris yang akan ditampilkan pada setiap page*/
+        $length = $_REQUEST['length'];
+
+        /*Offset yang akan digunakan untuk memberitahu database
+        dari baris mana data yang harus ditampilkan untuk masing masing page
+        */
+        $start = $_REQUEST['start'];
+
+        /*Keyword yang diketikan oleh user pada field pencarian*/
+        $search = $_REQUEST['search']["value"];
+
+
+        /*Menghitung total desa didalam database*/
+        $total = $this->db->count_all_results("adm_sub_menu");
+
+        /*Mempersiapkan array tempat kita akan menampung semua data
+        yang nantinya akan server kirimkan ke client*/
+        $output = array();
+
+        /*Token yang dikrimkan client, akan dikirim balik ke client*/
+        $output['draw'] = $draw;
+
+        /*
+        $output['recordsTotal'] adalah total data sebelum difilter
+        $output['recordsFiltered'] adalah total data ketika difilter
+        Biasanya kedua duanya bernilai sama, maka kita assignment
+        keduaduanya dengan nilai dari $total
+        */
+        $output['recordsTotal'] = $output['recordsFiltered'] = $total;
+
+        /*disini nantinya akan memuat data yang akan kita tampilkan
+        pada table client*/
+        $output['data'] = array();
+
+
+        /*Jika $search mengandung nilai, berarti user sedang telah
+        memasukan keyword didalam filed pencarian*/
+        if ($search != "") {
+            $this->db->like("title", $search);
+        }
+
+
+        /*Lanjutkan pencarian ke database*/
+        $this->db->limit($length, $start);
+        /*Urutkan dari alphabet paling terkahir*/
+        $this->db->order_by('title', 'DESC');
+        $query = $this->db->get('adm_sub_menu');
+
+
+        /*Ketika dalam mode pencarian, berarti kita harus mengatur kembali nilai
+        dari 'recordsTotal' dan 'recordsFiltered' sesuai dengan jumlah baris
+        yang mengandung keyword tertentu
+        */
+        if ($search != "") {
+            $this->db->like("title", $search);
+            $jum = $this->db->get('adm_sub_menu');
+            $output['recordsTotal'] = $output['recordsFiltered'] = $jum->num_rows();
+        }
+
+
+        $nomor_urut = $start + 1;
+        foreach ($query->result_array() as $sub_menu) {
+            $output['data'][] = array($nomor_urut, $sub_menu['title']);
+            $nomor_urut++;
+        }
+
+        echo json_encode($output);
+    }
+
 
     function update_submenu()
     {
 
-        // $this->form_validation->set_rules('title',  'Title',  'required');
-        // $this->form_validation->set_rules('menu_id',  'Menu',  'required');
-        // $this->form_validation->set_rules('url',  'URL',  'required');
-        // $this->form_validation->set_rules('icon',  'Icon',  'required');
+        // $this->form_validation->set_rules('title', 'Title', 'required');
+        // $this->form_validation->set_rules('menu_id', 'Menu', 'required');
+        // $this->form_validation->set_rules('url', 'URL', 'required');
+        // $this->form_validation->set_rules('icon', 'Icon', 'required');
 
         // $this->load->model("Menu_Model");
         $id = $this->input->post('id');
