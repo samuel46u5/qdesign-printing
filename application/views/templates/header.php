@@ -53,6 +53,13 @@
     <script src="<?= base_url(); ?>assets/lib/sweetalert2/sweetalert2.min.js"></script>
     <link rel="stylesheet" href="<?= base_url(); ?>assets/lib/sweetalert2/sweetalert2.min.css">
 
+    <!-- datatables -->
+    <script src="<?= base_url(); ?>assets/lib/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="<?= base_url(); ?>assets/lib/datatables.net-dt/js/dataTables.dataTables.min.js"></script>
+    <script src="<?= base_url(); ?>assets/lib/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="<?= base_url(); ?>assets/lib/datatables.net-responsive-dt/js/responsive.dataTables.min.js"></script>
+    <!-- end datatables -->
+
 
     <!-- ini harusnya diletakkan di footer -->
     <script src="<?= base_url(); ?>assets/lib/jquery/jquery.min.js"></script>
