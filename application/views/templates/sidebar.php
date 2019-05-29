@@ -90,6 +90,7 @@
                         <!-- query submenu -->
                         <?php
                         $menuId = $m['id'];
+
                         $querySubMenu = "SELECT * FROM `adm_sub_menu` JOIN `adm_menu`
                                          ON `adm_sub_menu`.`menu_id` = `adm_menu`.`id`
                                          WHERE `adm_sub_menu`.`menu_id` = $menuId
@@ -102,8 +103,8 @@
 
                         <?php foreach ($subMenu as $sm) : ?>
                             <!-- <li class="active">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <a href="<?= base_url($sm['url']); ?>"><?= $sm['title']; ?></a>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </li> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <a href="<?= base_url($sm['url']); ?>"><?= $sm['title']; ?></a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </li> -->
 
                             <?php if ($subtitle == $sm['title']) : ?>
                                 <li class="active">
