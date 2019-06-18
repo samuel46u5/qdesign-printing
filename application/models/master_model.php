@@ -18,6 +18,15 @@ class Master_Model extends CI_Model
     //     $hsl = $this->db->query("SELECT * FROM tbl_barang where barang_id='$kobar'");
     //     return $hsl;
     // }
+
+    private $db2;
+
+    public function __construct()
+    {
+        // parent::__construct();
+        // $this->db2 = $this->load->database('data_printing', TRUE);
+    }
+
     function get_produk_detail($id)
     {
         $query = "SELECT P.*, B.nama_bahan, D.divisi, B.lebar, B.panjang FROM produk_cetakan AS P Inner Join divisi_mesin AS D ON P.id_divisi_mesin = D.id_divisi_mesin Inner Join bahan_cetakan AS B ON P.id_bahan = B.id_bahan  where id_produk = '$id'";
@@ -31,6 +40,25 @@ class Master_Model extends CI_Model
     {
         $query = "select * from jenis_customer";
         return $this->db->query($query)->result_array();
+    }
+
+
+    function get_Customer2()
+    {
+
+        $otherdb = $this->load->database('data_printing', TRUE); // the TRUE paramater tells CI that you'd like to return the database object.
+
+        $query = $otherdb->select('*')->get('customer');
+        var_dump($query);
+        die;
+
+        // $query = "select * from customer";
+        // return $this->db2->query($query)->result_array();
+        // if ($query->num_rows() > 0) {
+        //     return $query->result_array();
+        // } else {
+        //     return false;
+        // }
     }
 
     function get_Customer()
