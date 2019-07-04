@@ -46,7 +46,7 @@
     <header class="navbar navbar-header navbar-header-fixed">
         <a href="" id="mainMenuOpen" class="burger-menu"><i data-feather="menu"></i></a>
         <div class="navbar-brand">
-            <a href="<?= base_url(); ?>index.html" class="df-logo">Qdesign<span>&nbsp; Digital Printing</span></a>
+            <a href="<?= base_url(); ?>index.html" class="df-logo">Qdesign<span>&nbsp; Digital Printing jos</span></a>
         </div>
         <div id="navbarMenu" class="navbar-menu-wrapper">
             <div class="navbar-menu-header">
