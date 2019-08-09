@@ -63,6 +63,7 @@ class Master_Model extends CI_Model
 
     function get_Customer()
     {
+        // $query = "select c.*, j.jenis from customer c, jenis_customer j where c.jenis_customer = j.id_jenis_cust";
         $query = "select c.*, j.jenis from customer c, jenis_customer j where c.jenis_customer = j.id_jenis_cust";
         return $this->db->query($query)->result_array();
         // if ($query->num_rows() > 0) {

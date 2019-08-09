@@ -28,6 +28,8 @@
      <script src="<?= base_url(); ?>assets/lib/js-cookie/js.cookie.js"></script>
      <script src="<?= base_url(); ?>assets/js/dashforge.settings.js"></script>
 
+     <!-- memangil fungsi ketika diklik tombol -->
+     <?php $this->load->view('dashboard/templates/sidebar_js'); ?>
 
      </body>
 

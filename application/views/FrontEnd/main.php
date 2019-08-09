@@ -115,7 +115,8 @@
                 <li class="nav-item"><a href="<?= base_url(); ?>components/" class="nav-link"><i data-feather="box"></i>
                         Kontak</a></li>
                 <li class="nav-item"><a href="<?= base_url(); ?>collections/" class="nav-link"><i data-feather="archive"></i> Gallery</a></li>
-                <li class="nav-item"><a href="<?= base_url(); ?>auth" class="nav-link"><i data-feather="archive"></i> Admin</a></li>
+                <!-- <li class="nav-item"><a href="<?= base_url(); ?>auth" class="nav-link"><i data-feather="archive"></i> Admin</a></li> -->
+                <li class="nav-item"><a href="<?= base_url();?>Auth/index" class="nav-link"><i data-feather="archive"></i> Admin</a></li>
             </ul>
         </div><!-- navbar-menu-wrapper -->
 

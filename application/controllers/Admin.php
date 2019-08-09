@@ -20,10 +20,10 @@ class Admin extends CI_Controller
 
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('admin/index', $data);
-        $this->load->view('templates/footer');
+        $this->load->view('dashboard/templates/header', $data);
+        $this->load->view('dashboard/templates/sidebar', $data);
+        $this->load->view('dashboard/admin/index', $data);
+        $this->load->view('dashboard/templates/footer');
     }
 
     public function submenu()
@@ -47,10 +47,10 @@ class Admin extends CI_Controller
 
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('templates/header', $data);
-            $this->load->view('templates/sidebar', $data);
-            $this->load->view('admin/submenu', $data, array());
-            $this->load->view('templates/footer');
+            $this->load->view('dashboard/templates/header', $data);
+            $this->load->view('dashboard/templates/sidebar', $data);
+            $this->load->view('dashboard/admin/submenu', $data, array());
+            $this->load->view('dashboard/templates/footer');
         } else {
             $data = [
                 'title' => $this->input->post('title'),
@@ -119,7 +119,7 @@ class Admin extends CI_Controller
         // helper_log('Data supplier dengan ID "' . $id_supplier . '" telah diubah');
         $this->Admin_Model->update_data($where, $data, 'adm_sub_menu');
         $this->session->set_flashdata('sukses', 'Sub menu berhasil diubah');
-        redirect('admin/submenu');
+        redirect('dashboard/admin/submenu');
     }
 
 
@@ -131,10 +131,10 @@ class Admin extends CI_Controller
 
         $data['role'] = $this->db->get('adm_role')->result_array();
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('admin/role', $data);
-        $this->load->view('templates/footer');
+        $this->load->view('dashboard/templates/header', $data);
+        $this->load->view('dashboard/templates/sidebar', $data);
+        $this->load->view('dashboard/admin/role', $data);
+        $this->load->view('dashboard/templates/footer');
     }
 
     public function menu()
@@ -153,10 +153,10 @@ class Admin extends CI_Controller
         $this->form_validation->set_rules('menu', 'Menu', 'required');
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('templates/header', $data);
-            $this->load->view('templates/sidebar', $data);
-            $this->load->view('admin/menu', $data);
-            $this->load->view('templates/footer');
+            $this->load->view('dashboard/templates/header', $data);
+            $this->load->view('dashboard/templates/sidebar', $data);
+            $this->load->view('dashboard/admin/menu', $data);
+            $this->load->view('dashboard/templates/footer');
         } else {
             //tambah data menu
             $data = [

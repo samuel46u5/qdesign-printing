@@ -9,13 +9,13 @@ class Main extends CI_Controller
         $this->load->library('form_validation');
     }
 
-    public function index()
+    public function home()
     {
 
         $data['title'] = 'agus';
         // $this->load->view('templates/header', $data);
         // $this->load->view('templates/topbar', $data);
-        $this->load->view('utama/main', $data);
+        $this->load->view('FrontEnd/main', $data);
         // $this->load->view('templates/footer');
     }
 }

@@ -7,7 +7,7 @@ class Master extends CI_Controller
     {
         parent::__construct();
         //ini cukup dipangil sekali Master_Model
-        $this->load->model('Master_Model');
+        $this->load->model('master_model');
         is_logged_in();
     }
     public function kategori_mesin()
@@ -15,15 +15,15 @@ class Master extends CI_Controller
         // ini harus diisi sesuai didatabase
         $data['title'] = 'Master';
         $data['subtitle'] = 'Kategori Mesin';
-        // agak menyala di menu
+        // agar menyala di menu
 
 
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('master/kategori_mesin', $data);
-        $this->load->view('templates/footer');
+        $this->load->view('dashboard/templates/header', $data);
+        $this->load->view('dashboard/templates/sidebar', $data);
+        $this->load->view('dashboard/master/kategori_mesin', $data);
+        $this->load->view('dashboard/templates/footer');
     }
 
     public function customer()
@@ -31,15 +31,15 @@ class Master extends CI_Controller
         // ini harus diisi sesuai didatabase
         $data['title'] = 'Master';
         $data['subtitle'] = 'Customer';
-        // agak menyala di menu
+        // agar menyala di menu
 
 
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['customer'] = $this->Master_Model->get_Customer2();
+        $data['customer'] = $this->master_model->get_Customer();
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('master/customer', $data);
-        $this->load->view('templates/footer');
+        $this->load->view('dashboard/templates/header', $data);
+        $this->load->view('dashboard/templates/sidebar', $data);
+        $this->load->view('dashboard/master/customer', $data);
+        $this->load->view('dashboard/templates/footer');
     }
 }
