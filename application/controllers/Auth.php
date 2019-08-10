@@ -21,7 +21,7 @@ class Auth extends CI_Controller
         if ($this->form_validation->run() == false) {
             $data['title']  = 'Qdesign - Login';
             $this->load->view('dashboard/templates/auth_header', $data);
-            $this->load->view('dashboard/auth');
+            $this->load->view('dashboard/auth/login');
             $this->load->view('dashboard/templates/auth_footer');
         } else {
             //validasi sukses
