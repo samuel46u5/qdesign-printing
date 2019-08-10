@@ -135,35 +135,6 @@
                 </div>
             </div><!-- aside-loggedin -->
             <ul class="nav nav-aside">
-
-                <!-- <li class="nav-label mg-t-25">Pages</li>
-                <li class="nav-item with-sub">
-                    <a href="" class="nav-link"><i data-feather="user"></i> <span>User Pages</span></a>
-                    <ul>
-                        <li><a href="page-profile-view.html">View Profile</a></li>
-                        <li><a href="page-connections.html">Connections</a></li>
-                        <li><a href="page-groups.html">Groups</a></li>
-                        <li><a href="page-events.html">Events</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item with-sub">
-                    <a href="" class="nav-link"><i data-feather="file"></i> <span>Other Pages</span></a>
-                    <ul>
-                        <li><a href="page-timeline.html">Timeline</a></li>
-                    </ul>
-                </li> -->
-
-
-                <!-- 
-            <li class="nav-item with-sub active show">
-                <a href="" class="nav-link"><i data-feather="user"></i> <span>User Pages</span></a>
-                <ul>
-                    <li class="active"><a href="page-profile-view.html">View Profile</a></li>
-                    <li><a href="page-connections.html">Connections</a></li>
-                    <li><a href="page-groups.html">Groups</a></li>
-                    <li><a href="page-events.html">Events</a></li>
-                </ul>
-            </li> -->
                 <?php
                 $this->session->userdata('adm_role_id');
                 $queryMenu = "SELECT `adm_menu`.`id`,`menu`,`icon`
@@ -204,8 +175,8 @@
 
                             <?php foreach ($subMenu as $sm) : ?>
                                 <!-- <li class="active">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <a href="<?= base_url($sm['url']); ?>"><?= $sm['title']; ?></a>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </li> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <a href="<?= base_url($sm['url']); ?>"><?= $sm['title']; ?></a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </li> -->
 
                                 <?php if ($subtitle == $sm['title']) : ?>
                                     <li class="active">
@@ -235,65 +206,51 @@
             </ul>
         </div>
     </aside>
-    < <div class="content ht-100v pd-0">
-        <div class="content-header">
-            <div class="content-search">
-                <i data-feather="search"></i>
-                <input type="search" class="form-control" placeholder="Search...">
-            </div>
-            <nav class="nav">
-                <a href="" class="nav-link"><i data-feather="help-circle"></i></a>
-                <a href="" class="nav-link"><i data-feather="grid"></i></a>
-                <a href="" class="nav-link"><i data-feather="align-left"></i></a>
-            </nav>
-        </div><!-- content-header -->
-
-        <div class="content-body">
-            <div class="container pd-x-0">
-                <div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30">
-                    <div>
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb breadcrumb-style1 mg-b-10">
-                                <li class="breadcrumb-item"><a href="#"><?= $title; ?></a></li>
-                                <li class="breadcrumb-item active" aria-current="page"><?= $subtitle; ?></li>
-                            </ol>
-                        </nav>
-                        <!-- <h4 class="mg-b-0 tx-spacing--1">Welcome to Dashboard</h4> -->
-                    </div>
-
-                </div>
-            </div><!-- container -->
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <!-- ini untuk menampilkan alert -->
+            <div id="alert"></div>
+            <div id="data"></div>
+            <?php echo $this->session->flashdata('message'); ?>
         </div>
-        </div>
+    </div>
 
-        <!-- datatables -->
-        <script src="<?= base_url(); ?>assets/lib/datatables.net/js/jquery.dataTables.min.js"></script>
-        <script src="<?= base_url(); ?>assets/lib/datatables.net-dt/js/dataTables.dataTables.min.js"></script>
-        <script src="<?= base_url(); ?>assets/lib/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-        <script src="<?= base_url(); ?>assets/lib/datatables.net-responsive-dt/js/responsive.dataTables.min.js"></script>
-        <!-- end datatables -->
 
-        <script src="<?= base_url(); ?>assets/lib/jquery/jquery.min.js"></script>
-        <script src="<?= base_url(); ?>assets/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="<?= base_url(); ?>assets/lib/feather-icons/feather.min.js"></script>
-        <script src="<?= base_url(); ?>assets/lib/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-        <script src="<?= base_url(); ?>assets/lib/jquery.flot/jquery.flot.js"></script>
-        <script src="<?= base_url(); ?>assets/lib/jquery.flot/jquery.flot.stack.js"></script>
-        <script src="<?= base_url(); ?>assets/lib/jquery.flot/jquery.flot.resize.js"></script>
-        <script src="<?= base_url(); ?>assets/lib/chart.js/Chart.bundle.min.js"></script>
-        <script src="<?= base_url(); ?>assets/lib/jqvmap/jquery.vmap.min.js"></script>
-        <script src="<?= base_url(); ?>assets/lib/jqvmap/maps/jquery.vmap.usa.js"></script>
+    <script>
+        window.onload = date_time('date_time');
+        $(function() {
+            $(".textarea").wysihtml5();
+        });
+    </script>
 
-        <script src="<?= base_url(); ?>assets/js/dashforge.js"></script>
-        <script src="<?= base_url(); ?>assets/js/dashforge.aside.js"></script>
-        <script src="<?= base_url(); ?>assets/js/dashforge.sampledata.js"></script>
+    <!-- datatables -->
+    <script src="<?= base_url(); ?>assets/lib/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="<?= base_url(); ?>assets/lib/datatables.net-dt/js/dataTables.dataTables.min.js"></script>
+    <script src="<?= base_url(); ?>assets/lib/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="<?= base_url(); ?>assets/lib/datatables.net-responsive-dt/js/responsive.dataTables.min.js"></script>
+    <!-- end datatables -->
 
-        <!-- append theme customizer -->
-        <script src="<?= base_url(); ?>assets/lib/js-cookie/js.cookie.js"></script>
-        <script src="<?= base_url(); ?>assets/js/dashforge.settings.js"></script>
+    <script src="<?= base_url(); ?>assets/lib/jquery/jquery.min.js"></script>
+    <script src="<?= base_url(); ?>assets/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= base_url(); ?>assets/lib/feather-icons/feather.min.js"></script>
+    <script src="<?= base_url(); ?>assets/lib/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="<?= base_url(); ?>assets/lib/jquery.flot/jquery.flot.js"></script>
+    <script src="<?= base_url(); ?>assets/lib/jquery.flot/jquery.flot.stack.js"></script>
+    <script src="<?= base_url(); ?>assets/lib/jquery.flot/jquery.flot.resize.js"></script>
+    <script src="<?= base_url(); ?>assets/lib/chart.js/Chart.bundle.min.js"></script>
+    <script src="<?= base_url(); ?>assets/lib/jqvmap/jquery.vmap.min.js"></script>
+    <script src="<?= base_url(); ?>assets/lib/jqvmap/maps/jquery.vmap.usa.js"></script>
 
-        <!-- memangil fungsi ketika diklik tombol -->
-        <?php $this->load->view('dashboard/templates/sidebar_js'); ?>
+    <script src="<?= base_url(); ?>assets/js/dashforge.js"></script>
+    <script src="<?= base_url(); ?>assets/js/dashforge.aside.js"></script>
+    <script src="<?= base_url(); ?>assets/js/dashforge.sampledata.js"></script>
+
+    <!-- append theme customizer -->
+    <script src="<?= base_url(); ?>assets/lib/js-cookie/js.cookie.js"></script>
+    <script src="<?= base_url(); ?>assets/js/dashforge.settings.js"></script>
+
+    <!-- memangil fungsi ketika diklik tombol -->
+    <?php $this->load->view('dashboard/home_js'); ?>
 
 </body>
 
