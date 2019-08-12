@@ -103,8 +103,8 @@
 
                         <?php foreach ($subMenu as $sm) : ?>
                             <!-- <li class="active">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <a href="<?= base_url($sm['url']); ?>"><?= $sm['title']; ?></a>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </li> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <a href="<?= base_url($sm['url']); ?>"><?= $sm['title']; ?></a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </li> -->
 
                             <?php if ($subtitle == $sm['title']) : ?>
                                 <li class="active">
@@ -113,10 +113,10 @@
                                 <li>
 
                                 <?php endif; ?>
-                                <!-- <a href="<?= base_url($sm['url']); ?>"> <i class="fa fa-fw fa-circle fa-xs"></i><?= $sm['title']; ?> </a> -->
+                                <a href="<?= base_url($sm['url']); ?>"> <i class="fa fa-fw fa-circle fa-xs"></i><?= $sm['title']; ?> </a>
 
 
-                                <a href="JavaScript:void(0);" onclick="<?= str_replace(' ', '', $sm['title']) . '()' ?>"> <i class="fa fa-fw fa-circle fa-xs"></i><?= $sm['title']; ?> </a>
+                                <!-- <a href="JavaScript:void(0);" onclick="<?= str_replace(' ', '', $sm['title']) . '()' ?>"> <i class="fa fa-fw fa-circle fa-xs"></i><?= $sm['title']; ?> </a> -->
                                 <!-- <a href="JavaScript:void(0);" onclick="master_customer();">Customer</a> -->
                             </li>
 
@@ -134,7 +134,7 @@
         </ul>
     </div>
 </aside>
-< <div class="content ht-100v pd-0">
+<div class="content ht-100v pd-0">
     <div class="content-header">
         <div class="content-search">
             <i data-feather="search"></i>

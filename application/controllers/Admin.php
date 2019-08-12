@@ -20,13 +20,13 @@ class Admin extends CI_Controller
 
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        // $this->load->view('dashboard/templates/header', $data);
-        // $this->load->view('dashboard/templates/sidebar', $data);
-        // $this->load->view('dashboard/admin/index', $data);
-        // $this->load->view('dashboard/templates/footer');
+        $this->load->view('dashboard/templates/header', $data);
+        $this->load->view('dashboard/templates/sidebar', $data);
+        $this->load->view('dashboard/admin/index', $data);
+        $this->load->view('dashboard/templates/footer');
 
         // landing page
-        $this->load->view('dashboard/home', $data);
+        // $this->load->view('dashboard/home', $data);
     }
 
     public function submenu()

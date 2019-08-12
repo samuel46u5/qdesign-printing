@@ -54,18 +54,6 @@
     <link rel="stylesheet" href="<?= base_url(); ?>assets/lib/sweetalert2/sweetalert2.min.css">
 
 
-    <!-- ini harusnya diletakkan di footer -->
-    <script src="<?= base_url(); ?>assets/lib/jquery/jquery.min.js"></script>
-    <script src="<?= base_url(); ?>assets/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="<?= base_url(); ?>assets/lib/feather-icons/feather.min.js"></script>
-    <script src="<?= base_url(); ?>assets/lib/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <script src="<?= base_url(); ?>assets/lib/prismjs/prism.js"></script>
-    <script src="<?= base_url(); ?>assets/lib/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="<?= base_url(); ?>assets/lib/datatables.net-dt/js/dataTables.dataTables.min.js"></script>
-    <script src="<?= base_url(); ?>assets/lib/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="<?= base_url(); ?>assets/lib/datatables.net-responsive-dt/js/responsive.dataTables.min.js"></script>
-    <script src="<?= base_url(); ?>assets/lib/select2/js/select2.min.js"></script>
-
 
 </head>
 
