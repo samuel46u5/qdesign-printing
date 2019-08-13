@@ -25,6 +25,8 @@ class Admin extends CI_Controller
         $this->load->view('dashboard/admin/index', $data);
         $this->load->view('dashboard/templates/footer');
 
+
+
         // landing page
         // $this->load->view('dashboard/home', $data);
     }
