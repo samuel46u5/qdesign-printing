@@ -1,23 +1,34 @@
-<div data-label="Daftar Menu" class="df-example demo-table">
-    <button type="button" class="btn btn-outline-primary btn-xs" data-toggle="modal" data-target="#tambah-data" data-backdrop="static">
-        <span class="fa fa-plus-circle"></span> Tambah Data
-    </button>
-    <hr>
-    <table id="example1" class="table">
-        <thead>
-            <tr>
-                <th class="wd-5p">#</th>
-                <th class="wd-25p">Menu</th>
-                <th class="wd-5p">Icon</th>
-                <th class="wd-25p">Kode Icon</th>
-                <th class="wd-5p">Action</th>
-
-
-            </tr>
-        </thead>
-        <tbody>
-            <?php $no = 0;
-            foreach ($menu as $m) { ?>
+<div class="content content-components mg-r-0-f">
+    <div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30">
+        <div>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb breadcrumb-style1 mg-b-10">
+                    <li class="breadcrumb-item"><a href="">Dashboard</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Website Analytics</li>
+                </ol>
+            </nav>
+            <h4 class="mg-b-0 tx-spacing--1">Menu</h4>
+        </div>
+        <div class="d-none d-md-block">
+            <button class="btn btn-sm pd-x-15 btn-white btn-uppercase"><i data-feather="save" class="wd-10 mg-r-5"></i> Save</button>
+            <button class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5"><i data-feather="share-2" class="wd-10 mg-r-5"></i> Share</button>
+            <button class="btn btn-sm pd-x-15 btn-primary btn-uppercase mg-l-5"><i data-feather="plus" class="wd-10 mg-r-5"></i> Add New Ticket</button>
+        </div>
+    </div>
+    <div data-label="" class="df-example demo-table">
+        <table id="example1" class="table">
+            <thead>
+                <tr>
+                    <th class="wd-5p">#</th>
+                    <th class="wd-25p">Menu</th>
+                    <th class="wd-5p">Icon</th>
+                    <th class="wd-25p">Kode Icon</th>
+                    <th class="wd-5p">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $no = 0;
+                foreach ($menu as $m) { ?>
                 <tr>
                     <td><?php echo ++$no; ?></td>
                     <td><?php echo $m['menu']; ?></td>
@@ -28,21 +39,26 @@
                         <a id="hapus" href='<?= base_url('admin/delete_menu/?id=') . $m['id'] . '&menu=' . $m['menu'] ?>' data-id='<?= $m['id']; ?>' data-menu='<?php echo $m['menu']; ?>' id="link-delete" class="tombol-hapus"><span class="fa fa-trash" style="color:red;"></span>&nbsp;</a>
                     </td>
                 </tr>
-            <?php } ?>
+                <?php } ?>
+            </tbody>
+        </table>
+        <script>
+            $('#example1').DataTable({
+                language: {
+                    searchPlaceholder: 'cari data',
+                    sSearch: '',
+                    lengthMenu: '_MENU_ items/page',
+                }
+            });
+        </script>
+    </div><!-- df-content -->
+</div> <!-- df-content -->
 
-        </tbody>
-    </table>
-</div><!-- df-example -->
 
-<script>
-    $('#example1').DataTable({
-        language: {
-            searchPlaceholder: 'cari data',
-            sSearch: '',
-            lengthMenu: '_MENU_ items/page',
-        }
-    });
-</script>
+
+<!-- <button type="button" class="btn btn-outline-primary btn-xs" data-toggle="modal" data-target="#tambah-data" data-backdrop="static">
+                <span class="fa fa-plus-circle"></span> Tambah Data
+            </button> -->
 
 
 <!-- modal tambah data baru -->

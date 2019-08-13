@@ -1,26 +1,43 @@
-<div data-label="Daftar Sub Menu" class="df-example demo-table">
-    <button type="button" class="btn btn-outline-primary btn-xs" data-toggle="modal" data-target="#tambah-data" data-backdrop="static">
-        <span class="fa fa-plus-circle"></span> Tambah Data
-    </button>
-    <hr>
-    <table id="example1" class="table">
-        <thead>
-            <tr>
-                <th class="wd-5p">#</th>
-                <th class="wd-10p">Title</th>
-                <th class="wd-10p">Menu</th>
-                <th class="wd-10p">Url</th>
-                <th class="wd-5p">Icon</th>
-                <th class="wd-10p">Icon Name</th>
-                <th class="wd-5p">Active</th>
-                <th class="wd-5p">Action</th>
+<div class="content content-components mg-r-0-f">
+    <div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30">
+        <div>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb breadcrumb-style1 mg-b-10">
+                    <li class="breadcrumb-item"><a href="">Dashboard</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Website Analytics</li>
+                </ol>
+            </nav>
+            <h4 class="mg-b-0 tx-spacing--1">Menu</h4>
+        </div>
+        <div class="d-none d-md-block">
+            <button class="btn btn-sm pd-x-15 btn-white btn-uppercase"><i data-feather="save" class="wd-10 mg-r-5"></i> Save</button>
+            <button class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5"><i data-feather="share-2" class="wd-10 mg-r-5"></i> Share</button>
+            <button class="btn btn-sm pd-x-15 btn-primary btn-uppercase mg-l-5"><i data-feather="plus" class="wd-10 mg-r-5"></i> Add New Ticket</button>
+        </div>
+    </div>
+    <div data-label="Daftar Sub Menu" class="df-example demo-table">
+        <button type="button" class="btn btn-outline-primary btn-xs" data-toggle="modal" data-target="#tambah-data" data-backdrop="static">
+            <span class="fa fa-plus-circle"></span> Tambah Data
+        </button>
+        <hr>
+        <table id="example1" class="table">
+            <thead>
+                <tr>
+                    <th class="wd-5p">#</th>
+                    <th class="wd-10p">Title</th>
+                    <th class="wd-10p">Menu</th>
+                    <th class="wd-10p">Url</th>
+                    <th class="wd-5p">Icon</th>
+                    <th class="wd-10p">Icon Name</th>
+                    <th class="wd-5p">Active</th>
+                    <th class="wd-5p">Action</th>
 
 
-            </tr>
-        </thead>
-        <tbody>
-            <?php $i = 1; ?>
-            <?php foreach ($subMenu as $sm) : ?>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $i = 1; ?>
+                <?php foreach ($subMenu as $sm) : ?>
                 <tr>
                     <th><?= $i ?></th>
                     <td><?= $sm['title']; ?> </td>
@@ -30,35 +47,36 @@
                     <td><?= $sm['icon']; ?> </td>
                     <td>
                         <?php
-                        $t = $sm['is_active'];
+                            $t = $sm['is_active'];
 
-                        if ($t == "1") {
-                            echo "&nbsp; &nbsp;<span class ='fa fa-check'> </span>";
-                        } else echo "&nbsp; &nbsp;<span class ='fa fa-ban'> </span>";
-                        ?>
+                            if ($t == "1") {
+                                echo "&nbsp; &nbsp;<span class ='fa fa-check'> </span>";
+                            } else echo "&nbsp; &nbsp;<span class ='fa fa-ban'> </span>";
+                            ?>
                     <td>
                         <a id="edit" href='#' data-id='<?= $sm['id']; ?>' data-menu='<?= $sm['menu']; ?>' data-menu_id='<?= $sm['menu_id']; ?>' data-title='<?= $sm['title']; ?>' data-url='<?= $sm['url']; ?>' data-icon='<?= $sm['icon']; ?>' data-is_active='<?= $sm['is_active']; ?>' data-toggle='modal' data-target='#ubah-data'><span class="fa fa-edit"></span>&nbsp;</a>
                         <a id="hapus" href='<?= base_url('admin/delete_submenu/?id=') . $sm['id'] . '&title=' . $sm['title'] ?>' data-id='<?= $sm['id']; ?>' data-title='<?php echo $sm['title']; ?>' id="link-delete" class="tombol-hapus"><span class="fa fa-trash" style="color:red;"></span>&nbsp;</a>
                     </td>
                 </tr>
                 <?php $i++; ?>
-            <?php endforeach; ?>
+                <?php endforeach; ?>
 
 
-        </tbody>
-    </table>
-</div><!-- df-example -->
+            </tbody>
+        </table>
 
+        <script>
+            $('#example1').DataTable({
+                language: {
+                    searchPlaceholder: 'cari data',
+                    sSearch: '',
+                    lengthMenu: '_MENU_ items/page',
+                }
+            });
+        </script>
+    </div><!-- df-content -->
+</div> <!-- df-content -->
 
-<script>
-    $('#example1').DataTable({
-        language: {
-            searchPlaceholder: 'cari data',
-            sSearch: '',
-            lengthMenu: '_MENU_ items/page',
-        }
-    });
-</script>
 
 <!-- modal tambah data baru -->
 <div class="modal fade" id="tambah-data" tabindex="-1" role="dialog" aria-hidden="true">
@@ -89,7 +107,7 @@
                         <select name='menu_id' id="menu_id" class="form-control">
                             <option value="" disabled>Select menu</option>
                             <?php foreach ($menu as $m) : ?>
-                                <option value="<?= $m['id'];  ?> "> <?= $m['menu'];  ?> </option>
+                            <option value="<?= $m['id'];  ?> "> <?= $m['menu'];  ?> </option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -151,7 +169,7 @@
                         <select name='menu_id2' id="menu_id2" class="form-control">
                             <option value="" disabled>Select menu</option>
                             <?php foreach ($menu as $m) : ?>
-                                <option id="<?= $m['id']; ?>" value="<?= $m['id']; ?>"> <?= $m['menu']; ?> </option>
+                            <option id="<?= $m['id']; ?>" value="<?= $m['id']; ?>"> <?= $m['menu']; ?> </option>
                             <?php endforeach; ?>
                         </select>
                     </div>
