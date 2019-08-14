@@ -20,7 +20,7 @@
             <span class="fa fa-plus-circle"></span> Tambah Data
         </button>
         <hr>
-        <table id="datatable" class="table">
+        <table id="datatable-customer" class="table">
             <thead>
                 <tr>
                     <th width="3%">No.</th>
@@ -71,16 +71,9 @@
 
             </tbody>
         </table>
-        <script>
-            $.ajax({
-                url: '<?php echo base_url('d/master/customer'); ?>',
-                method: "POST",
-                success: function(resp) {
-                    $('#data').html(resp);
-                    $('#loader').hide();
-                    $('#ddatatable').DataTable();
-
-                }
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#datatable').DataTable();
             });
         </script>
     </div><!-- df-content -->

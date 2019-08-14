@@ -18,13 +18,13 @@ class Master extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['customer'] = $this->master_model->get_Customer();
 
-        $this->load->view('dashboard/templates/header', $data);
-        $this->load->view('dashboard/templates/sidebar', $data);
-        $this->load->view('dashboard/master/customer', $data);
-        $this->load->view('dashboard/templates/footer');
-
-
+        // $this->load->view('dashboard/templates/header', $data);
+        // $this->load->view('dashboard/templates/sidebar', $data);
         // $this->load->view('dashboard/master/customer', $data);
+        // $this->load->view('dashboard/templates/footer');
+
+
+        $this->load->view('dashboard/master/customer', $data);
     }
 
     public function KategoriMesin()
