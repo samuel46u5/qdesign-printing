@@ -3,14 +3,14 @@
     //admin Dashboard
     function Dashboard() {
         alert('dashboard');
-        // $('#loader').show();
+        $('#loader').show();
         $.ajax({
             url: '<?php echo base_url('Admin/index'); ?>',
             method: "POST",
             success: function(resp) {
                 console.log(resp);
                 $('#data').html(resp);
-                // $('#loader').hide();
+                $('#loader').hide();
                 $('#example2').DataTable();
             }
         });
@@ -19,14 +19,14 @@
     //master customer
     function Customer() {
         // alert('customer ini home js');
-        // $('#loader').show();
+        $('#loader').show();
         $.ajax({
             url: '<?php echo base_url('d/Master/customer'); ?>',
             method: "POST",
             success: function(resp) {
                 console.log(resp);
                 $('#data').html(resp);
-                // $('#loader').hide();
+                $('#loader').hide();
                 $('#datatable-customer').DataTable();
             }
         });

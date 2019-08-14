@@ -3,11 +3,11 @@
         <div>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb breadcrumb-style1 mg-b-10">
-                    <li class="breadcrumb-item"><a href="">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Website Analytics</li>
+                    <li class="breadcrumb-item"><a href=""><?= $title ?></a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><?= $subtitle ?></li>
                 </ol>
             </nav>
-            <h4 class="mg-b-0 tx-spacing--1">Menu</h4>
+            <h4 class="mg-b-0 tx-spacing--1"><?= $subtitle ?></h4>
         </div>
         <div class="d-none d-md-block">
             <button class="btn btn-sm pd-x-15 btn-white btn-uppercase"><i data-feather="save" class="wd-10 mg-r-5"></i> Save</button>
@@ -15,9 +15,12 @@
             <button class="btn btn-sm pd-x-15 btn-primary btn-uppercase mg-l-5"><i data-feather="plus" class="wd-10 mg-r-5"></i> Add New Ticket</button>
         </div>
     </div>
-    <div data-label="Daftar Sub Menu" class="df-example demo-table">
+    <div data-label="Daftar <?= $subtitle ?>" class="df-example demo-table">
         <button type="button" class="btn btn-outline-primary btn-xs" data-toggle="modal" data-target="#tambah-data" data-backdrop="static">
             <span class="fa fa-plus-circle"></span> Tambah Data
+        </button>
+        <button type="button" class="btn btn-outline-primary btn-xs" onclick="Customer()">
+            <span class="fa fa-plus-circle"></span> Refresh
         </button>
         <hr>
         <table id="datatable-customer" class="table">
