@@ -41,42 +41,45 @@
             <tbody>
                 <?php $no = 0;
                 foreach ($customer as $s) { ?>
-                    <tr>
-                        <td><?php echo ++$no; ?></td>
-                        <td><?php echo $s['jenis']; ?></td>
-                        <td><?php echo $s['nama']; ?></td>
-                        <td><?php echo $s['alamat']; ?></td>
-                        <td><?php echo $s['kota']; ?></td>
-                        <td><?php echo $s['contact']; ?></td>
-                        <td><?php echo $s['hp']; ?></td>
-                        <td><?php echo $s['email']; ?></td>
-                        <td>
-                            <?php
+                <tr>
+                    <td><?php echo ++$no; ?></td>
+                    <td><?php echo $s['jenis']; ?></td>
+                    <td><?php echo $s['nama']; ?></td>
+                    <td><?php echo $s['alamat']; ?></td>
+                    <td><?php echo $s['kota']; ?></td>
+                    <td><?php echo $s['contact']; ?></td>
+                    <td><?php echo $s['hp']; ?></td>
+                    <td><?php echo $s['email']; ?></td>
+                    <td>
+                        <?php
                             $t = $s['aktif'];
 
                             if ($t == "1") {
                                 echo "&nbsp; &nbsp;<span class ='fa fa-check'> </span>";
                             } else echo "&nbsp; &nbsp;<span class ='fa fa-ban'> </span>";
                             ?>
-                        </td>
-                        <td>
-                            <a id="edit" href='#' data-id_customer='<?= $s['id_customer']; ?>' data-jenis_customer='<?= $s['jenis_customer']; ?>' data-nama='<?= $s['nama']; ?>' data-alamat='<?= $s['alamat']; ?>' data-kota='<?= $s['kota']; ?>' data-contact='<?= $s['contact']; ?>' data-hp='<?= $s['hp']; ?>' data-aktif='<?= $s['aktif']; ?>' data-email='<?= $s['email']; ?>' data-toggle='modal' data-target='#ubah-data'><span class="fa fa-edit"></span>&nbsp;</a>
-                            <a href="<?= base_url('master/delete_customer/?id=') . $s['id_customer'];  ?>" id="link-delete" class="tombol-hapus" data-nama='<?= $s['nama']; ?>' data-id_customer='<?= $s['id_customer']; ?>'> <span class=" fa fa-trash-o"></span>&nbsp;</a>
+                    </td>
+                    <td>
+                        <a id="edit" href='#' data-id_customer='<?= $s['id_customer']; ?>' data-jenis_customer='<?= $s['jenis_customer']; ?>' data-nama='<?= $s['nama']; ?>' data-alamat='<?= $s['alamat']; ?>' data-kota='<?= $s['kota']; ?>' data-contact='<?= $s['contact']; ?>' data-hp='<?= $s['hp']; ?>' data-aktif='<?= $s['aktif']; ?>' data-email='<?= $s['email']; ?>' data-toggle='modal' data-target='#ubah-data'><span class="fa fa-edit"></span>&nbsp;</a>
+                        <a href="<?= base_url('master/delete_customer/?id=') . $s['id_customer'];  ?>" id="link-delete" class="tombol-hapus" data-nama='<?= $s['nama']; ?>' data-id_customer='<?= $s['id_customer']; ?>'> <span class=" fa fa-trash-o"></span>&nbsp;</a>
 
-                        </td>
+                    </td>
 
-                    </tr>
+                </tr>
                 <?php } ?>
 
 
             </tbody>
         </table>
         <script>
-            $('#datatable').DataTable({
-                language: {
-                    searchPlaceholder: 'cari data',
-                    sSearch: '',
-                    lengthMenu: '_MENU_ items/page',
+            $.ajax({
+                url: '<?php echo base_url('d/master/customer'); ?>',
+                method: "POST",
+                success: function(resp) {
+                    $('#data').html(resp);
+                    $('#loader').hide();
+                    $('#ddatatable').DataTable();
+
                 }
             });
         </script>

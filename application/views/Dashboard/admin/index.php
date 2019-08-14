@@ -426,13 +426,6 @@
                     </tbody>
                 </table>
             </div><!-- df-example -->
-
-
-
-
-
-
-
         </div><!-- container -->
     </div><!-- content -->
     <script>
