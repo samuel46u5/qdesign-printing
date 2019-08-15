@@ -100,38 +100,83 @@
                     </div>
                 </div><!-- media -->
             </div><!-- modal-header -->
-            <div class="modal-body pd-sm-t-30 pd-sm-b-40 pd-sm-x-30">
+            <div class="modal-body pd-sm-t-10 pd-sm-b-20 pd-sm-x-20">
+                <form role="form" class="" method="POST" id="forminputcustomer" action="">
+                    <div class="form-group">
+                        <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Jenis Customer</label>
+                        <select class="form-control" name="jenis_customer" id="jenis_customer" required="" onchange="">
+                            <option disabled="" selected="">Pilih Jenis Customer</option>
+                            <?php foreach ($jenis_customer as $v) { ?>
+                            <option id="<?php echo $v['id_jenis_cust']; ?>" value="<?php echo  $v['id_jenis_cust']; ?>" data-id_jenis_cust="<?php echo  $v['id_jenis_cust']; ?>" data-jenis="<?php echo $v['jenis']; ?>"><?php echo $v['jenis']; ?> </option>
+                            <?php } ?>
+                        </select>
 
+                        <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Nama</label>
+                        <input type="text" class="form-control" placeholder="Nama" id="nama" name="nama">
 
-                <div class="form-group">
-                    <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Jenis Customer</label>
-                    <input type="text" class="form-control" placeholder="Tentukan Jenis Customer">
-                </div>
+                        <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Alamat</label>
+                        <textarea class="form-control" rows="2" placeholder="Textarea" id="alamat" name="alamat"></textarea>
 
-                <div class="form-group">
-                    <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Nama </label>
-                    <input type="text" class="form-control" placeholder="Nama customer">
-                </div>
-                <div class="form-group">
-                    <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Alamat</label>
-                    <input type="text" class="form-control" placeholder="Alamat customer">
-                </div>
+                        <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Kontak </label>
+                        <input type="text" class="form-control" placeholder="Kontak" id="contact" name="contact">
 
-                <div class="row row-sm">
-                    <div class="col-sm">
-                        <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Expiry Date</label>
-                        <input type="text" class="form-control" placeholder="Enter expiry date">
-                    </div><!-- col -->
-                    <div class="col-sm-5 mg-t-20 mg-sm-t-0">
-                        <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Secure Code</label>
-                        <input type="text" class="form-control" placeholder="Enter secure code">
-                    </div><!-- col -->
-                </div>
+                        <div class="row row-sm">
+                            <div class="col-sm">
+                                <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Email</label>
+                                <input type="text" class="form-control" placeholder="email" id="email" name="email">
+                            </div><!-- col -->
+                            <div class="col-sm-5 mg-t-20 mg-sm-t-0">
+                                <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">HP</label>
+                                <input type="text" class="form-control" placeholder="Handphone" id="hp" name="hp">
+                            </div><!-- col -->
+                        </div>
+                    </div>
+
+                    <!-- <div class="form-group">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="aktif" name="aktif" checked>
+                            <label class="custom-control-label" for="aktif">Status customer aktif</label>
+                        </div>
+                    </div> -->
+                </form>
             </div><!-- modal-body -->
             <div class="modal-footer pd-x-20 pd-y-15">
-                <button type="button" class="btn btn-white" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary">Save Info</button>
+                <button type="button" class="btn btn-outline-danger btn-xs" data-dismiss="modal" data-backdrop="static">
+
+                    <span class="fas fa-ban"></span> Batal
+                </button>
+                <button type="button" class="btn btn-outline-primary btn-xs" onclick="doTambahCustomer()">
+                    <span class="far fa-save"></span> Simpan
+                </button>
+
+                <!-- <button type="button" class="btn btn-white" data-dismiss="modal">Batal</button>
+                <button type="button" class="btn btn-primary">Simpan</button> -->
             </div>
         </div><!-- modal-content -->
     </div><!-- modal-dialog -->
 </div><!-- modal -->
+
+
+<script type="text/javascript">
+    function doTambahCustomer() {
+        var valid = $('#forminputcustomer').valid();
+        // console.log(valid);
+        if (valid == true) {
+            var form = $('#forminputcustomer').get(0);
+            $('#loader').show();
+            $.ajax({
+                url: '<?php echo base_url('d/Master/do_upload_customer') ?>',
+                method: "POST",
+                data: new FormData(form),
+                contentType: false,
+                processData: false,
+                success: function(resp) {
+                    $('#alert').html(resp); //menampilkan alert
+                    $('#loader').hide(); //menyembunyikan loader
+                    $('#tambah-data').modal('hide'); //menutup modal
+                    //update isi album
+                }
+            });
+        }
+    }
+</script>

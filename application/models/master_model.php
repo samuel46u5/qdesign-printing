@@ -42,6 +42,12 @@ class Master_Model extends CI_Model
         return $this->db->query($query)->result_array();
     }
 
+    function simpan_Customer()
+    {
+        $this->db->insert('customer', $data);
+        $this->db->insert_id();
+    }
+
 
     function get_Customer2()
     {

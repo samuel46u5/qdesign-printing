@@ -16,6 +16,7 @@
     <link href="<?= base_url(); ?>assets/lib/datatables.net-responsive-dt/css/responsive.dataTables.min.css" rel="stylesheet">
     <link href="<?= base_url(); ?>assets/lib/select2/css/select2.min.css" rel="stylesheet">
 
+
     <script src="<?= base_url(); ?>assets/js/timer.js"></script>
 
     <!-- DashForge CSS -->
@@ -28,6 +29,7 @@
     <script src="<?= base_url(); ?>assets/lib/prismjs/prism.js"></script>
     <script src="<?= base_url(); ?>assets/js/dashforge.js"></script>
     <script src="<?= base_url(); ?>assets/lib/select2/js/select2.min.js"></script>
+    <script src="<?= base_url(); ?>assets/js/jquery.validate.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 
