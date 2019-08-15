@@ -29,64 +29,73 @@
     <script src="<?= base_url(); ?>assets/js/dashforge.js"></script>
     <script src="<?= base_url(); ?>assets/lib/select2/js/select2.min.js"></script>
 
-    <script src="<?= base_url(); ?>assets/lib/feather-icons/feather.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 
 
     <!--  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animsition/4.0.1/css/animsition.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animsition/4.0.1/js/animsition.min.js"></script>
 
+    <style>
+        .loader {
+            border: 5px solid #f3f3f3;
+            -webkit-animation: spin 1s linear infinite;
+            animation: spin 1s linear infinite;
+            border-top: 5px solid #555;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
 
+        }
+
+        /* Safari */
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 
 </head>
 
 <body data-spy="scroll" data-target="#navSection" data-offset="120">
 
-    <script>
-        $(document).ready(function() {
-            $(".animsition").animsition({
-                inClass: 'fade-in-left',
-                outClass: 'fade-out-left',
-                inDuration: 1500,
-                outDuration: 800,
-                linkElement: '.animsition-link',
-                // e.g. linkElement: 'a:not([target="_blank"]):not([href^=#])'
-                loading: true,
-                loadingParentElement: 'body', //animsition wrapper element
-                loadingClass: 'animsition-loading',
-                loadingInner: '', // e.g '<img src="loading.svg" />'
-                timeout: false,
-                timeoutCountdown: 5000,
-                onLoadEvent: true,
-                browser: ['animation-duration', '-webkit-animation-duration'],
-                // "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
-                // The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
-                overlay: false,
-                overlayClass: 'animsition-overlay-slide',
-                overlayParentElement: 'body',
-                transition: function(url) {
-                    window.location.href = url;
-                }
-            });
-        });
-    </script>
-    <!-- <div class="animsition">
-        <input type="submit" value="Send" class="wpcf7-form-control wpcf7-submit animsition-link flat button">
-    </div> -->
+
 
     <header class="navbar navbar-header navbar-header-fixed">
         <a href="" id="sidebarMenuOpen" class="burger-menu"><i data-feather="arrow-left"></i></a>
         <div class="navbar-brand">
             <a href="../index.html" class="df-logo">Qdesign<span>Printing</span></a>
+
         </div><!-- navbar-brand -->
+
+        <div class="navbar-brand">
+            <span class="tx-color-03 tx-12 mg-b-0 mg-x-10" id="date_time"></span>
+        </div>
+
 
         <div class="navbar-right">
 
-            <div class="loader animsition" id="loader"> <i data-feather="refresh-ccw"></i></div>
 
 
-            <span class="tx-color-03 tx-12 mg-b-0 mg-x-10" id="date_time"></span>
 
+            <div class="loader" id="loader"></div>
+
+            <!-- <div class="animsition" id="loader"> <i data-feather="refresh-ccw"></i></div> -->
 
         </div><!-- navbar-right -->
     </header><!-- navbar -->
@@ -243,9 +252,12 @@
     <script src="<?= base_url(); ?>assets/js/dashforge.aside.js"></script>
 
 
+
     <!-- append theme customizer -->
     <script src="<?= base_url(); ?>assets/lib/js-cookie/js.cookie.js"></script>
     <script src="<?= base_url(); ?>assets/js/dashforge.settings.js"></script>
+
+    <script src="<?= base_url(); ?>assets/js/main.js"></script>
 
 
     <script>

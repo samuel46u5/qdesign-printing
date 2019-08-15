@@ -10,17 +10,16 @@
             <h4 class="mg-b-0 tx-spacing--1"><?= $subtitle ?></h4>
         </div>
         <div class="d-none d-md-block">
-            <button class="btn btn-sm pd-x-15 btn-white btn-uppercase"><i data-feather="save" class="wd-10 mg-r-5"></i> Save</button>
-            <button class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5"><i data-feather="share-2" class="wd-10 mg-r-5"></i> Share</button>
-            <button class="btn btn-sm pd-x-15 btn-primary btn-uppercase mg-l-5"><i data-feather="plus" class="wd-10 mg-r-5"></i> Add New Ticket</button>
+            <button class="btn btn-sm pd-x-15 btn-white btn-uppercase"><i class="fas fa-file-export"></i> Export</button>
+            <button class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5"> <i class="fas fa-print"></i> Print</button>
         </div>
     </div>
     <div data-label="Daftar <?= $subtitle ?>" class="df-example demo-table">
         <button type="button" class="btn btn-outline-primary btn-xs" data-toggle="modal" data-target="#tambah-data" data-backdrop="static">
-            <span class="fa fa-plus-circle"></span> Tambah Data
+            <span class="far fa-plus-square"></span> Tambah Data
         </button>
         <button type="button" class="btn btn-outline-primary btn-xs" onclick="Customer()">
-            <span class="fa fa-plus-circle"></span> Refresh
+            <span class="fas fa-sync"></span> Refresh
         </button>
         <hr>
         <table id="datatable-customer" class="table">
@@ -63,9 +62,12 @@
                             ?>
                     </td>
                     <td>
-                        <a id="edit" href='#' data-id_customer='<?= $s['id_customer']; ?>' data-jenis_customer='<?= $s['jenis_customer']; ?>' data-nama='<?= $s['nama']; ?>' data-alamat='<?= $s['alamat']; ?>' data-kota='<?= $s['kota']; ?>' data-contact='<?= $s['contact']; ?>' data-hp='<?= $s['hp']; ?>' data-aktif='<?= $s['aktif']; ?>' data-email='<?= $s['email']; ?>' data-toggle='modal' data-target='#ubah-data'><span class="fa fa-edit"></span>&nbsp;</a>
-                        <a href="<?= base_url('master/delete_customer/?id=') . $s['id_customer'];  ?>" id="link-delete" class="tombol-hapus" data-nama='<?= $s['nama']; ?>' data-id_customer='<?= $s['id_customer']; ?>'> <span class=" fa fa-trash-o"></span>&nbsp;</a>
-
+                        <button type="button" class="btn btn-outline-primary btn-xs" data-toggle="modal" data-target="#edit-data" data-backdrop="static">
+                            <span class="fas fa-edit"></span>
+                        </button>
+                        <button type="button" class="btn btn-outline-danger btn-xs" data-toggle="modal" data-target="#hapus-data" data-backdrop="static">
+                            <span class="far fa-trash-alt"></span>
+                        </button>
                     </td>
 
                 </tr>
@@ -81,3 +83,55 @@
         </script>
     </div><!-- df-content -->
 </div> <!-- df-content -->
+
+
+<!-- modal tambah data -->
+<div class="modal fade" id="tambah-data" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered wd-sm-650" role="document">
+        <div class="modal-content">
+            <div class="modal-header pd-y-20 pd-x-20 pd-sm-x-30">
+                <a href="" role="button" class="close pos-absolute t-15 r-15" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </a>
+                <div class="media align-items-center">
+                    <div class="media-body mg-sm-l-0">
+                        <h4 class="tx-18 tx-sm-20 mg-b-2">Tambah Data <?= $subtitle ?></h4>
+
+                    </div>
+                </div><!-- media -->
+            </div><!-- modal-header -->
+            <div class="modal-body pd-sm-t-30 pd-sm-b-40 pd-sm-x-30">
+
+
+                <div class="form-group">
+                    <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Jenis Customer</label>
+                    <input type="text" class="form-control" placeholder="Tentukan Jenis Customer">
+                </div>
+
+                <div class="form-group">
+                    <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Nama </label>
+                    <input type="text" class="form-control" placeholder="Nama customer">
+                </div>
+                <div class="form-group">
+                    <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Alamat</label>
+                    <input type="text" class="form-control" placeholder="Alamat customer">
+                </div>
+
+                <div class="row row-sm">
+                    <div class="col-sm">
+                        <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Expiry Date</label>
+                        <input type="text" class="form-control" placeholder="Enter expiry date">
+                    </div><!-- col -->
+                    <div class="col-sm-5 mg-t-20 mg-sm-t-0">
+                        <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Secure Code</label>
+                        <input type="text" class="form-control" placeholder="Enter secure code">
+                    </div><!-- col -->
+                </div>
+            </div><!-- modal-body -->
+            <div class="modal-footer pd-x-20 pd-y-15">
+                <button type="button" class="btn btn-white" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary">Save Info</button>
+            </div>
+        </div><!-- modal-content -->
+    </div><!-- modal-dialog -->
+</div><!-- modal -->
