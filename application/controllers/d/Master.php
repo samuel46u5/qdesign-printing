@@ -31,18 +31,16 @@ class Master extends CI_Controller
     public function do_upload_customer()
     {
         $data = array(
-            'jenis_customer' => $this->input->post('jenis_customer'),
             'nama' => $this->input->post('nama'),
             'alamat' => $this->input->post('alamat'),
             'kota' => $this->input->post('kota'),
             'contact' => $this->input->post('contact'),
             'hp' => $this->input->post('hp'),
             'email' => $this->input->post('email'),
-            'aktif' => 1
+            'aktif' => $this->input->post('aktif')
         );
         // var_dump($data);
         // die;
-
         $this->master_model->simpan_Customer($data);
     }
 
