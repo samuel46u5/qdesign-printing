@@ -175,7 +175,6 @@
                     $('#loader').hide(); //menyembunyikan loader
                     $('#tambah-data').modal('hide'); //menutup modal
                     //update isi album
-                    Customer();
                 }
             });
         }
