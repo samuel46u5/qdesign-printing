@@ -7,16 +7,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-
-    <!-- Meta -->
-    <meta name="description" content="Responsive Bootstrap 4 Dashboard Template">
-    <meta name="author" content="ThemePixels">
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="../../assets/img/favicon.png">
-
-    <title>DashForge Responsive Bootstrap 4 Dashboard Template</title>
-
     <!-- vendor css -->
     <link href="<?= base_url(); ?>assets/lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
     <link href="<?= base_url(); ?>assets/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
@@ -25,6 +15,7 @@
     <link href="<?= base_url(); ?>assets/lib/datatables.net-dt/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="<?= base_url(); ?>assets/lib/datatables.net-responsive-dt/css/responsive.dataTables.min.css" rel="stylesheet">
     <link href="<?= base_url(); ?>assets/lib/select2/css/select2.min.css" rel="stylesheet">
+
 
     <script src="<?= base_url(); ?>assets/js/timer.js"></script>
 
@@ -46,10 +37,6 @@
     <!--  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animsition/4.0.1/css/animsition.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animsition/4.0.1/js/animsition.min.js"></script>
-
-
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
 
     <style>
         .loader {
@@ -84,9 +71,36 @@
             }
         }
     </style>
+
 </head>
 
-<body>
+<body data-spy="scroll" data-target="#navSection" data-offset="120">
+
+
+
+    <header class="navbar navbar-header navbar-header-fixed">
+        <a href="" id="sidebarMenuOpen" class="burger-menu"><i data-feather="arrow-left"></i></a>
+        <div class="navbar-brand">
+            <a href="../index.html" class="df-logo">Qdesign<span>Printing</span></a>
+
+        </div><!-- navbar-brand -->
+
+        <div class="navbar-brand">
+            <span class="tx-color-03 tx-12 mg-b-0 mg-x-10" id="date_time"></span>
+        </div>
+
+
+        <div class="navbar-right">
+
+
+
+
+            <div class="loader" id="loader"></div>
+
+            <!-- <div class="animsition" id="loader"> <i data-feather="refresh-ccw"></i></div> -->
+
+        </div><!-- navbar-right -->
+    </header><!-- navbar -->
 
     <aside class="aside aside-fixed">
         <div class="aside-header">
@@ -225,26 +239,10 @@
         </div>
     </aside>
 
-    <div class="content ht-100v pd-0">
-        <div class="content-header">
-            <div class="navbar-brand">
-                <!-- untuk menampilkan jam -->
-                <span class="tx-color-03 tx-12 mg-b-0 mg-x-10" id="date_time"></span>
-            </div>
-            <nav class="nav">
-                <div class="loader" id="loader"></div>
-                <a href="" class="nav-link"><i data-feather="help-circle"></i></a>
-                <a href="" class="nav-link"><i data-feather="grid"></i></a>
-                <a href="" class="nav-link"><i data-feather="align-left"></i></a>
-            </nav>
-        </div><!-- content-header -->
 
-        <div class="content-body ">
-            <div class="container pd-x-0">
-                <div id="data"></div>
-            </div><!-- container -->
-        </div>
-    </div>
+
+    <div id="data"></div>
+
 
 
     <script src="<?= base_url(); ?>assets/lib/datatables.net/js/jquery.dataTables.min.js"></script>
@@ -274,11 +272,7 @@
     <?php $this->load->view('dashboard/home_js'); ?>
 
 
-
-
-
-
-
 </body>
+
 
 </html>

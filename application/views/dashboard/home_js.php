@@ -27,7 +27,18 @@
                 console.log(resp);
                 $('#data').html(resp);
                 $('#loader').hide();
-                $('#datatable-customer').DataTable();
+                $('#datatable-customer').DataTable({
+                    responsive: true,
+                    "language": {
+                        "search": "cari",
+                        "searchPlaceholder": "",
+                        "lengthMenu": "Tampilkan _MENU_ data per halaman",
+                        "zeroRecords": "Nothing found - sorry",
+                        "info": "Halaman : _PAGE_ dari _PAGES_",
+                        "infoEmpty": "Data tidak ada",
+                        "infoFiltered": "(filtered from _MAX_ total records)",
+                    },
+                });
             }
         });
     }

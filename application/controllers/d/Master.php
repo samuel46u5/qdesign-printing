@@ -31,17 +31,19 @@ class Master extends CI_Controller
     public function do_upload_customer()
     {
         $data = array(
-            'nama' => $this->input->post('nama'),
-            'alamat' => $this->input->post('alamat'),
-            'kota' => $this->input->post('kota'),
-            'contact' => $this->input->post('contact'),
-            'hp' => $this->input->post('hp'),
-            'email' => $this->input->post('email'),
-            'aktif' => $this->input->post('aktif')
+            'jenis_customer' => htmlspecialchars($this->input->post('jenis_customer')),
+            'nama' => htmlspecialchars($this->input->post('nama')),
+            'alamat' => htmlspecialchars($this->input->post('alamat')),
+            'kota' => htmlspecialchars($this->input->post('kota')),
+            'contact' => htmlspecialchars($this->input->post('contact')),
+            'hp' => htmlspecialchars($this->input->post('hp')),
+            'email' => htmlspecialchars($this->input->post('email')),
+            'aktif' => 1
         );
         // var_dump($data);
         // die;
         $this->master_model->simpan_Customer($data);
+        $this->session->set_flashdata('message', 'Data customer berhasil ditambahkan');
     }
 
     public function KategoriMesin()
