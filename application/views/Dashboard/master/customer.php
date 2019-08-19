@@ -317,7 +317,7 @@
                  </a>
                  <div class="media align-items-center">
                      <div class="media-body mg-sm-l-0">
-                         <h4 class="tx-18 tx-sm-20 mg-b-2">Hapus Data <?= $subtitle ?></h4>
+                         <h4 class="tx-18 tx-sm-20 mg-b-2">Konfirmasi ?</h4>
 
                      </div>
                  </div><!-- media -->
