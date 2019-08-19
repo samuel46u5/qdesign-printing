@@ -43,7 +43,25 @@ class Master extends CI_Controller
         // var_dump($data);
         // die;
         $this->master_model->simpan_Customer($data);
-        $this->session->set_flashdata('message', 'Data customer berhasil ditambahkan');
+        $this->session->set_flashdata('message', 'Data ' . $this->input->post('nama') . 'berhasil ditambahkan');
+    }
+
+    function do_update_customer()
+    {
+        $id = $this->input->post('id_customer');
+        $data = array(
+            'jenis_customer' => htmlspecialchars($this->input->post('jenis_customer')),
+            'nama' => htmlspecialchars($this->input->post('nama')),
+            'alamat' => htmlspecialchars($this->input->post('alamat')),
+            'kota' => htmlspecialchars($this->input->post('kota')),
+            'contact' => htmlspecialchars($this->input->post('contact')),
+            'hp' => htmlspecialchars($this->input->post('hp')),
+            'email' => htmlspecialchars($this->input->post('email')),
+            'aktif' => htmlspecialchars($this->input->post('aktif'))
+        );
+
+        $this->master_model->update_Customer($id, $data);
+        $this->session->set_flashdata('message', 'Data ' . $this->input->post('nama') . ' berhasil diubah');
     }
 
     public function KategoriMesin()

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-
+date_default_timezone_set('Asia/Bangkok');
 class Master_Model extends CI_Model
 {
 
@@ -46,6 +46,12 @@ class Master_Model extends CI_Model
     {
         $this->db->insert('customer', $data);
         $this->db->insert_id();
+    }
+
+    function update_Customer($id, $data)
+    {
+        $this->db->where('id_customer', $id);
+        $this->db->update('customer', $data);
     }
 
 
