@@ -90,7 +90,7 @@
 
     <aside class="aside aside-fixed">
         <div class="aside-header">
-            <a href="../../index.html" class="aside-logo">dash<span>forge</span></a>
+            <a href="../../index.html" class="aside-logo">Qdesign<span>Printing</span></a>
             <a href="" class="aside-menu-link">
                 <i data-feather="menu"></i>
                 <i data-feather="x"></i>
@@ -166,19 +166,19 @@
                 ?>
                 <?php foreach ($menu as $m) : ?>
 
-                <?php if ($title == $m['menu']) : ?>
-                <li class=" nav-item with-sub active show">
-                    <?php else : ?>
-                <li class="nav-item with-sub">
-                    <?php endif; ?>
+                    <?php if ($title == $m['menu']) : ?>
+                        <li class=" nav-item with-sub active show">
+                        <?php else : ?>
+                        <li class="nav-item with-sub">
+                        <?php endif; ?>
 
 
 
 
-                    <a href="#" class="nav-link"><i class="<?= $m['icon'] . ' fa-lg'; ?>"></i> <span> &nbsp; <?= $m['menu']; ?></span></a>
-                    <ul>
-                        <!-- query submenu -->
-                        <?php
+                        <a href="#" class="nav-link"><i class="<?= $m['icon'] . ' fa-lg'; ?>"></i> <span> &nbsp; <?= $m['menu']; ?></span></a>
+                        <ul>
+                            <!-- query submenu -->
+                            <?php
                             $menuId = $m['id'];
 
                             $querySubMenu = "SELECT * FROM `adm_sub_menu` JOIN `adm_menu`
@@ -191,31 +191,31 @@
                             ?>
 
 
-                        <?php foreach ($subMenu as $sm) : ?>
-                        <!-- <li class="active">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <a href="<?= base_url($sm['url']); ?>"><?= $sm['title']; ?></a>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </li> -->
+                            <?php foreach ($subMenu as $sm) : ?>
+                                <!-- <li class="active">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <a href="<?= base_url($sm['url']); ?>"><?= $sm['title']; ?></a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </li> -->
 
-                        <?php if ($subtitle == $sm['title']) : ?>
-                        <li class="active">
+                                <?php if ($subtitle == $sm['title']) : ?>
+                                    <li class="active">
 
-                            <?php else : ?>
-                        <li>
+                                    <?php else : ?>
+                                    <li>
 
-                            <?php endif; ?>
-                            <!-- <a href="<?= base_url($sm['url']); ?>"> <i class="fa fa-fw fa-circle fa-xs"></i><?= $sm['title']; ?> </a> -->
-
-
-                            <a href="JavaScript:void(0);" onclick="<?= str_replace(' ', '', $sm['title']) . '()' ?>"> <i class="fa fa-fw fa-circle fa-xs"></i><?= $sm['title']; ?> </a>
-                            <!-- <a href="JavaScript:void(0);" onclick="master_customer();">Customer</a> -->
-                        </li>
-
-                        <?php endforeach; ?>
+                                    <?php endif; ?>
+                                    <!-- <a href="<?= base_url($sm['url']); ?>"> <i class="fa fa-fw fa-circle fa-xs"></i><?= $sm['title']; ?> </a> -->
 
 
-                    </ul>
+                                    <a href="JavaScript:void(0);" onclick="<?= str_replace(' ', '', $sm['title']) . '()' ?>"> <i class="fa fa-fw fa-circle fa-xs"></i><?= $sm['title']; ?> </a>
+                                    <!-- <a href="JavaScript:void(0);" onclick="master_customer();">Customer</a> -->
+                                </li>
 
-                </li>
+                            <?php endforeach; ?>
+
+
+                        </ul>
+
+                    </li>
 
                 <?php endforeach; ?>
 
@@ -232,15 +232,13 @@
                 <span class="tx-color-03 tx-12 mg-b-0 mg-x-10" id="date_time"></span>
             </div>
             <nav class="nav">
+
                 <div class="loader" id="loader"></div>
-                <a href="" class="nav-link"><i data-feather="help-circle"></i></a>
-                <a href="" class="nav-link"><i data-feather="grid"></i></a>
-                <a href="" class="nav-link"><i data-feather="align-left"></i></a>
             </nav>
         </div><!-- content-header -->
 
-        <div class="content-body ">
-            <div class="container pd-x-0">
+        <div class="content-body">
+            <div class="container-fluid">
                 <div id="data"></div>
             </div><!-- container -->
         </div>

@@ -1,25 +1,25 @@
  <?php if ($this->session->flashdata('message')) : ?>
- <script>
-     Command: toastr["success"]('<?= $this->session->flashdata('message') ?>')
-     toastr.options = {
-         "closeButton": false,
-         "debug": true,
-         "newestOnTop": true,
-         "progressBar": false,
-         "positionClass": "toast-top-right",
-         "preventDuplicates": false,
-         "onclick": null,
-         "showDuration": "300",
-         "hideDuration": "1000",
-         "timeOut": "2000",
-         "extendedTimeOut": "1000",
-         "showEasing": "swing",
-         "hideEasing": "linear",
-         "showMethod": "fadeIn",
-         "hideMethod": "fadeOut"
-     }
-     toastr.success(command);
- </script>
+     <script>
+         Command: toastr["success"]('<?= $this->session->flashdata('message') ?>')
+         toastr.options = {
+             "closeButton": false,
+             "debug": true,
+             "newestOnTop": true,
+             "progressBar": false,
+             "positionClass": "toast-top-right",
+             "preventDuplicates": false,
+             "onclick": null,
+             "showDuration": "300",
+             "hideDuration": "1000",
+             "timeOut": "2000",
+             "extendedTimeOut": "1000",
+             "showEasing": "swing",
+             "hideEasing": "linear",
+             "showMethod": "fadeIn",
+             "hideMethod": "fadeOut"
+         }
+         toastr.success(command);
+     </script>
  <?php endif; ?>
 
  <div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-20">
@@ -75,34 +75,34 @@
          <tbody>
              <?php $no = 0;
                 foreach ($customer as $s) { ?>
-             <tr>
-                 <td>
-                     <button type="button" id="edit-btn" data-id_customer='<?= $s['id_customer']; ?>' data-jenis_customer='<?= $s['jenis_customer']; ?>' data-nama='<?= $s['nama']; ?>' data-alamat='<?= $s['alamat']; ?>' data-kota='<?= $s['kota']; ?>' data-contact='<?= $s['contact']; ?>' data-hp='<?= $s['hp']; ?>' data-aktif='<?= $s['aktif']; ?>' data-email='<?= $s['email']; ?>' class="btn btn-outline-primary btn-xs" data-toggle="modal" data-target="#edit-data" data-backdrop="static">
-                         <span class="fas fa-edit"></span>
-                     </button>
-                     <button type="button" class="btn btn-outline-danger btn-xs" data-toggle="modal" data-target="#hapus-data" data-backdrop="static">
-                         <span class="far fa-trash-alt"></span>
-                     </button>
-                 </td>
+                 <tr>
+                     <td>
+                         <button type="button" id="edit-btn" data-id_customer='<?= $s['id_customer']; ?>' data-jenis_customer='<?= $s['jenis_customer']; ?>' data-nama='<?= $s['nama']; ?>' data-alamat='<?= $s['alamat']; ?>' data-kota='<?= $s['kota']; ?>' data-contact='<?= $s['contact']; ?>' data-hp='<?= $s['hp']; ?>' data-aktif='<?= $s['aktif']; ?>' data-email='<?= $s['email']; ?>' class="btn btn-outline-primary btn-xs" data-toggle="modal" data-target="#edit-data" data-backdrop="static">
+                             <span class="fas fa-edit"></span>
+                         </button>
+                         <button type="button" class="btn btn-outline-danger btn-xs" data-toggle="modal" data-target="#hapus-data" data-backdrop="static">
+                             <span class="far fa-trash-alt"></span>
+                         </button>
+                     </td>
 
-                 <td><?php echo $s['jenis']; ?></td>
-                 <td><?php echo $s['nama']; ?></td>
-                 <td><?php echo $s['alamat']; ?></td>
-                 <td><?php echo $s['kota']; ?></td>
-                 <td><?php echo $s['contact']; ?></td>
-                 <td><?php echo $s['hp']; ?></td>
-                 <td><?php echo $s['email']; ?></td>
-                 <td>
-                     <?php
+                     <td><?php echo $s['jenis']; ?></td>
+                     <td><?php echo $s['nama']; ?></td>
+                     <td><?php echo $s['alamat']; ?></td>
+                     <td><?php echo $s['kota']; ?></td>
+                     <td><?php echo $s['contact']; ?></td>
+                     <td><?php echo $s['hp']; ?></td>
+                     <td><?php echo $s['email']; ?></td>
+                     <td>
+                         <?php
                             $t = $s['aktif'];
 
                             if ($t == "1") {
                                 echo "&nbsp; &nbsp;<span class ='fa fa-check'> </span>";
                             } else echo "&nbsp; &nbsp;<span class ='fa fa-ban'> </span>";
                             ?>
-                 </td>
+                     </td>
 
-             </tr>
+                 </tr>
              <?php } ?>
 
 
@@ -135,7 +135,7 @@
                          <select class="form-control" name="jenis_customer" id="jenis_customer" required="" onchange="">
                              <option disabled="" selected="">Pilih Jenis Customer</option>
                              <?php foreach ($jenis_customer as $v) { ?>
-                             <option id="<?php echo $v['id_jenis_cust']; ?>" value="<?php echo  $v['id_jenis_cust']; ?>" data-id_jenis_cust="<?php echo  $v['id_jenis_cust']; ?>" data-jenis="<?php echo $v['jenis']; ?>"><?php echo $v['jenis']; ?> </option>
+                                 <option id="<?php echo $v['id_jenis_cust']; ?>" value="<?php echo  $v['id_jenis_cust']; ?>" data-id_jenis_cust="<?php echo  $v['id_jenis_cust']; ?>" data-jenis="<?php echo $v['jenis']; ?>"><?php echo $v['jenis']; ?> </option>
                              <?php } ?>
                          </select>
 
@@ -207,7 +207,7 @@
                              <select class="form-control" name="jenis_cust_id2" id="jenis_cust_id2" required="" onchange="">
                                  <option disabled="" selected="">Pilih Jenis Customer</option>
                                  <?php foreach ($jenis_customer as $v) { ?>
-                                 <option id="<?php echo $v['id_jenis_cust']; ?>" value="<?php echo  $v['id_jenis_cust']; ?>" data-id_jenis_cust="<?php echo  $v['id_jenis_cust']; ?>" data-jenis="<?php echo $v['jenis']; ?>"><?php echo $v['jenis']; ?> </option>
+                                     <option id="<?php echo $v['id_jenis_cust']; ?>" value="<?php echo  $v['id_jenis_cust']; ?>" data-id_jenis_cust="<?php echo  $v['id_jenis_cust']; ?>" data-jenis="<?php echo $v['jenis']; ?>"><?php echo $v['jenis']; ?> </option>
                                  <?php } ?>
                              </select>
 
