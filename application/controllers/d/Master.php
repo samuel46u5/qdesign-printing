@@ -64,6 +64,14 @@ class Master extends CI_Controller
         $this->session->set_flashdata('message', 'Data ' . $this->input->post('nama') . ' berhasil diubah');
     }
 
+
+    function do_delete_customer() //hapus data customer
+    {
+        $id_customer = $this->input->post('id_customer');
+        $this->master_model->delete_customer($id_customer);
+    }
+
+
     public function KategoriMesin()
     { }
 }

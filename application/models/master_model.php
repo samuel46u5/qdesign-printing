@@ -54,6 +54,12 @@ class Master_Model extends CI_Model
         $this->db->update('customer', $data);
     }
 
+    function delete_customer($id)
+    {
+        $this->db->where('id_customer', $id);
+        $this->db->delete('customer');
+    }
+
 
     function get_Customer2()
     {

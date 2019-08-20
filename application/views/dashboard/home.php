@@ -51,6 +51,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <style>
         .loader {
             border: 5px solid #f3f3f3;
@@ -166,19 +168,19 @@
                 ?>
                 <?php foreach ($menu as $m) : ?>
 
-                    <?php if ($title == $m['menu']) : ?>
-                        <li class=" nav-item with-sub active show">
-                        <?php else : ?>
-                        <li class="nav-item with-sub">
-                        <?php endif; ?>
+                <?php if ($title == $m['menu']) : ?>
+                <li class=" nav-item with-sub active show">
+                    <?php else : ?>
+                <li class="nav-item with-sub">
+                    <?php endif; ?>
 
 
 
 
-                        <a href="#" class="nav-link"><i class="<?= $m['icon'] . ' fa-lg'; ?>"></i> <span> &nbsp; <?= $m['menu']; ?></span></a>
-                        <ul>
-                            <!-- query submenu -->
-                            <?php
+                    <a href="#" class="nav-link"><i class="<?= $m['icon'] . ' fa-lg'; ?>"></i> <span> &nbsp; <?= $m['menu']; ?></span></a>
+                    <ul>
+                        <!-- query submenu -->
+                        <?php
                             $menuId = $m['id'];
 
                             $querySubMenu = "SELECT * FROM `adm_sub_menu` JOIN `adm_menu`
@@ -191,31 +193,31 @@
                             ?>
 
 
-                            <?php foreach ($subMenu as $sm) : ?>
-                                <!-- <li class="active">
+                        <?php foreach ($subMenu as $sm) : ?>
+                        <!-- <li class="active">
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <a href="<?= base_url($sm['url']); ?>"><?= $sm['title']; ?></a>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </li> -->
 
-                                <?php if ($subtitle == $sm['title']) : ?>
-                                    <li class="active">
+                        <?php if ($subtitle == $sm['title']) : ?>
+                        <li class="active">
 
-                                    <?php else : ?>
-                                    <li>
+                            <?php else : ?>
+                        <li>
 
-                                    <?php endif; ?>
-                                    <!-- <a href="<?= base_url($sm['url']); ?>"> <i class="fa fa-fw fa-circle fa-xs"></i><?= $sm['title']; ?> </a> -->
-
-
-                                    <a href="JavaScript:void(0);" onclick="<?= str_replace(' ', '', $sm['title']) . '()' ?>"> <i class="fa fa-fw fa-circle fa-xs"></i><?= $sm['title']; ?> </a>
-                                    <!-- <a href="JavaScript:void(0);" onclick="master_customer();">Customer</a> -->
-                                </li>
-
-                            <?php endforeach; ?>
+                            <?php endif; ?>
+                            <!-- <a href="<?= base_url($sm['url']); ?>"> <i class="fa fa-fw fa-circle fa-xs"></i><?= $sm['title']; ?> </a> -->
 
 
-                        </ul>
+                            <a href="JavaScript:void(0);" onclick="<?= str_replace(' ', '', $sm['title']) . '()' ?>"> <i class="fa fa-fw fa-circle fa-xs"></i><?= $sm['title']; ?> </a>
+                            <!-- <a href="JavaScript:void(0);" onclick="master_customer();">Customer</a> -->
+                        </li>
 
-                    </li>
+                        <?php endforeach; ?>
+
+
+                    </ul>
+
+                </li>
 
                 <?php endforeach; ?>
 
