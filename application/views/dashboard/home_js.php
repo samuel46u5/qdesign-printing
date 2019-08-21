@@ -19,6 +19,9 @@
     //master customer
     function Customer() {
         // alert('customer ini home js');
+        $('#menu-Master').attr("class", "nav-item with-sub active");
+        $('#submenu-Customer').attr("class", "active");
+
         $('#loader').show();
         $.ajax({
             url: '<?php echo base_url('d/Master/customer'); ?>',

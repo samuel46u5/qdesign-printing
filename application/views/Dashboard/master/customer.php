@@ -449,4 +449,14 @@
              }
          });
      }
+
+     //  $("#link_jquery").attr("href", "http://www.duniailkom.com/tutorial-belajar-jquery-bagi-pemula/");
+     //  $("#link_jquery").attr("title", "Belajar jQuery yuk bro...");
+
+     //swith menu
+     //  <li class = "nav-item with-sub"id = "menu-<?= $m['menu']; ?>" >
+     $('#menu-Master').attr("class", "active")
+
+     //  <li class = "active" >
+     //  $('#submenu-Customer').html(resp);
  </script>

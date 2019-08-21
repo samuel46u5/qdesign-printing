@@ -140,11 +140,10 @@
                 ?>
                 <?php foreach ($menu as $m) : ?>
 
-                <?php if ($title == $m['menu']) : ?>
-                <li class=" nav-item with-sub active show">
-                    <?php else : ?>
-                <li class="nav-item with-sub">
-                    <?php endif; ?>
+
+
+                <li class="nav-item with-sub" id="menu-<?= $m['menu']; ?>">
+
                     <a href="#" class="nav-link"><i class="<?= $m['icon'] . ' fa-lg'; ?>"></i> <span> &nbsp; <?= $m['menu']; ?></span></a>
                     <ul>
                         <!-- query submenu -->
@@ -161,12 +160,11 @@
                             ?>
                         <?php foreach ($subMenu as $sm) : ?>
 
-                        <?php if ($subtitle == $sm['title']) : ?>
 
-                        <li class="active">
-                            <?php else : ?>
-                        <li>
-                            <?php endif; ?>
+
+
+                        <li id="submenu-<?= $sm['title']; ?>">
+
                             <!-- <a href="<?= base_url($sm['url']); ?>"> <i class="fa fa-fw fa-circle fa-xs"></i><?= $sm['title']; ?> </a> -->
                             <a href="JavaScript:void(0);" onclick="<?= str_replace(' ', '', $sm['title']) . '()' ?>"> <i class="fa fa-fw fa-circle fa-xs"></i><?= $sm['title']; ?> </a>
                             <!-- <a href="JavaScript:void(0);" onclick="master_customer();">Customer</a> -->
