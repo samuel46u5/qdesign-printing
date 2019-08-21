@@ -162,8 +162,7 @@
                         <?php foreach ($subMenu as $sm) : ?>
 
                         <?php if ($subtitle == $sm['title']) : ?>
-                        var_dump($sutitle);
-                        <!-- // die; -->
+
                         <li class="active">
                             <?php else : ?>
                         <li>
