@@ -80,7 +80,7 @@
                      <button type="button" id="edit-btn" data-id_customer='<?= $s['id_customer']; ?>' data-jenis_customer='<?= $s['jenis_customer']; ?>' data-nama='<?= $s['nama']; ?>' data-alamat='<?= $s['alamat']; ?>' data-kota='<?= $s['kota']; ?>' data-contact='<?= $s['contact']; ?>' data-hp='<?= $s['hp']; ?>' data-aktif='<?= $s['aktif']; ?>' data-email='<?= $s['email']; ?>' class="btn btn-outline-primary btn-xs" data-toggle="modal" data-target="#edit-data" data-backdrop="static">
                          <span class="fas fa-edit"></span>
                      </button>
-                     <button type="button" id="delete-btn" class="btn btn-outline-danger btn-xs" data-id_customer='<?= $s['id_customer']; ?>' data-nama='<?= $s['nama']; ?>' data-backdrop="static">
+                     <button type="button" id="delete-btn" class="btn btn-outline-danger btn-xs" data-id_customer='<?= $s['id_customer']; ?>' data-nama='<?= $s['nama']; ?>' data-toggle="modal" data-target="#hapus-data" data-backdrop="static">
                          <span class="far fa-trash-alt"></span>
                      </button>
                  </td>
@@ -308,7 +308,55 @@
  </div><!-- modal -->
 
 
+ <!-- modal hapus data -->
+ <div class="modal fade" id="hapus-data" tabindex="-1" role="dialog" aria-hidden="true">
+     <div class="modal-dialog modal-dialog-centered wd-sm-650" role="document">
+         <div class="modal-content">
+             <div class="modal-header pd-y-20 pd-x-20 pd-sm-x-30">
+                 <a href="" role="button" class="close pos-absolute t-15 r-15" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </a>
+                 <div class="media align-items-center">
+                     <div class="media-body mg-sm-l-0">
+                         <h4 class="tx-18 tx-sm-20 mg-b-2">Konfirmasi ?</h4>
 
+                     </div>
+                 </div><!-- media -->
+             </div><!-- modal-header -->
+             <div id="ww">
+                 <div class="modal-body pd-sm-t-10 pd-sm-b-20 pd-sm-x-10">
+                     <h6> Apakah data <?= $subtitle ?> : </h6>
+
+                     <input hidden disabled type="text" class="form-control" placeholder="nama" id="id_customer-delete" name="id_customer-delete">
+                     <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Nama</label>
+                     <input disabled type="text" class="form-control" placeholder="nama" id="nama-delete" name="nama-delete">
+                     <br>
+                     <h6> Akan dihapus? </h6>
+                 </div><!-- modal-body -->
+             </div>
+             <div class="modal-footer pd-x-20 pd-y-15">
+                 <button type="button" class="btn btn-outline-danger btn-xs" data-dismiss="modal" data-backdrop="static">
+
+                     <span class="fas fa-ban"></span> Batal
+                 </button>
+                 <button type="button" class="btn btn-outline-primary btn-xs" onclick="doDeleteCustomer()">
+                     <span class="far fa-trash-alt"></span> Hapus
+                 </button>
+                 <script>
+                     $(document).on("click", "#delete-btn", function() {
+
+                         var a = $(this).data('nama');
+                         var b = $(this).data('id_customer');
+
+
+                         $("#ww #nama-delete").val(a);
+                         $("#ww #id_customer-delete").val(b);
+                     })
+                 </script>
+             </div>
+         </div><!-- modal-content -->
+     </div><!-- modal-dialog -->
+ </div><!-- modal -->
 
 
  <script type="text/javascript">
@@ -383,39 +431,22 @@
          });
      }
 
-     $(document).on("click", "#delete-btn", function() {
-         const nama = $(this).attr('data-nama');
-         const id_customer = $(this).attr('data-id_customer');
-         alert(id_customer);
-
-
-         swal({
-                 title: "Hapus Album" + nama + "?",
-                 type: "warning",
-                 showCancelButton: true,
-                 confirmButtonColor: "#DD6B55",
-                 confirmButtonText: "Hapus",
-                 cancelButtonText: "Batal",
-                 closeOnConfirm: false,
-                 closeOnCancel: false
+     function doDeleteCustomer() {
+         var id_customer = document.getElementById("id_customer-delete").value;
+         var nama = document.getElementById("nama-delete").value;
+         //  alert(id_customer);
+         $.ajax({
+             url: "<?php echo base_url('d/Master/do_delete_customer'); ?>",
+             method: "POST",
+             data: {
+                 "id_customer": id_customer,
+                 "nama": nama
              },
-             function(isConfirm) {
-                 if (isConfirm) {
-                     $.ajax({
-                         url: "<?php echo base_url('d/Galery/hapus_album'); ?>",
-                         method: "POST",
-                         data: {
-                             "id_customer": id_customer
-                         },
-                         success: function(data) {
-                             $('#alert').html(data);
-                             // dataBanner();
-                         }
-                     });
-                     swal("Terhapus!", "Album" + nama + "Terhapus", "success");
-                 } else {
-                     swal("Cancel", "Batal hapus", "error");
-                 }
-             });
-     });
+             success: function(data) {
+                 $('#hapus-data').modal('hide'); //menutup modal
+                 $('#alert').html(data);
+                 Customer();
+             }
+         });
+     }
  </script>

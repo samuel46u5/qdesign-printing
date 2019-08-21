@@ -43,7 +43,7 @@ class Master extends CI_Controller
         // var_dump($data);
         // die;
         $this->master_model->simpan_Customer($data);
-        $this->session->set_flashdata('message', 'Data ' . $this->input->post('nama') . 'berhasil ditambahkan');
+        $this->session->set_flashdata('message', 'Data ' . $this->input->post('nama') . ' berhasil ditambahkan');
     }
 
     function do_update_customer()
@@ -68,7 +68,9 @@ class Master extends CI_Controller
     function do_delete_customer() //hapus data customer
     {
         $id_customer = $this->input->post('id_customer');
+
         $this->master_model->delete_customer($id_customer);
+        $this->session->set_flashdata('message', 'Data ' . $this->input->post('nama') . ' berhasil dihapus');
     }
 
 

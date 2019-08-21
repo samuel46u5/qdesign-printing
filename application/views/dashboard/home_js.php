@@ -24,7 +24,7 @@
             url: '<?php echo base_url('d/Master/customer'); ?>',
             method: "POST",
             success: function(resp) {
-                console.log(resp);
+                // console.log(resp);
                 $('#data').html(resp);
                 $('#loader').hide();
                 $('#datatable-customer').DataTable({
