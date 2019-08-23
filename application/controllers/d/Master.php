@@ -6,6 +6,7 @@ class Master extends CI_Controller
     {
         parent::__construct();
         $this->load->model(array('master_model'));
+        // is_logged_in();
     }
 
     public function customer()

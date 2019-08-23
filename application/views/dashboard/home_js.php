@@ -1,8 +1,21 @@
 <!-- berisi fungsi untuk memangil menu yang diklik -->
 <script type="text/javascript">
+    function reset_menu() {
+        // $("#menu-samping").load("<?= base_url('view/dashboard/menu.php') ?>");
+        // alert('reset menu');
+        // $('.ini-menu').removeAttr('active');
+        // $('.ini-submenu').removeAttr('active');
+        $('.ini-menu').removeAttr('active show');
+        $('.ini-submenu').removeAttr('active');
+    }
+
+
     //admin Dashboard
     function Dashboard() {
         alert('dashboard');
+        reset_menu();
+        $('#menu-Admin').attr("class", "nav-item with-sub active show");
+        $('#submenu-Dashboard').attr("class", "active");
         $('#loader').show();
         $.ajax({
             url: '<?php echo base_url('Admin/index'); ?>',
@@ -16,9 +29,31 @@
         });
     }
 
+    //admin Dashboard
+    function Role() {
+        // alert('role');
+        reset_menu();
+        $('#menu-Admin').attr("class", "nav-item with-sub active show");
+        $('#submenu-Role').attr("class", "active");
+        $('#loader').show();
+        $.ajax({
+            url: '<?php echo base_url('Admin/role'); ?>',
+            method: "POST",
+            success: function(resp) {
+                console.log(resp);
+                $('#data').html(resp);
+                $('#loader').hide();
+                $('#example2').DataTable();
+            }
+        });
+    }
+
+
+
     //master customer
     function Customer() {
         // alert('customer ini home js');
+        reset_menu();
         $('#menu-Master').attr("class", "nav-item with-sub active show");
         $('#submenu-Customer').attr("class", "active");
 

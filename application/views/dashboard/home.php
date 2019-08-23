@@ -142,12 +142,12 @@
 
 
 
-                <li class="nav-item with-sub" id="menu-<?= $m['menu']; ?>">
+                    <li class="nav-item with-sub ini-menu" id="menu-<?= $m['menu']; ?>">
 
-                    <a href="#" class="nav-link"><i class="<?= $m['icon'] . ' fa-lg'; ?>"></i> <span> &nbsp; <?= $m['menu']; ?></span></a>
-                    <ul>
-                        <!-- query submenu -->
-                        <?php
+                        <a href="#" class="nav-link"><i class="<?= $m['icon'] . ' fa-lg'; ?>"></i> <span> &nbsp; <?= $m['menu']; ?></span></a>
+                        <ul>
+                            <!-- query submenu -->
+                            <?php
                             $menuId = $m['id'];
 
                             $querySubMenu = "SELECT * FROM `adm_sub_menu` JOIN `adm_menu`
@@ -158,20 +158,20 @@
                             // var_dump($subMenu);
                             // die;
                             ?>
-                        <?php foreach ($subMenu as $sm) : ?>
+                            <?php foreach ($subMenu as $sm) : ?>
 
 
 
 
-                        <li id="submenu-<?= $sm['title']; ?>">
+                                <li class="ini-submenu" id="submenu-<?= $sm['title']; ?>">
 
-                            <!-- <a href="<?= base_url($sm['url']); ?>"> <i class="fa fa-fw fa-circle fa-xs"></i><?= $sm['title']; ?> </a> -->
-                            <a href="JavaScript:void(0);" onclick="<?= str_replace(' ', '', $sm['title']) . '()' ?>"> <i class="fa fa-fw fa-circle fa-xs"></i><?= $sm['title']; ?> </a>
-                            <!-- <a href="JavaScript:void(0);" onclick="master_customer();">Customer</a> -->
-                        </li>
-                        <?php endforeach; ?>
-                    </ul>
-                </li>
+
+                                    <a href="JavaScript:void(0);" onclick="<?= str_replace(' ', '', $sm['title']) . '()' ?>"> <i class="fa fa-fw fa-circle fa-xs"></i><?= $sm['title']; ?> </a>
+
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </li>
                 <?php endforeach; ?>
             </ul>
         </div>
