@@ -52,10 +52,10 @@ class Admin extends CI_Controller
 
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('dashboard/templates/header', $data);
-            $this->load->view('dashboard/templates/sidebar', $data);
+            // $this->load->view('dashboard/templates/header', $data);
+            // $this->load->view('dashboard/templates/sidebar', $data);
             $this->load->view('dashboard/admin/submenu', $data, array());
-            $this->load->view('dashboard/templates/footer');
+            // $this->load->view('dashboard/templates/footer');
         } else {
             $data = [
                 'title' => $this->input->post('title'),
@@ -78,10 +78,10 @@ class Admin extends CI_Controller
         $title = $this->input->get('title');
 
         if ($this->Admin_Model->hapus_subMenu($id)) //send the parameter $id in Managecat  there I have created a function name deleteRecord
-            {
-                $this->session->set_flashdata('sukses', 'Data sub menu : ' . $title . ' berhasil dihapus');
-                redirect('admin/submenu');
-            }
+        {
+            $this->session->set_flashdata('sukses', 'Data sub menu : ' . $title . ' berhasil dihapus');
+            redirect('admin/submenu');
+        }
     }
 
 
@@ -158,10 +158,10 @@ class Admin extends CI_Controller
         $this->form_validation->set_rules('menu', 'Menu', 'required');
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('dashboard/templates/header', $data);
-            $this->load->view('dashboard/templates/sidebar', $data);
+            // $this->load->view('dashboard/templates/header', $data);
+            // $this->load->view('dashboard/templates/sidebar', $data);
             $this->load->view('dashboard/admin/menu', $data);
-            $this->load->view('dashboard/templates/footer');
+            // $this->load->view('dashboard/templates/footer');
         } else {
             //tambah data menu
             $data = [

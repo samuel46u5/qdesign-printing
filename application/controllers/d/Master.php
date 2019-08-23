@@ -75,6 +75,27 @@ class Master extends CI_Controller
     }
 
 
+    public function supplier()
+    {
+        // ini harus diisi sesuai didatabase
+        $data['title'] = 'Master';
+        $data['subtitle'] = 'Supplier';
+        // agar menyala di menu
+
+        $data['jenis_customer'] = $this->master_model->get_Jenis_Customer();
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['customer'] = $this->master_model->get_Customer();
+
+        // $this->load->view('dashboard/templates/header', $data);
+        // $this->load->view('dashboard/templates/sidebar', $data);
+        // $this->load->view('dashboard/master/customer', $data);
+        // $this->load->view('dashboard/templates/footer');
+
+
+        $this->load->view('dashboard/master/supplier', $data);
+    }
+
+
     public function KategoriMesin()
     { }
 }
