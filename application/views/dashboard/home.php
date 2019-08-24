@@ -89,7 +89,29 @@
 </head>
 
 <body>
+    <header class="navbar navbar-header navbar-header-fixed">
+        <a href="" id="sidebarMenuOpen" class="burger-menu"><i data-feather="arrow-left"></i></a>
+        <div class="navbar-brand">
+            <a href="../index.html" class="df-logo">Qdesign<span>Printing</span></a>
 
+        </div><!-- navbar-brand -->
+
+        <div class="navbar-brand">
+            <span class="tx-color-03 tx-12 mg-b-0 mg-x-10" id="date_time"></span>
+        </div>
+
+
+        <div class="navbar-right">
+
+
+
+
+            <div class="loader" id="loader"></div>
+
+            <!-- <div class="animsition" id="loader"> <i data-feather="refresh-ccw"></i></div> -->
+
+        </div><!-- navbar-right -->
+    </header><!-- navbar -->
     <aside class="aside aside-fixed">
         <div class="aside-header">
             <a href="../../index.html" class="aside-logo">Qdesign<span>Printing</span></a>
@@ -141,12 +163,12 @@
 
 
 
-                    <li class="nav-item with-sub ini-menu" id="menu-<?= $m['menu']; ?>">
+                <li class="nav-item with-sub ini-menu" id="menu-<?= $m['menu']; ?>">
 
-                        <a href="#" class="nav-link"><i class="<?= $m['icon'] . ' fa-lg'; ?>"></i> <span> &nbsp; <?= $m['menu']; ?></span></a>
-                        <ul>
-                            <!-- query submenu -->
-                            <?php
+                    <a href="#" class="nav-link"><i class="<?= $m['icon'] . ' fa-lg'; ?>"></i> <span> &nbsp; <?= $m['menu']; ?></span></a>
+                    <ul>
+                        <!-- query submenu -->
+                        <?php
                             $menuId = $m['id'];
 
                             $querySubMenu = "SELECT * FROM `adm_sub_menu` JOIN `adm_menu`
@@ -157,20 +179,20 @@
                             // var_dump($subMenu);
                             // die;
                             ?>
-                            <?php foreach ($subMenu as $sm) : ?>
+                        <?php foreach ($subMenu as $sm) : ?>
 
 
 
 
-                                <li class="ini-submenu" id="submenu-<?= str_replace(' ', '', $sm['title']) ?>">
+                        <li class="ini-submenu" id="submenu-<?= str_replace(' ', '', $sm['title']) ?>">
 
 
-                                    <a href="JavaScript:void(0);" onclick="<?= str_replace(' ', '', $sm['title']) . '()' ?>"> <i class="fa fa-fw fa-circle fa-xs"></i><?= $sm['title']; ?> </a>
+                            <a href="JavaScript:void(0);" onclick="<?= str_replace(' ', '', $sm['title']) . '()' ?>"> <i class="fa fa-fw fa-circle fa-xs"></i><?= $sm['title']; ?> </a>
 
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </li>
+                        </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </li>
                 <?php endforeach; ?>
 
             </ul>

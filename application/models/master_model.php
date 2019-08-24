@@ -48,16 +48,34 @@ class Master_Model extends CI_Model
         $this->db->insert_id();
     }
 
+    function simpan_supplier($data)
+    {
+        $this->db->insert('supplier', $data);
+        $this->db->insert_id();
+    }
+
     function update_Customer($id, $data)
     {
         $this->db->where('id_customer', $id);
         $this->db->update('customer', $data);
     }
 
+    function update_Supplier($id, $data)
+    {
+        $this->db->where('id_supplier', $id);
+        $this->db->update('supplier', $data);
+    }
+
     function delete_customer($id)
     {
         $this->db->where('id_customer', $id);
         $this->db->delete('customer');
+    }
+
+    function delete_supplier($id)
+    {
+        $this->db->where('id_supplier', $id);
+        $this->db->delete('supplier');
     }
 
 
@@ -166,12 +184,8 @@ class Master_Model extends CI_Model
     //Supplier
     public function getAllSupplier()
     {
-        $query = $this->db->query("SELECT * FROM supplier");
-        if ($query->num_rows() > 0) {
-            return $query->result();
-        } else {
-            return false;
-        }
+        $query = "select * from supplier";
+        return $this->db->query($query)->result_array();
     }
 
     function delete($id)

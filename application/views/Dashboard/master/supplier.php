@@ -1,25 +1,25 @@
  <?php if ($this->session->flashdata('message')) : ?>
-     <script>
-         Command: toastr["success"]('<?= $this->session->flashdata('message') ?>')
-         toastr.options = {
-             "closeButton": false,
-             "debug": true,
-             "newestOnTop": true,
-             "progressBar": false,
-             "positionClass": "toast-top-right",
-             "preventDuplicates": false,
-             "onclick": null,
-             "showDuration": "300",
-             "hideDuration": "1000",
-             "timeOut": "2000",
-             "extendedTimeOut": "1000",
-             "showEasing": "swing",
-             "hideEasing": "linear",
-             "showMethod": "fadeIn",
-             "hideMethod": "fadeOut"
-         }
-         toastr.success(command);
-     </script>
+ <script>
+     Command: toastr["success"]('<?= $this->session->flashdata('message') ?>')
+     toastr.options = {
+         "closeButton": false,
+         "debug": true,
+         "newestOnTop": true,
+         "progressBar": false,
+         "positionClass": "toast-top-right",
+         "preventDuplicates": false,
+         "onclick": null,
+         "showDuration": "300",
+         "hideDuration": "1000",
+         "timeOut": "2000",
+         "extendedTimeOut": "1000",
+         "showEasing": "swing",
+         "hideEasing": "linear",
+         "showMethod": "fadeIn",
+         "hideMethod": "fadeOut"
+     }
+     toastr.success(command);
+ </script>
  <?php endif; ?>
 
  <div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-20">
@@ -65,30 +65,36 @@
          <tbody>
              <?php $no = 0;
                 foreach ($supplier as $s) { ?>
-                 <tr>
-                     <td><?php echo ++$no; ?></td>
-                     <td><?php echo $s['nama']; ?></td>
-                     <td><?php echo $s['alamat']; ?></td>
-                     <td><?php echo $s['kota']; ?></td>
-                     <td><?php echo $s['contact']; ?></td>
-                     <td><?php echo $s['hp']; ?></td>
-                     <td><?php echo $s['email']; ?></td>
-                     <td>
-                         <?php
+             <tr>
+                 <td><?php echo ++$no; ?></td>
+                 <td><?php echo $s['nama']; ?></td>
+                 <td><?php echo $s['alamat']; ?></td>
+                 <td><?php echo $s['kota']; ?></td>
+                 <td><?php echo $s['contact']; ?></td>
+                 <td><?php echo $s['hp']; ?></td>
+                 <td><?php echo $s['email']; ?></td>
+                 <td>
+                     <?php
                             $t = $s['aktif'];
 
                             if ($t == "1") {
                                 echo "&nbsp; &nbsp;<span class ='fa fa-check'> </span>";
                             } else echo "&nbsp; &nbsp;<span class ='fa fa-ban'> </span>";
                             ?>
-                     </td>
-                     <td>
-                         <a id="edit" href='#' data-id_supplier='<?= $s['id_supplier']; ?>' data-nama='<?= $s['nama']; ?>' data-alamat='<?= $s['alamat']; ?>' data-kota='<?= $s['kota']; ?>' data-contact='<?= $s['contact']; ?>' data-hp='<?= $s['hp']; ?>' data-aktif='<?= $s['aktif']; ?>' data-email='<?= $s['email']; ?>' data-toggle='modal' data-target='#ubah-data'><span class="fa fa-edit"></span>&nbsp;</a>
-                         <a href="<?= base_url('master/delete_supplier/?id=') . $s['id_supplier'];  ?>" id="link-delete" class="tombol-hapus" data-nama='<?= $s['nama']; ?>' data-id_supplier='<?= $s['id_supplier']; ?>'> <span class=" fa fa-trash-o"></span>&nbsp;</a>
+                 </td>
+                 <td>
+                     <!-- <a id="edit" href='#' data-id_supplier='<?= $s['id_supplier']; ?>' data-nama='<?= $s['nama']; ?>' data-alamat='<?= $s['alamat']; ?>' data-kota='<?= $s['kota']; ?>' data-contact='<?= $s['contact']; ?>' data-hp='<?= $s['hp']; ?>' data-aktif='<?= $s['aktif']; ?>' data-email='<?= $s['email']; ?>' data-toggle='modal' data-target='#ubah-data'><span class="fa fa-edit"></span>&nbsp;</a>
+                         <a href="<?= base_url('master/delete_supplier/?id=') . $s['id_supplier'];  ?>" id="link-delete" class="tombol-hapus" data-nama='<?= $s['nama']; ?>' data-id_supplier='<?= $s['id_supplier']; ?>'> <span class=" fa fa-trash-o"></span>&nbsp;</a> -->
+                     <button type="button" id="edit-btn" data-id_supplier='<?= $s['id_supplier']; ?>' data-jenis_customer='<?= $s['jenis_customer']; ?>' data-nama='<?= $s['nama']; ?>' data-alamat='<?= $s['alamat']; ?>' data-kota='<?= $s['kota']; ?>' data-contact='<?= $s['contact']; ?>' data-hp='<?= $s['hp']; ?>' data-aktif='<?= $s['aktif']; ?>' data-email='<?= $s['email']; ?>' class="btn btn-primary btn-icon btn-xs" data-toggle="modal" data-target="#edit-data" data-backdrop="static">
+                         <span class="fas fa-edit"></span>
+                     </button>
+                     <button type="button" id="delete-btn" class="btn btn-danger btn-icon btn-xs" data-id_supplier='<?= $s['id_supplier']; ?>' data-nama='<?= $s['nama']; ?>' data-toggle="modal" data-target="#hapus-data" data-backdrop="static">
+                         <span class="far fa-trash-alt"></span>
+                     </button>
 
-                     </td>
+                 </td>
 
-                 </tr>
+             </tr>
              <?php } ?>
 
 
@@ -115,15 +121,8 @@
                  </div><!-- media -->
              </div><!-- modal-header -->
              <div class="modal-body pd-sm-t-10 pd-sm-b-20 pd-sm-x-20">
-                 <form role="form" class="" method="POST" id="forminputcustomer" action="">
+                 <form role="form" class="" method="POST" id="forminputsupplier" action="">
                      <div class="form-group">
-                         <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Jenis Customer</label>
-                         <select class="form-control" name="jenis_customer" id="jenis_customer" required="" onchange="">
-                             <option disabled="" selected="">Pilih Jenis Customer</option>
-                             <?php foreach ($jenis_customer as $v) { ?>
-                                 <option id="<?php echo $v['id_jenis_cust']; ?>" value="<?php echo  $v['id_jenis_cust']; ?>" data-id_jenis_cust="<?php echo  $v['id_jenis_cust']; ?>" data-jenis="<?php echo $v['jenis']; ?>"><?php echo $v['jenis']; ?> </option>
-                             <?php } ?>
-                         </select>
 
                          <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Nama</label>
                          <input type="text" class="form-control" placeholder="Nama" id="nama" name="nama">
@@ -162,7 +161,7 @@
 
                      <span class="fas fa-ban"></span> Batal
                  </button>
-                 <button type="button" class="btn btn-outline-primary btn-xs" onclick="doTambahCustomer()">
+                 <button type="button" class="btn btn-outline-primary btn-xs" onclick="doTambahSupplier()">
                      <span class="far fa-save"></span> Simpan
                  </button>
 
@@ -192,14 +191,8 @@
                  <div id='qq'>
                      <form role="form" class="" method="POST" id="forminputcustomer" action="">
                          <div class="form-group">
-                             <input type="text" class="form-control" placeholder="" id="id_customer-edit" name="id_customer-edit" hidden>
-                             <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Jenis Customer</label>
-                             <select class="form-control" name="jenis_cust_id2" id="jenis_cust_id2" required="" onchange="">
-                                 <option disabled="" selected="">Pilih Jenis Customer</option>
-                                 <?php foreach ($jenis_customer as $v) { ?>
-                                     <option id="<?php echo $v['id_jenis_cust']; ?>" value="<?php echo  $v['id_jenis_cust']; ?>" data-id_jenis_cust="<?php echo  $v['id_jenis_cust']; ?>" data-jenis="<?php echo $v['jenis']; ?>"><?php echo $v['jenis']; ?> </option>
-                                 <?php } ?>
-                             </select>
+                             <input type="text" class="form-control" placeholder="" id="id_supplier-edit" name="id_supplier-edit" hidden>
+
 
                              <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Nama</label>
                              <input type="text" class="form-control" placeholder="nama" id="nama-edit" name="nama-edit">
@@ -229,7 +222,7 @@
 
                              <div class="custom-control custom-checkbox">
                                  <input type="checkbox" class="custom-control-input" id="aktif-edit" name="aktif-edit">
-                                 <label class="custom-control-label" for="aktif-edit">Status customer</label>
+                                 <label class="custom-control-label" for="aktif-edit">Status</label>
 
                              </div>
                          </div>
@@ -245,8 +238,8 @@
                              var e = $(this).data('hp');
                              var f = $(this).data('email');
                              var g = $(this).data('aktif');
-                             var h = $(this).data('id_customer');
-                             var i = $(this).data('jenis_customer');
+                             var h = $(this).data('id_supplier');
+
 
 
                              $("#qq #nama-edit").val(a);
@@ -256,12 +249,8 @@
                              $("#qq #hp-edit").val(e);
                              $("#qq #email-edit").val(f);
                              $("#qq #aktif-edit").val(g);
-                             $("#qq #id_customer").val(h);
-                             $("#qq #jenis_cust_id2").val(i);
-                             $("#qq #id_customer-edit").val(h);
-
-                             const x = document.getElementById(i);
-                             x.setAttribute("selected", "selected");
+                             $("#qq #id_supplier").val(h);
+                             $("#qq #id_supplier-edit").val(h);
 
                              //asign value ke chekbox
 
@@ -283,7 +272,7 @@
 
                      <span class="fas fa-ban"></span> Batal
                  </button>
-                 <button type="button" class="btn btn-outline-primary btn-xs" onclick="doEditCustomer()">
+                 <button type="button" class="btn btn-outline-primary btn-xs" onclick="doEditSupplier()">
                      <span class="far fa-save"></span> Simpan
                  </button>
 
@@ -313,7 +302,7 @@
                  <div class="modal-body pd-sm-t-10 pd-sm-b-20 pd-sm-x-10">
                      <h6> Apakah data <?= $subtitle ?> : </h6>
 
-                     <input hidden disabled type="text" class="form-control" placeholder="nama" id="id_customer-delete" name="id_customer-delete">
+                     <input hidden disabled type="text" class="form-control" placeholder="nama" id="id_supplier-delete" name="id_supplier-delete">
                      <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Nama</label>
                      <input disabled type="text" class="form-control" placeholder="nama" id="nama-delete" name="nama-delete">
                      <br>
@@ -325,18 +314,18 @@
 
                      <span class="fas fa-ban"></span> Batal
                  </button>
-                 <button type="button" class="btn btn-outline-primary btn-xs" onclick="doDeleteCustomer()">
+                 <button type="button" class="btn btn-outline-primary btn-xs" onclick="doDeleteSupplier()">
                      <span class="far fa-trash-alt"></span> Hapus
                  </button>
                  <script>
                      $(document).on("click", "#delete-btn", function() {
 
                          var a = $(this).data('nama');
-                         var b = $(this).data('id_customer');
+                         var b = $(this).data('id_supplier');
 
 
                          $("#ww #nama-delete").val(a);
-                         $("#ww #id_customer-delete").val(b);
+                         $("#ww #id_supplier-delete").val(b);
                      })
                  </script>
              </div>
@@ -360,14 +349,14 @@
      };
 
 
-     function doTambahCustomer() {
-         var valid = $('#forminputcustomer').valid();
+     function doTambahSupplier() {
+         var valid = $('#forminputsupplier').valid();
          // console.log(valid);
          if (valid == true) {
-             var form = $('#forminputcustomer').get(0);
+             var form = $('#forminputsupplier').get(0);
              $('#loader').show();
              $.ajax({
-                 url: '<?php echo base_url('d/Master/do_upload_customer') ?>',
+                 url: '<?php echo base_url('d/Master/do_upload_supplier') ?>',
                  method: "POST",
                  data: new FormData(form),
                  contentType: false,
@@ -377,15 +366,14 @@
                      $('#loader').hide(); //menyembunyikan loader
                      $('#tambah-data').modal('hide'); //menutup modal
                      //update isi customer
-                     Customer();
+                     Supplier();
                  }
              });
          }
      }
 
-     function doEditCustomer() {
-         var id_customer = document.getElementById("id_customer-edit").value;
-         var jenis_customer = document.getElementById("jenis_cust_id2").value;
+     function doEditSupplier() {
+         var id_supplier = document.getElementById("id_supplier-edit").value;
          var nama = document.getElementById("nama-edit").value;
          var alamat = document.getElementById("alamat-edit").value;
          var kota = document.getElementById("kota-edit").value;
@@ -396,11 +384,10 @@
 
 
          $.ajax({
-             url: "<?php echo base_url('d/Master/do_update_customer'); ?>",
+             url: "<?php echo base_url('d/Master/do_update_supplier'); ?>",
              method: "POST",
              data: {
-                 "id_customer": id_customer,
-                 "jenis_customer": jenis_customer,
+                 "id_supplier": id_supplier,
                  "nama": nama,
                  "alamat": alamat,
                  "kota": kota,
@@ -412,26 +399,26 @@
              success: function(data) {
                  $('#edit-data').modal('hide'); //menutup modal
                  $('#alert').html(data);
-                 Customer();
+                 Supplier();
              }
          });
      }
 
-     function doDeleteCustomer() {
-         var id_customer = document.getElementById("id_customer-delete").value;
+     function doDeleteSupplier() {
+         var id_supplier = document.getElementById("id_supplier-delete").value;
          var nama = document.getElementById("nama-delete").value;
-         //  alert(id_customer);
+         //  alert(id_supplier);
          $.ajax({
-             url: "<?php echo base_url('d/Master/do_delete_customer'); ?>",
+             url: "<?php echo base_url('d/Master/do_delete_supplier'); ?>",
              method: "POST",
              data: {
-                 "id_customer": id_customer,
+                 "id_supplier": id_supplier,
                  "nama": nama
              },
              success: function(data) {
                  $('#hapus-data').modal('hide'); //menutup modal
                  $('#alert').html(data);
-                 Customer();
+                 Supplier();
              }
          });
      }

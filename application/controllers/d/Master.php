@@ -74,6 +74,14 @@ class Master extends CI_Controller
         $this->session->set_flashdata('message', 'Data ' . $this->input->post('nama') . ' berhasil dihapus');
     }
 
+    function do_delete_supplier() //hapus data customer
+    {
+        $id_supplier = $this->input->post('id_supplier');
+
+        $this->master_model->delete_supplier($id_supplier);
+        $this->session->set_flashdata('message', 'Data ' . $this->input->post('nama') . ' berhasil dihapus');
+    }
+
 
     public function supplier()
     {
@@ -94,6 +102,41 @@ class Master extends CI_Controller
 
         $this->load->view('dashboard/master/supplier', $data);
     }
+
+    public function do_upload_supplier()
+    {
+        $data = array(
+            'nama' => htmlspecialchars($this->input->post('nama')),
+            'alamat' => htmlspecialchars($this->input->post('alamat')),
+            'kota' => htmlspecialchars($this->input->post('kota')),
+            'contact' => htmlspecialchars($this->input->post('contact')),
+            'hp' => htmlspecialchars($this->input->post('hp')),
+            'email' => htmlspecialchars($this->input->post('email')),
+            'aktif' => 1
+        );
+        // var_dump($data);
+        // die;
+        $this->master_model->simpan_supplier($data);
+        $this->session->set_flashdata('message', 'Data ' . $this->input->post('nama') . ' berhasil ditambahkan');
+    }
+
+    function do_update_supplier()
+    {
+        $id = $this->input->post('id_supplier');
+        $data = array(
+            'nama' => htmlspecialchars($this->input->post('nama')),
+            'alamat' => htmlspecialchars($this->input->post('alamat')),
+            'kota' => htmlspecialchars($this->input->post('kota')),
+            'contact' => htmlspecialchars($this->input->post('contact')),
+            'hp' => htmlspecialchars($this->input->post('hp')),
+            'email' => htmlspecialchars($this->input->post('email')),
+            'aktif' => htmlspecialchars($this->input->post('aktif'))
+        );
+
+        $this->master_model->update_Supplier($id, $data);
+        $this->session->set_flashdata('message', 'Data ' . $this->input->post('nama') . ' berhasil diubah');
+    }
+
 
 
     public function KategoriMesin()
