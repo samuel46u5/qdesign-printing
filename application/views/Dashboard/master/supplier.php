@@ -1,25 +1,25 @@
  <?php if ($this->session->flashdata('message')) : ?>
- <script>
-     Command: toastr["success"]('<?= $this->session->flashdata('message') ?>')
-     toastr.options = {
-         "closeButton": false,
-         "debug": true,
-         "newestOnTop": true,
-         "progressBar": false,
-         "positionClass": "toast-top-right",
-         "preventDuplicates": false,
-         "onclick": null,
-         "showDuration": "300",
-         "hideDuration": "1000",
-         "timeOut": "2000",
-         "extendedTimeOut": "1000",
-         "showEasing": "swing",
-         "hideEasing": "linear",
-         "showMethod": "fadeIn",
-         "hideMethod": "fadeOut"
-     }
-     toastr.success(command);
- </script>
+     <script>
+         Command: toastr["success"]('<?= $this->session->flashdata('message') ?>')
+         toastr.options = {
+             "closeButton": false,
+             "debug": true,
+             "newestOnTop": true,
+             "progressBar": false,
+             "positionClass": "toast-top-right",
+             "preventDuplicates": false,
+             "onclick": null,
+             "showDuration": "300",
+             "hideDuration": "1000",
+             "timeOut": "2000",
+             "extendedTimeOut": "1000",
+             "showEasing": "swing",
+             "hideEasing": "linear",
+             "showMethod": "fadeIn",
+             "hideMethod": "fadeOut"
+         }
+         toastr.success(command);
+     </script>
  <?php endif; ?>
 
  <div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-20">
@@ -41,32 +41,22 @@
      <button type="button" class="btn btn-outline-primary btn-xs" data-toggle="modal" data-target="#tambah-data" data-backdrop="static">
          <span class="far fa-plus-square"></span> Tambah Data
      </button>
-     <button type="button" class="btn btn-outline-primary btn-xs" onclick="Customer()">
+     <button type="button" class="btn btn-outline-primary btn-xs" onclick="Supplier()">
          <span class="fas fa-sync"></span> Refresh
      </button>
      <hr>
-     <table id="datatable-customer" class="table">
+     <table id="datatable-supplier" class="table">
          <thead>
              <tr>
-                 <th>Action</th>
-                 <th>Jenis</th>
-                 <th>Nama</th>
-                 <th>Alamat</th>
-                 <th>Kota</th>
-                 <th>Kontak</th>
-                 <th>HP</th>
-                 <th>Email</th>
-                 <th>Aktif</th>
-
-                 <!-- <th width="5%">Action</th>
-                <th width="5%">Jenis</th>
-                <th width="15%">Nama</th>
-                <th width="15%">Alamat</th>
-                <th width="10%">Kota</th>
-                <th width="10%">Kontak</th>
-                <th width="10%">HP</th>
-                <th width="10%">Email</th>
-                <th width="5%">Aktif</th> -->
+                 <th width="3%">No.</th>
+                 <th width="20%">Nama</th>
+                 <th width="25%">Alamat</th>
+                 <th width="10%">Kota</th>
+                 <th width="10%">Kontak</th>
+                 <th width="15%">HP</th>
+                 <th width="15%">Email</th>
+                 <th width="5%">Aktif</th>
+                 <th width="5%">Action</th>
 
              </tr>
          </thead>
@@ -74,35 +64,31 @@
 
          <tbody>
              <?php $no = 0;
-                foreach ($customer as $s) { ?>
-             <tr>
-                 <td>
-                     <button type="button" id="edit-btn" data-id_customer='<?= $s['id_customer']; ?>' data-jenis_customer='<?= $s['jenis_customer']; ?>' data-nama='<?= $s['nama']; ?>' data-alamat='<?= $s['alamat']; ?>' data-kota='<?= $s['kota']; ?>' data-contact='<?= $s['contact']; ?>' data-hp='<?= $s['hp']; ?>' data-aktif='<?= $s['aktif']; ?>' data-email='<?= $s['email']; ?>' class="btn btn-outline-primary btn-xs" data-toggle="modal" data-target="#edit-data" data-backdrop="static">
-                         <span class="fas fa-edit"></span>
-                     </button>
-                     <button type="button" id="delete-btn" class="btn btn-outline-danger btn-xs" data-id_customer='<?= $s['id_customer']; ?>' data-nama='<?= $s['nama']; ?>' data-toggle="modal" data-target="#hapus-data" data-backdrop="static">
-                         <span class="far fa-trash-alt"></span>
-                     </button>
-                 </td>
-
-                 <td><?php echo $s['jenis']; ?></td>
-                 <td><?php echo $s['nama']; ?></td>
-                 <td><?php echo $s['alamat']; ?></td>
-                 <td><?php echo $s['kota']; ?></td>
-                 <td><?php echo $s['contact']; ?></td>
-                 <td><?php echo $s['hp']; ?></td>
-                 <td><?php echo $s['email']; ?></td>
-                 <td>
-                     <?php
+                foreach ($supplier as $s) { ?>
+                 <tr>
+                     <td><?php echo ++$no; ?></td>
+                     <td><?php echo $s['nama']; ?></td>
+                     <td><?php echo $s['alamat']; ?></td>
+                     <td><?php echo $s['kota']; ?></td>
+                     <td><?php echo $s['contact']; ?></td>
+                     <td><?php echo $s['hp']; ?></td>
+                     <td><?php echo $s['email']; ?></td>
+                     <td>
+                         <?php
                             $t = $s['aktif'];
 
                             if ($t == "1") {
                                 echo "&nbsp; &nbsp;<span class ='fa fa-check'> </span>";
                             } else echo "&nbsp; &nbsp;<span class ='fa fa-ban'> </span>";
                             ?>
-                 </td>
+                     </td>
+                     <td>
+                         <a id="edit" href='#' data-id_supplier='<?= $s['id_supplier']; ?>' data-nama='<?= $s['nama']; ?>' data-alamat='<?= $s['alamat']; ?>' data-kota='<?= $s['kota']; ?>' data-contact='<?= $s['contact']; ?>' data-hp='<?= $s['hp']; ?>' data-aktif='<?= $s['aktif']; ?>' data-email='<?= $s['email']; ?>' data-toggle='modal' data-target='#ubah-data'><span class="fa fa-edit"></span>&nbsp;</a>
+                         <a href="<?= base_url('master/delete_supplier/?id=') . $s['id_supplier'];  ?>" id="link-delete" class="tombol-hapus" data-nama='<?= $s['nama']; ?>' data-id_supplier='<?= $s['id_supplier']; ?>'> <span class=" fa fa-trash-o"></span>&nbsp;</a>
 
-             </tr>
+                     </td>
+
+                 </tr>
              <?php } ?>
 
 
@@ -135,7 +121,7 @@
                          <select class="form-control" name="jenis_customer" id="jenis_customer" required="" onchange="">
                              <option disabled="" selected="">Pilih Jenis Customer</option>
                              <?php foreach ($jenis_customer as $v) { ?>
-                             <option id="<?php echo $v['id_jenis_cust']; ?>" value="<?php echo  $v['id_jenis_cust']; ?>" data-id_jenis_cust="<?php echo  $v['id_jenis_cust']; ?>" data-jenis="<?php echo $v['jenis']; ?>"><?php echo $v['jenis']; ?> </option>
+                                 <option id="<?php echo $v['id_jenis_cust']; ?>" value="<?php echo  $v['id_jenis_cust']; ?>" data-id_jenis_cust="<?php echo  $v['id_jenis_cust']; ?>" data-jenis="<?php echo $v['jenis']; ?>"><?php echo $v['jenis']; ?> </option>
                              <?php } ?>
                          </select>
 
@@ -211,7 +197,7 @@
                              <select class="form-control" name="jenis_cust_id2" id="jenis_cust_id2" required="" onchange="">
                                  <option disabled="" selected="">Pilih Jenis Customer</option>
                                  <?php foreach ($jenis_customer as $v) { ?>
-                                 <option id="<?php echo $v['id_jenis_cust']; ?>" value="<?php echo  $v['id_jenis_cust']; ?>" data-id_jenis_cust="<?php echo  $v['id_jenis_cust']; ?>" data-jenis="<?php echo $v['jenis']; ?>"><?php echo $v['jenis']; ?> </option>
+                                     <option id="<?php echo $v['id_jenis_cust']; ?>" value="<?php echo  $v['id_jenis_cust']; ?>" data-id_jenis_cust="<?php echo  $v['id_jenis_cust']; ?>" data-jenis="<?php echo $v['jenis']; ?>"><?php echo $v['jenis']; ?> </option>
                                  <?php } ?>
                              </select>
 

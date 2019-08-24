@@ -163,7 +163,7 @@ class Master_Model extends CI_Model
     }
 
 
-    //Barang
+    //Supplier
     public function getAllSupplier()
     {
         $query = $this->db->query("SELECT * FROM supplier");

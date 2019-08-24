@@ -82,9 +82,9 @@ class Master extends CI_Controller
         $data['subtitle'] = 'Supplier';
         // agar menyala di menu
 
-        $data['jenis_customer'] = $this->master_model->get_Jenis_Customer();
+
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['customer'] = $this->master_model->get_Customer();
+        $data['supplier'] = $this->master_model->getAllSupplier();
 
         // $this->load->view('dashboard/templates/header', $data);
         // $this->load->view('dashboard/templates/sidebar', $data);

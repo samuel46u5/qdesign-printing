@@ -14,9 +14,9 @@ class Admin extends CI_Controller
 
     public function menu_refresh()
     {
-        $data['title'] = 'Admin';
-        $data['subtitle'] = 'Dashboard';
-        $this->load->view('Dashboard/menu', $data);
+        // $data['title'] = 'Admin';
+        // $data['subtitle'] = 'Dashboard';
+        // $this->load->view('Dashboard/menu', $data);
     }
 
     public function index()

@@ -133,7 +133,7 @@
                 // console.log(resp);
                 $('#data').html(resp);
                 $('#loader').hide();
-                $('#datatable-customer').DataTable({
+                $('#datatable-supplier').DataTable({
                     responsive: true,
                     "language": {
                         "search": "cari",

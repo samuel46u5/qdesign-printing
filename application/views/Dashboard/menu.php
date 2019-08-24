@@ -11,15 +11,15 @@ $menu = $this->db->query($queryMenu)->result_array();
 ?>
 <?php foreach ($menu as $m) : ?>
 
-<?php if ($title == $m['menu']) : ?>
-<li class=" nav-item with-sub active show">
-    <?php else : ?>
-<li class="nav-item with-sub">
-    <?php endif; ?>
-    <a href="#" class="nav-link"><i class="<?= $m['icon'] . ' fa-lg'; ?>"></i> <span> &nbsp; <?= $m['menu']; ?></span></a>
-    <ul>
-        <!-- query submenu -->
-        <?php
+    <?php if ($title == $m['menu']) : ?>
+        <li class=" nav-item with-sub active show">
+        <?php else : ?>
+        <li class="nav-item with-sub">
+        <?php endif; ?>
+        <a href="#" class="nav-link"><i class="<?= $m['icon'] . ' fa-lg'; ?>"></i> <span> &nbsp; <?= $m['menu']; ?></span></a>
+        <ul>
+            <!-- query submenu -->
+            <?php
             $menuId = $m['id'];
 
             $querySubMenu = "SELECT * FROM `adm_sub_menu` JOIN `adm_menu`
@@ -30,20 +30,20 @@ $menu = $this->db->query($queryMenu)->result_array();
             // var_dump($subMenu);
             // die;
             ?>
-        <?php foreach ($subMenu as $sm) : ?>
-        <!-- <li class="active">
-                        <a href="<?= base_url($sm['url']); ?>"><?= $sm['title']; ?></a>
-                        </li> -->
-        <?php if ($subtitle == $sm['title']) : ?>
-        <li class="active">
-            <?php else : ?>
-        <li>
-            <?php endif; ?>
-            <!-- <a href="<?= base_url($sm['url']); ?>"> <i class="fa fa-fw fa-circle fa-xs"></i><?= $sm['title']; ?> </a> -->
-            <a href="JavaScript:void(0);" onclick="<?= str_replace(' ', '', $sm['title']) . '()' ?>"> <i class="fa fa-fw fa-circle fa-xs"></i><?= $sm['title']; ?> </a>
-            <!-- <a href="JavaScript:void(0);" onclick="master_customer();">Customer</a> -->
-        </li>
-        <?php endforeach; ?>
-    </ul>
-</li>
+            <?php foreach ($subMenu as $sm) : ?>
+                <!-- <li class="active">
+                                <a href="<?= base_url($sm['url']); ?>"><?= $sm['title']; ?></a>
+                                </li> -->
+                <?php if ($subtitle == $sm['title']) : ?>
+                    <li class="active">
+                    <?php else : ?>
+                    <li>
+                    <?php endif; ?>
+                    <!-- <a href="<?= base_url($sm['url']); ?>"> <i class="fa fa-fw fa-circle fa-xs"></i><?= $sm['title']; ?> </a> -->
+                    <a href="JavaScript:void(0);" onclick="<?= str_replace(' ', '', $sm['title']) . '()' ?>"> <i class="fa fa-fw fa-circle fa-xs"></i><?= $sm['title']; ?> </a>
+                    <!-- <a href="JavaScript:void(0);" onclick="master_customer();">Customer</a> -->
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </li>
 <?php endforeach; ?>
