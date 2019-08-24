@@ -10,6 +10,15 @@ class Admin extends CI_Controller
         $this->load->model('Admin_Model');
         is_logged_in();
     }
+
+
+    public function menu_refresh()
+    {
+        $data['title'] = 'Admin';
+        $data['subtitle'] = 'Dashboard';
+        $this->load->view('Dashboard/menu', $data);
+    }
+
     public function index()
     {
         // ini harus diisi sesuai didatabase
@@ -78,10 +87,10 @@ class Admin extends CI_Controller
         $title = $this->input->get('title');
 
         if ($this->Admin_Model->hapus_subMenu($id)) //send the parameter $id in Managecat  there I have created a function name deleteRecord
-        {
-            $this->session->set_flashdata('sukses', 'Data sub menu : ' . $title . ' berhasil dihapus');
-            redirect('admin/submenu');
-        }
+            {
+                $this->session->set_flashdata('sukses', 'Data sub menu : ' . $title . ' berhasil dihapus');
+                redirect('admin/submenu');
+            }
     }
 
 

@@ -1,19 +1,21 @@
 <!-- berisi fungsi untuk memangil menu yang diklik -->
 <script type="text/javascript">
-    function reset_menu() {
-        // $("#menu-samping").load("<?= base_url('view/dashboard/menu.php') ?>");
-        // alert('reset menu');
-        // $('.ini-menu').removeAttr('active');
-        // $('.ini-submenu').removeAttr('active');
-        $('.ini-menu').removeAttr('active show');
-        $('.ini-submenu').removeAttr('active');
-    }
+    // function reset_menu() {
+    //     // $("#menu-samping").load("<?= base_url('view/dashboard/menu.php') ?>");
+    //     // alert('reset menu');
+    //     // $('.ini-menu').removeAttr('active');
+    //     // $('.ini-submenu').removeAttr('active');
+    //     // $('.ini-menu').removeAttr('nav-item with-sub active show');
+    //     // $('.ini-submenu').removeAttr('active');
+    //     // $('#menu-samping').load(document.URL + '#menu-samping');
+    //     $('#menu-samping').load('menu.php');
+    // }
 
 
     //admin Dashboard
     function Dashboard() {
         alert('dashboard');
-        reset_menu();
+        // reset_menu();
         $('#menu-Admin').attr("class", "nav-item with-sub active show");
         $('#submenu-Dashboard').attr("class", "active");
         $('#loader').show();
@@ -31,7 +33,7 @@
     //admin Dashboard
     function Role() {
         // alert('role');
-        reset_menu();
+        // reset_menu();
         $('#menu-Admin').attr("class", "nav-item with-sub active show");
         $('#submenu-Role').attr("class", "active");
         $('#loader').show();
@@ -49,7 +51,7 @@
     //admin Dashboard
     function Menu() {
         // alert('role');
-        reset_menu();
+        // reset_menu();
         $('#menu-Admin').attr("class", "nav-item with-sub active show");
         $('#submenu-Menu').attr("class", "active");
         $('#loader').show();
@@ -67,7 +69,7 @@
     //admin Dashboard
     function SubMenu() {
         // alert('role');
-        reset_menu();
+        // reset_menu();
         $('#menu-Admin').attr("class", "nav-item with-sub active show");
         $('#submenu-SubMenu').attr("class", "active");
         $('#loader').show();
@@ -88,7 +90,7 @@
     //master customer
     function Customer() {
         // alert('customer ini home js');
-        reset_menu();
+        // reset_menu();
         $('#menu-Master').attr("class", "nav-item with-sub active show");
         $('#submenu-Customer').attr("class", "active");
 
@@ -119,7 +121,7 @@
     //master customer
     function Supplier() {
         // alert('customer ini home js');
-        reset_menu();
+        // reset_menu();
         $('#menu-Master').attr("class", "nav-item with-sub active show");
         $('#submenu-Supplier').attr("class", "active");
 
