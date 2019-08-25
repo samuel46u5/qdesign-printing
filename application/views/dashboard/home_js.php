@@ -118,7 +118,7 @@
         });
     }
 
-    //master customer
+    //master supplier
     function Supplier() {
         // alert('customer ini home js');
         // reset_menu();
@@ -148,6 +148,38 @@
             }
         });
     }
+
+    //master tinta
+    function Tinta() {
+        // alert('customer ini home js');
+        // reset_menu();
+        $('#menu-Master').attr("class", "nav-item with-sub active show");
+        $('#submenu-Tinta').attr("class", "active");
+
+        $('#loader').show();
+        $.ajax({
+            url: '<?php echo base_url('d/Master/Tinta'); ?>',
+            method: "POST",
+            success: function(resp) {
+                // console.log(resp);
+                $('#data').html(resp);
+                $('#loader').hide();
+                $('#datatable-tinta').DataTable({
+                    responsive: true,
+                    "language": {
+                        "search": "cari",
+                        "searchPlaceholder": "",
+                        "lengthMenu": "Tampilkan _MENU_ data per halaman",
+                        "zeroRecords": "Nothing found - sorry",
+                        "info": "Halaman : _PAGE_ dari _PAGES_",
+                        "infoEmpty": "Data tidak ada",
+                        "infoFiltered": "(filtered from _MAX_ total records)",
+                    },
+                });
+            }
+        });
+    }
+
 
     function KategoriMesin() {
 

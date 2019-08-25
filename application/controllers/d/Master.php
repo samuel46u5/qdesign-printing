@@ -74,14 +74,6 @@ class Master extends CI_Controller
         $this->session->set_flashdata('message', 'Data ' . $this->input->post('nama') . ' berhasil dihapus');
     }
 
-    function do_delete_supplier() //hapus data customer
-    {
-        $id_supplier = $this->input->post('id_supplier');
-
-        $this->master_model->delete_supplier($id_supplier);
-        $this->session->set_flashdata('message', 'Data ' . $this->input->post('nama') . ' berhasil dihapus');
-    }
-
 
     public function supplier()
     {
@@ -137,7 +129,49 @@ class Master extends CI_Controller
         $this->session->set_flashdata('message', 'Data ' . $this->input->post('nama') . ' berhasil diubah');
     }
 
+    function do_delete_supplier() //hapus data customer
+    {
+        $id_supplier = $this->input->post('id_supplier');
 
+        $this->master_model->delete_supplier($id_supplier);
+        $this->session->set_flashdata('message', 'Data ' . $this->input->post('nama') . ' berhasil dihapus');
+    }
+
+    public function Tinta()
+    {
+        // ini harus diisi sesuai didatabase
+        $data['title'] = 'Master';
+        $data['subtitle'] = 'Tinta';
+        // agar menyala di menu
+
+
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['supplier'] = $this->master_model->getAllSupplier();
+        $data['warna'] = $this->master_model->get_Warna();
+        $data['tinta'] = $this->master_model->get_Tinta();
+
+        $this->load->view('dashboard/master/tinta', $data);
+    }
+
+    public function do_upload_tinta()
+    {
+        $data = array(
+            'nama_tinta' =>  htmlspecialchars($this->input->post('nama_tinta')),
+            'keterangan' =>  htmlspecialchars($this->input->post('keterangan')),
+            'id_supplier' =>  htmlspecialchars($this->input->post('id_supplier')),
+            'harga_tinta' =>  htmlspecialchars($this->input->post('harga_tinta')),
+            'isi' =>  htmlspecialchars($this->input->post('isi')),
+            'stok' =>  htmlspecialchars($this->input->post('stok')),
+            'hargaml' =>  htmlspecialchars($this->input->post('hargaml')),
+            'aktif' =>  '1',
+            'hpp' =>  htmlspecialchars($this->input->post('hpp')),
+            'id_warna' =>  $this->input->post('id_warna')
+        );
+        var_dump($data);
+        die;
+        $this->master_model->simpan_tinta($data);
+        $this->session->set_flashdata('message', 'Data ' . $this->input->post('nama') . ' berhasil ditambahkan');
+    }
 
     public function KategoriMesin()
     { }

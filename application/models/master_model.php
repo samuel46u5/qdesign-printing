@@ -48,6 +48,12 @@ class Master_Model extends CI_Model
         $this->db->insert_id();
     }
 
+    function simpan_tinta($data)
+    {
+        $this->db->insert('tinta', $data);
+        $this->db->insert_id();
+    }
+
     function simpan_supplier($data)
     {
         $this->db->insert('supplier', $data);
