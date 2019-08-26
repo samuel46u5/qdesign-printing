@@ -105,7 +105,7 @@
                             ?>
                  </td>
                  <td>
-                     <button type="button" id="edit-btn" data-id_customer='<?= $s['id_customer']; ?>' data-jenis_customer='<?= $s['jenis_customer']; ?>' data-nama='<?= $s['nama']; ?>' data-alamat='<?= $s['alamat']; ?>' data-kota='<?= $s['kota']; ?>' data-contact='<?= $s['contact']; ?>' data-hp='<?= $s['hp']; ?>' data-aktif='<?= $s['aktif']; ?>' data-email='<?= $s['email']; ?>' class="btn btn-primary btn-icon btn-xs" data-toggle="modal" data-target="#edit-data" data-backdrop="static">
+                     <button type="button" id="edit-btn" class="btn btn-primary btn-icon btn-xs" data-toggle="modal" data-target="#edit-data" data-id_customer='<?= $s['id_customer']; ?>' data-jenis_customer='<?= $s['jenis_customer']; ?>' data-nama='<?= $s['nama']; ?>' data-alamat='<?= $s['alamat']; ?>' data-kota='<?= $s['kota']; ?>' data-contact='<?= $s['contact']; ?>' data-hp='<?= $s['hp']; ?>' data-aktif='<?= $s['aktif']; ?>' data-email='<?= $s['email']; ?>' data-backdrop="static">
                          <span class="fas fa-edit"></span>
                      </button>
                      <button type="button" id="delete-btn" class="btn btn-danger btn-icon btn-xs" data-id_customer='<?= $s['id_customer']; ?>' data-nama='<?= $s['nama']; ?>' data-toggle="modal" data-target="#hapus-data" data-backdrop="static">

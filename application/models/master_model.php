@@ -66,6 +66,12 @@ class Master_Model extends CI_Model
         $this->db->update('customer', $data);
     }
 
+    function update_tinta($id, $data)
+    {
+        $this->db->where('id_tinta', $id);
+        $this->db->update('tinta', $data);
+    }
+
     function update_Supplier($id, $data)
     {
         $this->db->where('id_supplier', $id);
@@ -76,6 +82,12 @@ class Master_Model extends CI_Model
     {
         $this->db->where('id_customer', $id);
         $this->db->delete('customer');
+    }
+
+    function delete_tinta($id)
+    {
+        $this->db->where('id_tinta', $id);
+        $this->db->delete('tinta');
     }
 
     function delete_supplier($id)

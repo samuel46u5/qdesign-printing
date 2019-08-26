@@ -88,14 +88,17 @@
                             ?>
                  </td>
                  <td>
-                     <button type="button" id="edit-btn" class="btn btn-primary btn-icon btn-xs" data-id_tinta='<?= $s['id_tinta']; ?>' data-id_warna='<?= $s['id_warna']; ?>' data-nama_tinta='<?= $s['nama_tinta']; ?>' data-keterangan='<?= $s['keterangan']; ?>' data-id_supplier='<?= $s['id_supplier']; ?>' data-isi='<?= $s['isi']; ?>' data-harga_tinta='<?= $s['harga_tinta']; ?>' data-hargaml='<?= $s['hargaml']; ?>' data-aktif='<?= $s['aktif']; ?>' data-hpp='<?= $s['hpp']; ?>' data-toggle='modal' data-target='#ubah-data'><span class="fas fa-edit"></span>&nbsp;</button>
-                     <button type="button" id="delete-btn" class="btn btn-danger btn-icon btn-xs" data-nama_tinta='<?= $s['nama_tinta']; ?>' id="link-delete" class="tombol-hapus"> <span class="far fa-trash-alt"></span>&nbsp;</button>
+                     <button type="button" id="edit-btn" class="btn btn-primary btn-icon btn-xs" data-id_tinta='<?= $s['id_tinta']; ?>' data-id_warna='<?= $s['id_warna']; ?>' data-nama_tinta='<?= $s['nama_tinta']; ?>' data-keterangan='<?= $s['keterangan']; ?>' data-id_supplier='<?= $s['id_supplier']; ?>' data-isi='<?= $s['isi']; ?>' data-harga_tinta='<?= $s['harga_tinta']; ?>' data-hargaml='<?= $s['hargaml']; ?>' data-aktif='<?= $s['aktif']; ?>' data-hpp='<?= $s['hpp']; ?>' data-toggle='modal' data-target='#edit-data'><span class="fas fa-edit"></span>&nbsp;</button>
+                     <button type="button" id="delete-btn" class="btn btn-danger btn-icon btn-xs" data-id_tinta='<?= $s['id_tinta']; ?>' data-nama_tinta='<?= $s['nama_tinta']; ?>' data-toggle="modal" data-target="#hapus-data" data-backdrop="static">
+                         <span class="far fa-trash-alt"></span>
+                     </button>
                  </td>
              </tr>
              <?php } ?>
 
 
          </tbody>
+     </table>
 
  </div><!-- df-content -->
 
@@ -161,13 +164,13 @@
                          <div class="form-group row mg-b-10 mg-t-10">
                              <label for="inputEmail3" class="col-sm-4 col-form-label tx-color-03 tx-10 tx-uppercase tx-medium">Isi (Gln) </label>
                              <div class="col-sm-3">
-                                 <input type="number" class="form-control" id="isi" name="isi" value="0" style="text-align: right" min="0">
+                                 <input type="number" class="form-control" id="isi" name="isi" value="0" style="text-align: right" min="0" oninput="calculate()">
                              </div>
                          </div>
-                         <div class="form-group row mg-b-10">
+                         <div class=" form-group row mg-b-10">
                              <label for="inputEmail3" class="col-sm-4 col-form-label tx-color-03 tx-10 tx-uppercase tx-medium">Harga Tinta / Gln</label>
                              <div class=" col-sm-3">
-                                 <input type="number" class="form-control" id="harga_tinta" name="harga_tinta" value="0" style="text-align: right" min="0">
+                                 <input type="number" class="form-control" id="harga_tinta" name="harga_tinta" value="0" style="text-align: right" min="0" oninput="calculate()">
                              </div>
                          </div>
                          <div class="form-group row mg-b-10">
@@ -226,79 +229,143 @@
                  <div id='qq'>
                      <form role="form" class="" method="POST" id="forminputtinta" action="">
                          <div class="form-group">
-                             <input type="text" class="form-control" placeholder="" id="id_supplier-edit" name="id_supplier-edit" hidden>
+                             <input type="text" class="form-control" placeholder="" id="id_tinta-edit" name="id_tinta-edit" hidden>
+                             <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Nama Tinta</label>
+                             <input type="text" class="form-control" placeholder="Nama tinta" id="nama_tinta-edit" name="nama_tinta-edit">
 
-
-                             <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Nama</label>
-                             <input type="text" class="form-control" placeholder="nama" id="nama-edit" name="nama-edit">
-
-                             <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Alamat</label>
-                             <textarea class="form-control" rows="2" placeholder="Textarea" id="alamat-edit" name="alamat-edit"></textarea>
-
-                             <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Kota</label>
-                             <input type="text" class="form-control" rows="2" placeholder="kota" id="kota-edit" name="kota-edit"></textarea>
-
-                             <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Kontak </label>
-                             <input type="text" class="form-control" placeholder="Kontak" id="contact-edit" name="contact-edit">
-
+                             <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Warna</label>
                              <div class="row row-sm">
                                  <div class="col-sm">
-                                     <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Email</label>
-                                     <input type="text" class="form-control" placeholder="email" id="email-edit" name="email-edit">
+                                     <select name="id_warna-edit" id="id_warna-edit" class="custom-select">
+                                         <option selected>Pilih warna</option>
+                                         <?php foreach ($warna as $w) : ?>
+                                         <option id="<?= $w['id_warna']; ?>" value="<?= $w['id_warna']; ?>" data-kode_warna="<?= $w['kode_warna']; ?>"> <?= $w['nama_warna']; ?> </option>
+                                         <?php endforeach; ?>
+                                     </select>
                                  </div><!-- col -->
                                  <div class="col-sm-5 mg-t-20 mg-sm-t-0">
-                                     <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">HP</label>
-                                     <input type="text" class="form-control" placeholder="Handphone" id="hp-edit" name="hp-edit">
+                                     <canvas id="mycanvas-edit" width=" 30" height="30" style="border:1px" position="absolute" background-color="white"> </canvas>
                                  </div><!-- col -->
+                             </div>
+                             <script>
+                                 $('#id_warna-edit').change(function() {
+                                     const x = document.getElementById("mycanvas-edit");
+                                     x.style.backgroundColor = $(this.options[this.selectedIndex]).attr('data-kode_warna');
+                                 });
+                             </script>
+
+
+                             <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Keterangan</label>
+                             <input type="text" class="form-control" rows="2" placeholder="Keterangan" id="keterangan-edit" name="keterangan-edit"></textarea>
+
+                             <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Supplier</label>
+
+                             <select name='id_supplier-edit' id="id_supplier-edit" class="form-control">
+                                 <option value="">Pilih Supplier</option>
+                                 <?php foreach ($supplier as $s) : ?>
+                                 <option id="<?= $s['id_supplier']; ?>" value="<?= $s['id_supplier']; ?>"> <?= $s['nama']; ?> </option>
+                                 <?php endforeach; ?>
+                             </select>
+
+
+                             <div class="form-group row mg-b-10 mg-t-10">
+                                 <label for="inputEmail3" class="col-sm-4 col-form-label tx-color-03 tx-10 tx-uppercase tx-medium">Isi (Gln) </label>
+                                 <div class="col-sm-3">
+                                     <input type="number" class="form-control" id="isi-edit" name="isi-edit" value="0" style="text-align: right" min="0" oninput="calculate2()">
+                                 </div>
+                             </div>
+                             <div class=" form-group row mg-b-10">
+                                 <label for="inputEmail3" class="col-sm-4 col-form-label tx-color-03 tx-10 tx-uppercase tx-medium">Harga Tinta / Gln</label>
+                                 <div class=" col-sm-3">
+                                     <input type="number" class="form-control" id="harga_tinta-edit" name="harga_tinta-edit" value="0" style="text-align: right" min="0" oninput="calculate2()">
+                                 </div>
+                             </div>
+                             <div class="form-group row mg-b-10">
+                                 <label for="inputEmail3" class="col-sm-4 col-form-label tx-color-03 tx-10 tx-uppercase tx-medium">Harga/ML</label>
+                                 <div class=" col-sm-3">
+                                     <input type="number" class="form-control" id="hargaml-edit" name="hargaml-edit" style="text-align: right" min="0" readonly>
+                                 </div>
+                             </div>
+                             <div class="form-group row">
+                                 <label for="inputEmail3" class="col-sm-4 col-form-label tx-color-03 tx-10 tx-uppercase tx-medium">HPP/ML</label>
+                                 <div class=" col-sm-3">
+                                     <input type="number" class="form-control" id="hpp-edit" name="hpp-edit" style="text-align: right" min="0" readonly>
+                                 </div>
                              </div>
                          </div>
 
                          <div class="form-group">
-
-                             <div class="custom-control custom-checkbox">
-                                 <input type="checkbox" class="custom-control-input" id="aktif-edit" name="aktif-edit">
-                                 <label class="custom-control-label" for="aktif-edit">Status</label>
-
+                             <div class="custom-control custom-switch">
+                                 <input type="checkbox" class="custom-control-input" id="aktif-edit" name="aktif-edit" checked>
+                                 <label class="custom-control-label" for="aktif">Status tinta aktif</label>
                              </div>
                          </div>
+
                      </form>
 
                      <script>
                          $(document).on("click", "#edit-btn", function() {
 
-                             var a = $(this).data('nama');
-                             var b = $(this).data('alamat');
-                             var c = $(this).data('kota');
-                             var d = $(this).data('contact');
-                             var e = $(this).data('hp');
-                             var f = $(this).data('email');
+                             var a = $(this).data('nama_tinta');
+                             var b = $(this).data('id_warna');
+                             var c = $(this).data('keterangan');
+                             var d = $(this).data('id_supplier');
+                             var e = $(this).data('isi');
+                             var f = $(this).data('hargaml');
+
                              var g = $(this).data('aktif');
-                             var h = $(this).data('id_supplier');
+                             var h = $(this).data('hpp');
+                             var i = $(this).data('harga_tinta');
+                             var j = $(this).data('id_tinta');
 
 
 
-                             $("#qq #nama-edit").val(a);
-                             $("#qq #alamat-edit").val(b);
-                             $("#qq #kota-edit").val(c);
-                             $("#qq #contact-edit").val(d);
-                             $("#qq #hp-edit").val(e);
-                             $("#qq #email-edit").val(f);
+                             $("#qq #nama_tinta-edit").val(a);
+                             $("#qq #id_warna-edit").val(b);
+                             $("#qq #keterangan-edit").val(c);
+                             $("#qq #id_supplier-edit").val(d);
+                             $("#qq #isi-edit").val(e);
+                             $("#qq #hargaml-edit").val(f);
                              $("#qq #aktif-edit").val(g);
-                             $("#qq #id_supplier").val(h);
-                             $("#qq #id_supplier-edit").val(h);
+                             $("#qq #hpp-edit").val(h);
+                             $("#qq #harga_tinta-edit").val(i);
+                             $("#qq #id_tinta-edit").val(j);
 
-                             //asign value ke chekbox
+
+                             // id warna
+                             const x = document.getElementById(b);
+                             x.setAttribute("selected", "selected");
+                             // alert(x.getAttribute("data-kode_warna"));
+                             const z = document.getElementById("mycanvas-edit");
+                             z.style.backgroundColor = x.getAttribute("data-kode_warna");
+                             // id supplier
+                             // alert(d);
+                             const y = document.getElementById(d);
+                             y.setAttribute("selected", "selected");
 
                              if (g == 1) {
-
                                  document.getElementById("aktif-edit").checked = true;
                                  document.getElementById("aktif-edit").value = "1";
                              } else {
-
                                  document.getElementById("aktif-edit").checked = false;
                                  document.getElementById("aktif-edit").value = "0";
                              };
+
+
+
                          })
+
+                         function calculate2() {
+                             var harga_tinta = document.getElementById("harga_tinta-edit").value;
+
+                             var isi = document.getElementById("isi-edit").value;
+                             if (isi > 0) {
+                                 var hargaml = harga_tinta / isi;
+                                 document.getElementById("hargaml-edit").value = hargaml;
+                             } else {
+                                 document.getElementById("hargaml-edit").value = 0
+                             }
+                         }
                      </script>
                  </div>
              </div><!-- modal-body -->
@@ -307,7 +374,8 @@
 
                      <span class="fas fa-ban"></span> Batal
                  </button>
-                 <button type="button" class="btn btn-outline-primary btn-xs" onclick="doEditSupplier()">
+                 <button type="button" class="btn btn-outline-primary btn-xs" onclick="doEditTinta()">
+
                      <span class="far fa-save"></span> Simpan
                  </button>
 
@@ -316,6 +384,7 @@
          </div><!-- modal-content -->
      </div><!-- modal-dialog -->
  </div><!-- modal -->
+
 
 
  <!-- modal hapus data -->
@@ -337,9 +406,9 @@
                  <div class="modal-body pd-sm-t-10 pd-sm-b-20 pd-sm-x-10">
                      <h6> Apakah data <?= $subtitle ?> : </h6>
 
-                     <input hidden disabled type="text" class="form-control" placeholder="nama" id="id_supplier-delete" name="id_supplier-delete">
-                     <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Nama</label>
-                     <input disabled type="text" class="form-control" placeholder="nama" id="nama-delete" name="nama-delete">
+                     <input hidden disabled type="text" class="form-control" placeholder="nama" id="id_tinta-delete" name="id_tinta-delete">
+                     <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Nama Tinta</label>
+                     <input disabled type="text" class="form-control" placeholder="nama tinta" id="nama_tinta-delete" name="nama_tinta-delete">
                      <br>
                      <h6> Akan dihapus? </h6>
                  </div><!-- modal-body -->
@@ -349,18 +418,18 @@
 
                      <span class="fas fa-ban"></span> Batal
                  </button>
-                 <button type="button" class="btn btn-outline-primary btn-xs" onclick="doDeleteSupplier()">
+                 <button type="button" class="btn btn-outline-primary btn-xs" onclick="doDeleteTinta()">
                      <span class="far fa-trash-alt"></span> Hapus
                  </button>
                  <script>
                      $(document).on("click", "#delete-btn", function() {
 
-                         var a = $(this).data('nama');
-                         var b = $(this).data('id_supplier');
+                         var a = $(this).data('nama_tinta');
+                         var b = $(this).data('id_tinta');
 
 
-                         $("#ww #nama-delete").val(a);
-                         $("#ww #id_supplier-delete").val(b);
+                         $("#ww #nama_tinta-delete").val(a);
+                         $("#ww #id_tinta-delete").val(b);
                      })
                  </script>
              </div>
@@ -370,6 +439,17 @@
 
 
  <script type="text/javascript">
+     function calculate() {
+         var harga_tinta = document.getElementById("harga_tinta").value;
+         var isi = document.getElementById("isi").value;
+         if (isi > 0) {
+             var hargaml = harga_tinta / isi;
+             document.getElementById("hargaml").value = hargaml;
+         } else {
+             document.getElementById("hargaml").value = 0
+         }
+     }
+
      document.getElementById('aktif-edit').onclick = function() {
          // access properties using this keyword
          if (this.checked) {
@@ -379,8 +459,6 @@
              document.getElementById("aktif-edit").checked = false;
              document.getElementById("aktif-edit").value = "0";
          }
-
-
      };
 
 
@@ -408,53 +486,58 @@
          }
      }
 
-     function doEditSupplier() {
+     function doEditTinta() {
+
+
+         var id_tinta = document.getElementById("id_tinta-edit").value;
+         var nama_tinta = document.getElementById("nama_tinta-edit").value;
          var id_supplier = document.getElementById("id_supplier-edit").value;
-         var nama = document.getElementById("nama-edit").value;
-         var alamat = document.getElementById("alamat-edit").value;
-         var kota = document.getElementById("kota-edit").value;
-         var contact = document.getElementById("contact-edit").value;
-         var hp = document.getElementById("hp-edit").value;
-         var email = document.getElementById("email-edit").value;
+         var harga_tinta = document.getElementById("harga_tinta-edit").value;
+         var hargaml = document.getElementById("hargaml-edit").value;
+         var isi = document.getElementById("isi-edit").value;
+         var hpp = document.getElementById("hpp-edit").value;
+         var id_warna = document.getElementById("id_warna-edit").value;
+         var keterangan = document.getElementById("keterangan-edit").value;
          var aktif = document.getElementById("aktif-edit").value;
 
-
          $.ajax({
-             url: "<?php echo base_url('d/Master/do_update_supplier'); ?>",
+             url: "<?php echo base_url('d/Master/do_update_tinta'); ?>",
              method: "POST",
              data: {
+                 "id_tinta": id_tinta,
+                 "nama_tinta": nama_tinta,
                  "id_supplier": id_supplier,
-                 "nama": nama,
-                 "alamat": alamat,
-                 "kota": kota,
-                 "contact": contact,
-                 "hp": hp,
-                 "email": email,
+                 "harga_tinta": harga_tinta,
+                 "hargaml": hargaml,
+                 "isi": isi,
+                 "hpp": hpp,
+                 "id_warna": id_warna,
+                 "keterangan": keterangan,
                  "aktif": aktif
              },
              success: function(data) {
                  $('#edit-data').modal('hide'); //menutup modal
                  $('#alert').html(data);
-                 Supplier();
+                 Tinta();
              }
          });
      }
 
-     function doDeleteSupplier() {
-         var id_supplier = document.getElementById("id_supplier-delete").value;
-         var nama = document.getElementById("nama-delete").value;
-         //  alert(id_supplier);
+     function doDeleteTinta() {
+         var id_tinta = document.getElementById("id_tinta-delete").value;
+         var nama_tinta = document.getElementById("nama_tinta-delete").value;
+         //  alert(id_tinta);
          $.ajax({
-             url: "<?php echo base_url('d/Master/do_delete_supplier'); ?>",
+             url: "<?php echo base_url('d/Master/do_delete_tinta'); ?>",
              method: "POST",
              data: {
-                 "id_supplier": id_supplier,
-                 "nama": nama
+                 "id_tinta": id_tinta,
+                 "nama_tinta": nama_tinta
              },
              success: function(data) {
                  $('#hapus-data').modal('hide'); //menutup modal
                  $('#alert').html(data);
-                 Supplier();
+                 Tinta();
              }
          });
      }

@@ -167,11 +167,42 @@ class Master extends CI_Controller
             'hpp' =>  htmlspecialchars($this->input->post('hpp')),
             'id_warna' =>  $this->input->post('id_warna')
         );
-        var_dump($data);
-        die;
+
         $this->master_model->simpan_tinta($data);
-        $this->session->set_flashdata('message', 'Data ' . $this->input->post('nama') . ' berhasil ditambahkan');
+        $this->session->set_flashdata('message', 'Data ' . $this->input->post('nama_tina') . ' berhasil ditambahkan');
     }
+
+    function do_update_tinta()
+    {
+        $id = $this->input->post('id_tinta');
+
+        $data = array(
+            'nama_tinta' =>  htmlspecialchars($this->input->post('nama_tinta')),
+            'keterangan' =>  htmlspecialchars($this->input->post('keterangan')),
+            'id_supplier' =>  htmlspecialchars($this->input->post('id_supplier')),
+            'harga_tinta' =>  htmlspecialchars($this->input->post('harga_tinta')),
+            'isi' =>  htmlspecialchars($this->input->post('isi')),
+            'stok' =>  htmlspecialchars($this->input->post('stok')),
+            'hargaml' =>  htmlspecialchars($this->input->post('hargaml')),
+            'keterangan' =>  htmlspecialchars($this->input->post('keterangan')),
+            'aktif' =>  '1',
+            'hpp' =>  htmlspecialchars($this->input->post('hpp')),
+            'id_warna' =>  $this->input->post('id_warna')
+        );
+
+        $this->master_model->update_tinta($id, $data);
+        $this->session->set_flashdata('message', 'Data ' . $this->input->post('nama_tinta') . ' berhasil diubah');
+    }
+
+    function do_delete_tinta() //hapus data customer
+    {
+        $id_tinta = $this->input->post('id_tinta');
+
+        $this->master_model->delete_tinta($id_tinta);
+        $this->session->set_flashdata('message', 'Data ' . $this->input->post('nama_tinta') . ' berhasil dihapus');
+    }
+
+
 
     public function KategoriMesin()
     { }
