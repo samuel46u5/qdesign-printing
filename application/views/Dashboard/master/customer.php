@@ -1,3 +1,5 @@
+ <!-- https://www.azlaundry.azostech.com/customer  -->
+ <!-- refrensi -->
  <?php if ($this->session->flashdata('message')) : ?>
  <script>
      Command: toastr["success"]('<?= $this->session->flashdata('message') ?>')
@@ -44,6 +46,23 @@
      <button type="button" class="btn btn-outline-primary btn-xs" onclick="Customer()">
          <span class="fas fa-sync"></span> Refresh
      </button>
+     <a class="btn btn-outline-primary btn-xs" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Filter</a>
+     <div class="collapse mg-t-10" id="collapseExample">
+         <div data-label="Filter data" class="df-example">
+             <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Jenis Customer</label>
+             <select class="form-control" name="jenis_cust_id2" id="jenis_cust_id2" required="" onchange="">
+                 <option disabled="" selected="">Pilih Jenis Customer</option>
+                 <?php foreach ($jenis_customer as $v) { ?>
+                 <option id="<?php echo $v['id_jenis_cust']; ?>" value="<?php echo  $v['id_jenis_cust']; ?>" data-id_jenis_cust="<?php echo  $v['id_jenis_cust']; ?>" data-jenis="<?php echo $v['jenis']; ?>"><?php echo $v['jenis']; ?> </option>
+                 <?php } ?>
+             </select>
+
+             <button type="button" class="btn btn-outline-primary btn-xs" onclick="Customer()">
+                 <span class="fas fa-sync"></span> Refresh
+             </button>
+         </div><!-- df-example -->
+
+     </div>
      <hr>
      <table id="datatable-customer" class="table">
          <thead>
