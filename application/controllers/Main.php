@@ -18,4 +18,9 @@ class Main extends CI_Controller
         $this->load->view('FrontEnd/main', $data);
         // $this->load->view('templates/footer');
     }
+
+    public function refresh_menu()
+    {
+        $this->load->view('Dashboard/menu');
+    }
 }

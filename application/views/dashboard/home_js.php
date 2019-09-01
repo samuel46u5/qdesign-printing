@@ -11,6 +11,18 @@
     //     $('#menu-samping').load('menu.php');
     // }
 
+    function reset_menu() {
+        $('#menu-samping').load('main/refresh_menu');
+
+        // alert('reset menu');
+        $('.ini-menu').removeAttr('active');
+        $('.ini-submenu').removeAttr('active');
+        $('.ini-menu').removeAttr('nav-item with-sub active show');
+        $('.ini-submenu').removeAttr('active');
+        // $('#menu-samping').load(document.URL + '#menu-samping');
+
+    }
+
 
     //admin Dashboard
     function Dashboard() {
@@ -52,6 +64,7 @@
     function Menu() {
         // alert('role');
         // reset_menu();
+
         $('#menu-Admin').attr("class", "nav-item with-sub active show");
         $('#submenu-Menu').attr("class", "active");
         $('#loader').show();
@@ -90,7 +103,11 @@
     //master customer
     function Customer() {
         // alert('customer ini home js');
-        // reset_menu();
+
+
+
+
+
         $('#menu-Master').attr("class", "nav-item with-sub active show");
         $('#submenu-Customer').attr("class", "active");
 
@@ -122,6 +139,7 @@
     function Supplier() {
         // alert('customer ini home js');
         // reset_menu();
+        // $('#menu-samping').load('main/refresh_menu');
         $('#menu-Master').attr("class", "nav-item with-sub active show");
         $('#submenu-Supplier').attr("class", "active");
 
