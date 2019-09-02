@@ -200,6 +200,62 @@
 
 
     function KategoriMesin() {
+        // alert('customer ini home js');
+        // reset_menu();
+        $('#menu-Master').attr("class", "nav-item with-sub active show");
+        $('#submenu-KategoriMesin').attr("class", "active");
 
+        $('#loader').show();
+        $.ajax({
+            url: '<?php echo base_url('d/Master/KategoriMesin'); ?>',
+            method: "POST",
+            success: function(resp) {
+                // console.log(resp);
+                $('#data').html(resp);
+                $('#loader').hide();
+                $('#kategori_mesin').DataTable({
+                    responsive: true,
+                    "language": {
+                        "search": "cari",
+                        "searchPlaceholder": "",
+                        "lengthMenu": "Tampilkan _MENU_ data per halaman",
+                        "zeroRecords": "Nothing found - sorry",
+                        "info": "Halaman : _PAGE_ dari _PAGES_",
+                        "infoEmpty": "Data tidak ada",
+                        "infoFiltered": "(filtered from _MAX_ total records)",
+                    },
+                });
+            }
+        });
+    }
+
+    function Mesin() {
+        // alert('customer ini home js');
+        // reset_menu();
+        $('#menu-Master').attr("class", "nav-item with-sub active show");
+        $('#submenu-Mesin').attr("class", "active");
+
+        $('#loader').show();
+        $.ajax({
+            url: '<?php echo base_url('d/Master/mesin'); ?>',
+            method: "POST",
+            success: function(resp) {
+                // console.log(resp);
+                $('#data').html(resp);
+                $('#loader').hide();
+                $('#data-mesin').DataTable({
+                    responsive: true,
+                    "language": {
+                        "search": "cari",
+                        "searchPlaceholder": "",
+                        "lengthMenu": "Tampilkan _MENU_ data per halaman",
+                        "zeroRecords": "Nothing found - sorry",
+                        "info": "Halaman : _PAGE_ dari _PAGES_",
+                        "infoEmpty": "Data tidak ada",
+                        "infoFiltered": "(filtered from _MAX_ total records)",
+                    },
+                });
+            }
+        });
     }
 </script>

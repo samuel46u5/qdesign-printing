@@ -212,6 +212,12 @@ class Master_Model extends CI_Model
         $this->db->delete("supplier");
     }
 
+    public function getAllKategoriMesin()
+    {
+        // $query = "select *,IFNULL( (select nama_mesin from mesin where id_mesin = D.id_mesin_default ) ,' - ') default_mesin from divisi_mesin D";
+        $query = "select * from kategori_mesin";
+        return $this->db->query($query)->result_array();
+    }
 
     // function getJenisCustomer()
     // {

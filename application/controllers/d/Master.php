@@ -205,5 +205,16 @@ class Master extends CI_Controller
 
 
     public function KategoriMesin()
-    { }
+    {
+        // ini harus diisi sesuai didatabase
+        $data['title'] = 'Master';
+        $data['subtitle'] = 'Kategori Mesin';
+        // agar menyala di menu
+
+
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['kategori_mesin'] = $this->master_model->getAllKategoriMesin();
+
+        $this->load->view('dashboard/master/kategori_mesin', $data);
+    }
 }
