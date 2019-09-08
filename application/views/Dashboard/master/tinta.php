@@ -1,25 +1,25 @@
  <?php if ($this->session->flashdata('message')) : ?>
- <script>
-     Command: toastr["success"]('<?= $this->session->flashdata('message') ?>')
-     toastr.options = {
-         "closeButton": false,
-         "debug": true,
-         "newestOnTop": true,
-         "progressBar": false,
-         "positionClass": "toast-top-right",
-         "preventDuplicates": false,
-         "onclick": null,
-         "showDuration": "300",
-         "hideDuration": "1000",
-         "timeOut": "2000",
-         "extendedTimeOut": "1000",
-         "showEasing": "swing",
-         "hideEasing": "linear",
-         "showMethod": "fadeIn",
-         "hideMethod": "fadeOut"
-     }
-     toastr.success(command);
- </script>
+     <script>
+         Command: toastr["success"]('<?= $this->session->flashdata('message') ?>')
+         toastr.options = {
+             "closeButton": false,
+             "debug": true,
+             "newestOnTop": true,
+             "progressBar": false,
+             "positionClass": "toast-top-right",
+             "preventDuplicates": false,
+             "onclick": null,
+             "showDuration": "300",
+             "hideDuration": "1000",
+             "timeOut": "2000",
+             "extendedTimeOut": "1000",
+             "showEasing": "swing",
+             "hideEasing": "linear",
+             "showMethod": "fadeIn",
+             "hideMethod": "fadeOut"
+         }
+         toastr.success(command);
+     </script>
  <?php endif; ?>
 
  <div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-20">
@@ -65,35 +65,35 @@
 
          <tbody>
              <?php $no = 0;
-                foreach ($tinta as $s) { ?>
-             <tr>
-                 <td align="center"><?php echo ++$no; ?></td>
-                 <td><?php echo $s['nama_tinta']; ?></td>
+                foreach ($tinta as $tn) { ?>
+                 <tr>
+                     <td align="center"><?php echo ++$no; ?></td>
+                     <td><?php echo $tn['nama_tinta']; ?></td>
 
-                 <td><canvas style="width:30;height:15px;background-color: <?php echo $s['kode_warna']; ?>"> </canvas> </td>
+                     <td><canvas style="width:30;height:15px;background-color: <?php echo $tn['kode_warna']; ?>"> </canvas> </td>
 
-                 <td><?php echo $s['keterangan']; ?></td>
-                 <td><?php echo $s['nama']; ?></td>
-                 <td align="right"><?php echo number_format($s['isi'], 0, '', '.'); ?></td>
-                 <td align="right"><?php echo "Rp. " . number_format($s['harga_tinta'], 0, '', '.'); ?></td>
-                 <td align="right"><?php echo "Rp. " . number_format($s['hargaml'], 2, ',', '.'); ?></td>
-                 <td align="right"><?php echo "Rp. " . number_format($s['hpp'], 2, ',', '.'); ?></td>
-                 <td>
-                     <?php
-                            $t = $s['aktif'];
+                     <td><?php echo $tn['keterangan']; ?></td>
+                     <td><?php echo $tn['nama']; ?></td>
+                     <td align="right"><?php echo number_format($tn['isi'], 0, '', '.'); ?></td>
+                     <td align="right"><?php echo "Rp. " . number_format($tn['harga_tinta'], 0, '', '.'); ?></td>
+                     <td align="right"><?php echo "Rp. " . number_format($tn['hargaml'], 2, ',', '.'); ?></td>
+                     <td align="right"><?php echo "Rp. " . number_format($tn['hpp'], 2, ',', '.'); ?></td>
+                     <td>
+                         <?php
+                                $t = $tn['aktif'];
 
-                            if ($t == "1") {
-                                echo "&nbsp; &nbsp;<span class ='fa fa-check'> </span>";
-                            } else echo "&nbsp; &nbsp;<span class ='fa fa-ban'> </span>";
-                            ?>
-                 </td>
-                 <td>
-                     <button type="button" id="edit-btn" class="btn btn-primary btn-icon btn-xs" data-id_tinta='<?= $s['id_tinta']; ?>' data-id_warna='<?= $s['id_warna']; ?>' data-nama_tinta='<?= $s['nama_tinta']; ?>' data-keterangan='<?= $s['keterangan']; ?>' data-id_supplier='<?= $s['id_supplier']; ?>' data-isi='<?= $s['isi']; ?>' data-harga_tinta='<?= $s['harga_tinta']; ?>' data-hargaml='<?= $s['hargaml']; ?>' data-aktif='<?= $s['aktif']; ?>' data-hpp='<?= $s['hpp']; ?>' data-toggle='modal' data-target='#edit-data'><span class="fas fa-edit"></span>&nbsp;</button>
-                     <button type="button" id="delete-btn" class="btn btn-danger btn-icon btn-xs" data-id_tinta='<?= $s['id_tinta']; ?>' data-nama_tinta='<?= $s['nama_tinta']; ?>' data-toggle="modal" data-target="#hapus-data" data-backdrop="static">
-                         <span class="far fa-trash-alt"></span>
-                     </button>
-                 </td>
-             </tr>
+                                if ($t == "1") {
+                                    echo "&nbsp; &nbsp;<span class ='fa fa-check'> </span>";
+                                } else echo "&nbsp; &nbsp;<span class ='fa fa-ban'> </span>";
+                                ?>
+                     </td>
+                     <td>
+                         <button type="button" id="edit-btn" class="btn btn-primary btn-icon btn-xs" data-id_tinta='<?= $tn['id_tinta']; ?>' data-id_warna='<?= $tn['id_warna']; ?>' data-nama_tinta='<?= $tn['nama_tinta']; ?>' data-keterangan='<?= $tn['keterangan']; ?>' data-id_supplier='<?= $tn['id_supplier']; ?>' data-isi='<?= $tn['isi']; ?>' data-harga_tinta='<?= $tn['harga_tinta']; ?>' data-hargaml='<?= $tn['hargaml']; ?>' data-aktif='<?= $tn['aktif']; ?>' data-hpp='<?= $tn['hpp']; ?>' data-toggle='modal' data-target='#edit-data'><span class="fas fa-edit"></span>&nbsp;</button>
+                         <button type="button" id="delete-btn" class="btn btn-danger btn-icon btn-xs" data-id_tinta='<?= $tn['id_tinta']; ?>' data-nama_tinta='<?= $tn['nama_tinta']; ?>' data-toggle="modal" dta-target="#hapus-data" data-backdrop="statc">
+                             <span class="far fa-trash-alt"></span>
+                         </button>
+                     </td>
+                 </tr>
              <?php } ?>
 
 
@@ -132,7 +132,7 @@
                                  <select name="id_warna" id="id_warna" class="custom-select">
                                      <option selected>Pilih warna</option>
                                      <?php foreach ($warna as $w) : ?>
-                                     <option id="<?= $w['id_warna']; ?>" value="<?= $w['id_warna']; ?>" data-kode_warna="<?= $w['kode_warna']; ?>"> <?= $w['nama_warna']; ?> </option>
+                                         <option id="<?= $w['id_warna']; ?>" value="<?= $w['id_warna']; ?>" data-kode_warna="<?= $w['kode_warna']; ?>"> <?= $w['nama_warna']; ?> </option>
                                      <?php endforeach; ?>
                                  </select>
                              </div><!-- col -->
@@ -156,7 +156,7 @@
                          <select name='id_supplier' id="id_supplier" class="form-control">
                              <option value="">Pilih Supplier</option>
                              <?php foreach ($supplier as $s) : ?>
-                             <option id="<?= $s['id_supplier']; ?>" value="<?= $s['id_supplier']; ?>"> <?= $s['nama']; ?> </option>
+                                 <option id="<?= $s['id_supplier']; ?>" value="<?= $s['id_supplier']; ?>"> <?= $s['nama']; ?> </option>
                              <?php endforeach; ?>
                          </select>
 
@@ -239,7 +239,7 @@
                                      <select name="id_warna-edit" id="id_warna-edit" class="custom-select">
                                          <option selected>Pilih warna</option>
                                          <?php foreach ($warna as $w) : ?>
-                                         <option id="<?= $w['id_warna']; ?>" value="<?= $w['id_warna']; ?>" data-kode_warna="<?= $w['kode_warna']; ?>"> <?= $w['nama_warna']; ?> </option>
+                                             <option id="<?= $w['id_warna']; ?>" value="<?= $w['id_warna']; ?>" data-kode_warna="<?= $w['kode_warna']; ?>"> <?= $w['nama_warna']; ?> </option>
                                          <?php endforeach; ?>
                                      </select>
                                  </div><!-- col -->
@@ -263,7 +263,7 @@
                              <select name='id_supplier-edit' id="id_supplier-edit" class="form-control">
                                  <option value="">Pilih Supplier</option>
                                  <?php foreach ($supplier as $s) : ?>
-                                 <option id="<?= $s['id_supplier']; ?>" value="<?= $s['id_supplier']; ?>"> <?= $s['nama']; ?> </option>
+                                     <option id="<?= $s['id_supplier']; ?>" value="<?= $s['id_supplier']; ?>"> <?= $s['nama']; ?> </option>
                                  <?php endforeach; ?>
                              </select>
 

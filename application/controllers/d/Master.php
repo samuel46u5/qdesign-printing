@@ -65,6 +65,25 @@ class Master extends CI_Controller
         $this->session->set_flashdata('message', 'Data ' . $this->input->post('nama') . ' berhasil diubah');
     }
 
+    function do_update_kategori_mesin()
+    {
+        $id = $this->input->post('id_kategori');
+
+        $data = array(
+            'kategori' => htmlspecialchars($this->input->post('kategori')),
+            'aktif' => htmlspecialchars($this->input->post('aktif')),
+            'id_mesin_default' => htmlspecialchars($this->input->post('id_mesin_default'))
+
+        );
+        var_dump($data);
+        die;
+
+        $this->master_model->update_kategori_mesin($id, $data);
+        $this->session->set_flashdata('message', 'Data ' . $this->input->post('kategori') . ' berhasil diubah');
+    }
+
+
+
 
     function do_delete_customer() //hapus data customer
     {
@@ -211,10 +230,23 @@ class Master extends CI_Controller
         $data['subtitle'] = 'Kategori Mesin';
         // agar menyala di menu
 
-
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['kategori_mesin'] = $this->master_model->getAllKategoriMesin();
+        $data['mesin'] = $this->master_model->get_Mesin();
 
         $this->load->view('dashboard/master/kategori_mesin', $data);
+    }
+
+    public function do_upload_kategori_mesin()
+    {
+        $data = array(
+            'kategori' => htmlspecialchars($this->input->post('kategori')),
+            'id_mesin_default' => htmlspecialchars($this->input->post('id_mesin_default')),
+            'aktif' => 1
+        );
+        // var_dump($data);
+        // die;
+        $this->master_model->simpan_kategori_mesin($data);
+        $this->session->set_flashdata('message', 'Data ' . $this->input->post('kategori') . ' berhasil ditambahkan');
     }
 }

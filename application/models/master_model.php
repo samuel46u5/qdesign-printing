@@ -48,6 +48,14 @@ class Master_Model extends CI_Model
         $this->db->insert_id();
     }
 
+    function simpan_kategori_mesin($data)
+    {
+        $this->db->insert('kategori_mesin', $data);
+        $this->db->insert_id();
+    }
+
+
+
     function simpan_tinta($data)
     {
         $this->db->insert('tinta', $data);
@@ -64,6 +72,12 @@ class Master_Model extends CI_Model
     {
         $this->db->where('id_customer', $id);
         $this->db->update('customer', $data);
+    }
+
+    function update_kategori_mesin($id, $data)
+    {
+        $this->db->where('id_kategori', $id);
+        $this->db->update('kategori_mesin', $data);
     }
 
     function update_tinta($id, $data)
@@ -211,6 +225,8 @@ class Master_Model extends CI_Model
         $this->db->where("id_supplier", $id);
         $this->db->delete("supplier");
     }
+
+
 
     public function getAllKategoriMesin()
     {
