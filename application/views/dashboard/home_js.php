@@ -104,10 +104,6 @@
     function Customer() {
         // alert('customer ini home js');
 
-
-
-
-
         $('#menu-Master').attr("class", "nav-item with-sub active show");
         $('#submenu-Customer').attr("class", "active");
 
