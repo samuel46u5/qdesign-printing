@@ -196,7 +196,7 @@
     <script src="<?= base_url(); ?>assets/js/main.js"></script>
 
 
-    <script>
+    <script type="text/javascript">
         $("#menu-samping").load("<?php echo base_url() . 'menu_refresh'; ?>");
 
         window.onload = date_time('date_time');

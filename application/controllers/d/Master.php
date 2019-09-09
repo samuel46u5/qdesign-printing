@@ -75,8 +75,8 @@ class Master extends CI_Controller
             'id_mesin_default' => htmlspecialchars($this->input->post('id_mesin_default'))
 
         );
-        var_dump($data);
-        die;
+        // var_dump($data);
+        // die;
 
         $this->master_model->update_kategori_mesin($id, $data);
         $this->session->set_flashdata('message', 'Data ' . $this->input->post('kategori') . ' berhasil diubah');
@@ -91,6 +91,14 @@ class Master extends CI_Controller
 
         $this->master_model->delete_customer($id_customer);
         $this->session->set_flashdata('message', 'Data ' . $this->input->post('nama') . ' berhasil dihapus');
+    }
+
+    function do_delete_kategori_mesin() //hapus data customer
+    {
+        $id_kategori = $this->input->post('id_kategori');
+
+        $this->master_model->delete_kategori_mesin($id_kategori);
+        $this->session->set_flashdata('message', 'Data ' . $this->input->post('kategori') . ' berhasil dihapus');
     }
 
 

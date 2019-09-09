@@ -50,7 +50,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 //$route['page?=(:any)'] = 'd/User/$1';
-//$route['404_override'] = 'Home/blank';
+//$route['404_override'] = 'Home/blank'
+
+# Disable Controller access without routing
+
+
 $route['sitemap\.xml'] = "Home/sitemap";
 $route['pages/product-detail/(:any)'] = 'Product/detail_product/$1';
 $route['pages/product/search'] = 'Product/search/';

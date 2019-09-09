@@ -1,3 +1,7 @@
+ <?php
+    defined('BASEPATH') or exit('No direct script access allowed');
+    ?>
+
  <?php if ($this->session->flashdata('message')) : ?>
      <script>
          Command: toastr["success"]('<?= $this->session->flashdata('message') ?>')
@@ -158,7 +162,7 @@
                  <div id='qq'>
                      <form role="form" class="" method="POST" id="forminputkategorimesin" action="">
                          <div class="form-group">
-                             <input type="text" class="form-control" placeholder="" id="id_kategori-edit" name="id_kategori-edit">
+                             <input type="text" class="form-control" placeholder="" id="id_kategori-edit" name="id_kategori-edit" hidden>
                              <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Kategori Mesin</label>
                              <input type="text" class="form-control" placeholder="Kategori Mesin" id="kategori-edit" name="kategori-edit">
 
@@ -342,6 +346,7 @@
 
          var id_kategori = document.getElementById("id_kategori-edit").value;
          var kategori = document.getElementById("kategori-edit").value;
+         var aktif = document.getElementById("aktif-edit").value;
          var id_mesin_default = document.getElementById("id_mesin_default-edit").value;
 
 
@@ -364,20 +369,20 @@
      }
 
      function doDeleteKategoriMesin() {
-         var id_tinta = document.getElementById("id_tinta-delete").value;
-         var nama_tinta = document.getElementById("nama_tinta-delete").value;
-         //  alert(id_tinta);
+         var id_kategori = document.getElementById("id_kategori-delete").value;
+         var kategori = document.getElementById("kategori-delete").value;
+         //  alert(id_kategori);
          $.ajax({
-             url: "<?php echo base_url('d/Master/do_delete_tinta'); ?>",
+             url: "<?php echo base_url('d/Master/do_delete_kategori_mesin'); ?>",
              method: "POST",
              data: {
-                 "id_tinta": id_tinta,
-                 "nama_tinta": nama_tinta
+                 "id_kategori": id_kategori,
+                 "kategori": kategori
              },
              success: function(data) {
                  $('#hapus-data').modal('hide'); //menutup modal
                  $('#alert').html(data);
-                 Tinta();
+                 KategoriMesin();
              }
          });
      }

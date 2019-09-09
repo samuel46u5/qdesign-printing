@@ -1,27 +1,27 @@
  <!-- https://www.azlaundry.azostech.com/customer  -->
  <!-- refrensi -->
  <?php if ($this->session->flashdata('message')) : ?>
- <script>
-     Command: toastr["success"]('<?= $this->session->flashdata('message') ?>')
-     toastr.options = {
-         "closeButton": false,
-         "debug": true,
-         "newestOnTop": true,
-         "progressBar": false,
-         "positionClass": "toast-top-right",
-         "preventDuplicates": false,
-         "onclick": null,
-         "showDuration": "300",
-         "hideDuration": "1000",
-         "timeOut": "2000",
-         "extendedTimeOut": "1000",
-         "showEasing": "swing",
-         "hideEasing": "linear",
-         "showMethod": "fadeIn",
-         "hideMethod": "fadeOut"
-     }
-     toastr.success(command);
- </script>
+     <script>
+         Command: toastr["success"]('<?= $this->session->flashdata('message') ?>')
+         toastr.options = {
+             "closeButton": false,
+             "debug": true,
+             "newestOnTop": true,
+             "progressBar": false,
+             "positionClass": "toast-top-right",
+             "preventDuplicates": false,
+             "onclick": null,
+             "showDuration": "300",
+             "hideDuration": "1000",
+             "timeOut": "2000",
+             "extendedTimeOut": "1000",
+             "showEasing": "swing",
+             "hideEasing": "linear",
+             "showMethod": "fadeIn",
+             "hideMethod": "fadeOut"
+         }
+         toastr.success(command);
+     </script>
  <?php endif; ?>
 
  <div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-20">
@@ -53,7 +53,7 @@
              <select class="form-control" name="jenis_cust_id2" id="jenis_cust_id2" required="" onchange="">
                  <option disabled="" selected="">Pilih Jenis Customer</option>
                  <?php foreach ($jenis_customer as $v) { ?>
-                 <option id="<?php echo $v['id_jenis_cust']; ?>" value="<?php echo  $v['id_jenis_cust']; ?>" data-id_jenis_cust="<?php echo  $v['id_jenis_cust']; ?>" data-jenis="<?php echo $v['jenis']; ?>"><?php echo $v['jenis']; ?> </option>
+                     <option id="<?php echo $v['id_jenis_cust']; ?>" value="<?php echo  $v['id_jenis_cust']; ?>" data-id_jenis_cust="<?php echo  $v['id_jenis_cust']; ?>" data-jenis="<?php echo $v['jenis']; ?>"><?php echo $v['jenis']; ?> </option>
                  <?php } ?>
              </select>
 
@@ -105,34 +105,34 @@
          <tbody>
              <?php $no = 0;
                 foreach ($customer as $s) { ?>
-             <tr>
+                 <tr>
 
-                 <td><?php echo $s['jenis']; ?></td>
-                 <td><?php echo $s['nama']; ?></td>
-                 <td><?php echo $s['alamat']; ?></td>
-                 <td><?php echo $s['kota']; ?></td>
-                 <td><?php echo $s['contact']; ?></td>
-                 <td><?php echo $s['hp']; ?></td>
-                 <td><?php echo $s['email']; ?></td>
-                 <td>
-                     <?php
-                            $t = $s['aktif'];
+                     <td><?php echo $s['jenis']; ?></td>
+                     <td><?php echo $s['nama']; ?></td>
+                     <td><?php echo $s['alamat']; ?></td>
+                     <td><?php echo $s['kota']; ?></td>
+                     <td><?php echo $s['contact']; ?></td>
+                     <td><?php echo $s['hp']; ?></td>
+                     <td><?php echo $s['email']; ?></td>
+                     <td>
+                         <?php
+                                $t = $s['aktif'];
 
-                            if ($t == "1") {
-                                echo "&nbsp; &nbsp;<span class ='fa fa-check'> </span>";
-                            } else echo "&nbsp; &nbsp;<span class ='fa fa-ban'> </span>";
-                            ?>
-                 </td>
-                 <td>
-                     <button type="button" id="edit-btn" class="btn btn-primary btn-icon btn-xs" data-toggle="modal" data-target="#edit-data" data-id_customer='<?= $s['id_customer']; ?>' data-jenis_customer='<?= $s['jenis_customer']; ?>' data-nama='<?= $s['nama']; ?>' data-alamat='<?= $s['alamat']; ?>' data-kota='<?= $s['kota']; ?>' data-contact='<?= $s['contact']; ?>' data-hp='<?= $s['hp']; ?>' data-aktif='<?= $s['aktif']; ?>' data-email='<?= $s['email']; ?>' data-backdrop="static">
-                         <span class="fas fa-edit"></span>
-                     </button>
-                     <button type="button" id="delete-btn" class="btn btn-danger btn-icon btn-xs" data-id_customer='<?= $s['id_customer']; ?>' data-nama='<?= $s['nama']; ?>' data-toggle="modal" data-target="#hapus-data" data-backdrop="static">
-                         <span class="far fa-trash-alt"></span>
-                     </button>
-                 </td>
+                                if ($t == "1") {
+                                    echo "&nbsp; &nbsp;<span class ='fa fa-check'> </span>";
+                                } else echo "&nbsp; &nbsp;<span class ='fa fa-ban'> </span>";
+                                ?>
+                     </td>
+                     <td>
+                         <button type="button" id="edit-btn" class="btn btn-primary btn-icon btn-xs" data-toggle="modal" data-target="#edit-data" data-id_customer='<?= $s['id_customer']; ?>' data-jenis_customer='<?= $s['jenis_customer']; ?>' data-nama='<?= $s['nama']; ?>' data-alamat='<?= $s['alamat']; ?>' data-kota='<?= $s['kota']; ?>' data-contact='<?= $s['contact']; ?>' data-hp='<?= $s['hp']; ?>' data-aktif='<?= $s['aktif']; ?>' data-email='<?= $s['email']; ?>' data-backdrop="static">
+                             <span class="fas fa-edit"></span>
+                         </button>
+                         <button type="button" id="delete-btn" class="btn btn-danger btn-icon btn-xs" data-id_customer='<?= $s['id_customer']; ?>' data-nama='<?= $s['nama']; ?>' data-toggle="modal" data-target="#hapus-data" data-backdrop="static">
+                             <span class="far fa-trash-alt"></span>
+                         </button>
+                     </td>
 
-             </tr>
+                 </tr>
              <?php } ?>
 
 
@@ -165,7 +165,7 @@
                          <select class="form-control" name="jenis_customer" id="jenis_customer" required="" onchange="">
                              <option disabled="" selected="">Pilih Jenis Customer</option>
                              <?php foreach ($jenis_customer as $v) { ?>
-                             <option id="<?php echo $v['id_jenis_cust']; ?>" value="<?php echo  $v['id_jenis_cust']; ?>" data-id_jenis_cust="<?php echo  $v['id_jenis_cust']; ?>" data-jenis="<?php echo $v['jenis']; ?>"><?php echo $v['jenis']; ?> </option>
+                                 <option id="<?php echo $v['id_jenis_cust']; ?>" value="<?php echo  $v['id_jenis_cust']; ?>" data-id_jenis_cust="<?php echo  $v['id_jenis_cust']; ?>" data-jenis="<?php echo $v['jenis']; ?>"><?php echo $v['jenis']; ?> </option>
                              <?php } ?>
                          </select>
 
@@ -241,7 +241,7 @@
                              <select class="form-control" name="jenis_cust_id2" id="jenis_cust_id2" required="" onchange="">
                                  <option disabled="" selected="">Pilih Jenis Customer</option>
                                  <?php foreach ($jenis_customer as $v) { ?>
-                                 <option id="<?php echo $v['id_jenis_cust']; ?>" value="<?php echo  $v['id_jenis_cust']; ?>" data-id_jenis_cust="<?php echo  $v['id_jenis_cust']; ?>" data-jenis="<?php echo $v['jenis']; ?>"><?php echo $v['jenis']; ?> </option>
+                                     <option id="<?php echo $v['id_jenis_cust']; ?>" value="<?php echo  $v['id_jenis_cust']; ?>" data-id_jenis_cust="<?php echo  $v['id_jenis_cust']; ?>" data-jenis="<?php echo $v['jenis']; ?>"><?php echo $v['jenis']; ?> </option>
                                  <?php } ?>
                              </select>
 
@@ -252,7 +252,7 @@
                              <textarea class="form-control" rows="2" placeholder="Textarea" id="alamat-edit" name="alamat-edit"></textarea>
 
                              <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Kota</label>
-                             <input type="text" class="form-control" rows="2" placeholder="kota" id="kota-edit" name="kota-edit"></textarea>
+                             <input type="text" class="form-control" rows="2" placeholder="kota" id="kota-edit" name="kota-edit">
 
                              <label class="tx-10 tx-uppercase tx-medium tx-spacing-1 mg-b-5 tx-color-03">Kontak </label>
                              <input type="text" class="form-control" placeholder="Kontak" id="contact-edit" name="contact-edit">
@@ -279,48 +279,49 @@
                          </div>
                      </form>
 
-                     <script>
-                         $(document).on("click", "#edit-btn", function() {
 
-                             var a = $(this).data('nama');
-                             var b = $(this).data('alamat');
-                             var c = $(this).data('kota');
-                             var d = $(this).data('contact');
-                             var e = $(this).data('hp');
-                             var f = $(this).data('email');
-                             var g = $(this).data('aktif');
-                             var h = $(this).data('id_customer');
-                             var i = $(this).data('jenis_customer');
-
-
-                             $("#qq #nama-edit").val(a);
-                             $("#qq #alamat-edit").val(b);
-                             $("#qq #kota-edit").val(c);
-                             $("#qq #contact-edit").val(d);
-                             $("#qq #hp-edit").val(e);
-                             $("#qq #email-edit").val(f);
-                             $("#qq #aktif-edit").val(g);
-                             $("#qq #id_customer").val(h);
-                             $("#qq #jenis_cust_id2").val(i);
-                             $("#qq #id_customer-edit").val(h);
-
-                             const x = document.getElementById(i);
-                             x.setAttribute("selected", "selected");
-
-                             //asign value ke chekbox
-
-                             if (g == 1) {
-
-                                 document.getElementById("aktif-edit").checked = true;
-                                 document.getElementById("aktif-edit").value = "1";
-                             } else {
-
-                                 document.getElementById("aktif-edit").checked = false;
-                                 document.getElementById("aktif-edit").value = "0";
-                             };
-                         })
-                     </script>
                  </div>
+                 <script>
+                     $(document).on("click", "#edit-btn", function() {
+
+                         var a = $(this).data('nama');
+                         var b = $(this).data('alamat');
+                         var c = $(this).data('kota');
+                         var d = $(this).data('contact');
+                         var e = $(this).data('hp');
+                         var f = $(this).data('email');
+                         var g = $(this).data('aktif');
+                         var h = $(this).data('id_customer');
+                         var i = $(this).data('jenis_customer');
+
+
+                         $("#qq #nama-edit").val(a);
+                         $("#qq #alamat-edit").val(b);
+                         $("#qq #kota-edit").val(c);
+                         $("#qq #contact-edit").val(d);
+                         $("#qq #hp-edit").val(e);
+                         $("#qq #email-edit").val(f);
+                         $("#qq #aktif-edit").val(g);
+                         $("#qq #id_customer").val(h);
+                         $("#qq #jenis_cust_id2").val(i);
+                         $("#qq #id_customer-edit").val(h);
+
+                         const x = document.getElementById(i);
+                         x.setAttribute("selected", "selected");
+
+                         //asign value ke chekbox
+
+                         if (g == 1) {
+
+                             document.getElementById("aktif-edit").checked = true;
+                             document.getElementById("aktif-edit").value = "1";
+                         } else {
+
+                             document.getElementById("aktif-edit").checked = false;
+                             document.getElementById("aktif-edit").value = "0";
+                         };
+                     })
+                 </script>
              </div><!-- modal-body -->
              <div class="modal-footer pd-x-20 pd-y-15">
                  <button type="button" class="btn btn-outline-danger btn-xs" data-dismiss="modal" data-backdrop="static">

@@ -80,6 +80,13 @@ class Master_Model extends CI_Model
         $this->db->update('kategori_mesin', $data);
     }
 
+    function delete_kategori_mesin($id_kategori)
+    {
+        $this->db->where('id_kategori', $id_kategori);
+        $this->db->delete('kategori_mesin');
+    }
+
+
     function update_tinta($id, $data)
     {
         $this->db->where('id_tinta', $id);
