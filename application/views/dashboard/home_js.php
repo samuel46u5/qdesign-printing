@@ -130,6 +130,7 @@
             }
         });
     }
+    
 
     //master supplier
     function Supplier() {

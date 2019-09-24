@@ -439,6 +439,9 @@
          var email = document.getElementById("email-edit").value;
          var aktif = document.getElementById("aktif-edit").value;
 
+        
+        
+
 
          $.ajax({
              url: "<?php echo base_url('d/Master/do_update_customer'); ?>",

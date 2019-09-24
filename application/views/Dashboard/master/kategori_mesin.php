@@ -76,13 +76,14 @@
                                 ?>
                      </td>
                      <td>
-                         <button type="button" id="edit-btn" data-id_kategori='<?= $km['id_kategori']; ?>' data-kategori='<?= $km['kategori']; ?>' data-id_mesin_default='<?= $km['id_mesin_default']; ?>' data-aktif='<?= $km['aktif']; ?>' class="btn btn-primary btn-icon btn-xs" data-toggle="modal" data-target="#edit-data" data-backdrop="static">
+                         <button type="button" id="edit-btn"   data-id_kategori-edit='<?= $km['id_kategori']; ?>' data-kategori-edit='<?= $km['kategori']; ?>' data-id_mesin_default-edit='<?= $km['id_mesin_default']; ?>' data-aktif-edit='<?= $km['aktif']; ?>' class="btn btn-primary btn-icon btn-xs" data-toggle="modal" data-target="#edit-data" data-backdrop="static">
                              <span class="fas fa-edit"></span>
-                         </button>
-                         <!-- <button type="button" id="edit-btn" class="btn btn-primary btn-icon btn-xs" data-id_kategori='<?= $km['id_kategori']; ?>' data-kategori='<?= $km['kategori']; ?>' data-id_mesin_default='<?= $km['id_mesin_default']; ?>' data-toggle='modal' data-target='#edit-data'><span class="fas fa-edit"></span>&nbsp;</button> -->
-                         <button type="button" id="delete-btn" class="btn btn-danger btn-icon btn-xs" data-id_kategori='<?= $km['id_kategori']; ?>' data-kategori='<?= $km['kategori']; ?>' data-id_mesin_default='<?= $km['id_mesin_default']; ?>' data-toggle="modal" data-target="#hapus-data" data-backdrop="static">
+                         </button>                       
+                         <button type="button" id="delete-btn" data-id_kategori='<?= $km['id_kategori']; ?>' data-kategori='<?= $km['kategori']; ?>' data-id_mesin_default='<?= $km['id_mesin_default']; ?>' class="btn btn-danger btn-icon btn-xs" data-toggle="modal" data-target="#hapus-data" data-backdrop="static">
                              <span class="far fa-trash-alt"></span>
                          </button>
+
+                       
                      </td>
                  </tr>
              <?php } ?>
@@ -159,7 +160,7 @@
                  </div><!-- media -->
              </div><!-- modal-header -->
              <div class="modal-body pd-sm-t-10 pd-sm-b-20 pd-sm-x-20">
-                 <div id='qq'>
+                 <div id='qq-edit'>
                      <form role="form" class="" method="POST" id="forminputkategorimesin" action="">
                          <div class="form-group">
                              <input type="text" class="form-control" placeholder="" id="id_kategori-edit" name="id_kategori-edit" hidden>
@@ -186,22 +187,16 @@
                      <script>
                          $(document).on("click", "#edit-btn", function() {
 
-                             var a = $(this).data('kategori');
+                             var a = $(this).data('id_kategori-edit');
+                             var c = $(this).data('kategori-edit');
+                             var d = $(this).data('id_mesin_default-edit');
+                             var e = $(this).data('aktif-edit');
 
-                             var b = $(this).data('alamat');
-                             var c = $(this).data('id_kategori');
-                             var d = $(this).data('id_mesin_default');
-                             var e = $(this).data('aktif');
-
-
-
-
-
-                             $("#qq #kategori-edit").val(a);
-                             $("#qq #alamat-edit").val(b);
-                             $("#qq #id_kategori-edit").val(c);
-                             $("#qq #id_mesin_default-edit").val(d);
-                             $("#qq #aktif-edit").val(e);
+                                              
+                             $("#qq-edit #kategori-edit").val(a);
+                             $("#qq-edit #id_kategori-edit").val(c);
+                             $("#qq-edit #id_mesin_default-edit").val(d);
+                             $("#qq-edit #aktif-edit").val(e);
 
 
                              const y = document.getElementById(d);

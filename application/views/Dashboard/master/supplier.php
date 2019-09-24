@@ -85,7 +85,7 @@
                      <td>
                          <!-- <a id="edit" href='#' data-id_supplier='<?= $sp['id_supplier']; ?>' data-nama='<?= $sp['nama']; ?>' data-alamat='<?= $sp['alamat']; ?>' data-kota='<?= $sp['kota']; ?>' data-contact='<?= $sp['contact']; ?>' data-hp='<?= $sp['hp']; ?>' data-aktif='<?= $sp['aktif']; ?>' data-email='<?= $sp['email']; ?>' data-toggle='modal' data-target='#ubah-data'><span class="fa fa-edit"></span>&nbsp;</a>
                          <a href="<?= base_url('master/delete_supplier/?id=') . $sp['id_supplier'];  ?>" id="link-delete" class="tombol-hapus" data-nama='<?= $sp['nama']; ?>' data-id_supplier='<?= $sp['id_supplier']; ?>'> <span class=" fa fa-trash-o"></span>&nbsp;</a> -->
-                         <button type="button" id="edit-btn" data-id_supplier='<?= $sp['id_supplier']; ?>' data-jenis_customer='<?= $sp['jenis_customer']; ?>' data-nama='<?= $sp['nama']; ?>' data-alamat='<?= $sp['alamat']; ?>' data-kota='<?= $sp['kota']; ?>' data-contact='<?= $sp['contact']; ?>' data-hp='<?= $sp['hp']; ?>' data-aktif='<?= $sp['aktif']; ?>' data-email='<?= $sp['email']; ?>' class="btn btn-primary btn-icon btn-xs" data-toggle="modal" data-target="#edit-data" data-backdrop="static">
+                         <button type="button" id="edit-btn" data-id_supplier='<?= $sp['id_supplier']; ?>' data-nama='<?= $sp['nama']; ?>' data-alamat='<?= $sp['alamat']; ?>' data-kota='<?= $sp['kota']; ?>' data-contact='<?= $sp['contact']; ?>' data-hp='<?= $sp['hp']; ?>' data-aktif='<?= $sp['aktif']; ?>' data-email='<?= $sp['email']; ?>' class="btn btn-primary btn-icon btn-xs" data-toggle="modal" data-target="#edit-data" data-backdrop="static">
                              <span class="fas fa-edit"></span>
                          </button>
                          <button type="button" id="delete-btn" class="btn btn-danger btn-icon btn-xs" data-id_supplier='<?= $sp['id_supplier']; ?>' data-nama='<?= $sp['nama']; ?>' data-toggle="modal" data-target="#hapus-data" data-backdrop="static">
@@ -241,7 +241,7 @@
                              var h = $(this).data('id_supplier');
 
 
-
+alert(a);
                              $("#qq #nama-edit").val(a);
                              $("#qq #alamat-edit").val(b);
                              $("#qq #kota-edit").val(c);
